@@ -1,0 +1,13 @@
+:root {
+    --bg-color: #aaa;
+}
+
+body{
+    /* background-color: var(--bg-color); */
+}
+
+canvas{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

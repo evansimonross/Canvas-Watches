@@ -1,6 +1,6 @@
 {
   "name": "Canvas-Watches",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A tool to convert watchmaker watches into javascript code to display in an HTML canvas.",
   "main": "index.js",
   "dependencies": {
@@ -16,9 +16,9 @@
     "type": "git",
     "url": "git+https://github.com/evansimonross/Canvas-Watches.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["watch", "face", "watch face", "android", "wear", "android wear", "watchmaker", "watchmaker pro", "javascript", "html", "canvas", "xml", "lua", ".watch"],
+  "author": "Evan Simon Ross",
+  "license": "GNU GPLv3",
   "bugs": {
     "url": "https://github.com/evansimonross/Canvas-Watches/issues"
   },

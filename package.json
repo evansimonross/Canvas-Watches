@@ -4,6 +4,7 @@
   "description": "A tool to convert watchmaker watches into javascript code to display in an HTML canvas.",
   "main": "index.js",
   "dependencies": {
+    "luanode-runtime": "^0.1.0",
     "unzipper": "^0.9.2",
     "xml-js": "^1.6.7"
   },

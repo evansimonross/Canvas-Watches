@@ -8,4 +8,7 @@ function drawWatch(){
     ctx.arc(0, 0, radius, 0 , 2*Math.PI);
     ctx.fillStyle = "black";
     ctx.fill();
+    example.Watch.Layer.forEach(function(element){
+        addLayer(element)
+    });
 }

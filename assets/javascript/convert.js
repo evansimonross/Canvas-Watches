@@ -26,7 +26,15 @@ var getWatchFromXml = (xmlName) => {
             }
         }
         jsWatch.Watch.Layer = layers;
-        fs.writeFile(xmlName + '.js', 'var watch = ' + JSON.stringify(jsWatch, null, 2), (err) => {
+
+        // create a permanent file with a unique filename for reuse
+        fs.writeFile(`${xmlName}.js`, `var watch = ${JSON.stringify(jsWatch, null, 2)}`, (err) => {
+            if (err) { console.error(err) }
+            console.log('Saved')
+        })
+
+        // write to the 'watch' file as well for the display module to show it
+        fs.writeFile('watch.js', `var watch = ${JSON.stringify(jsWatch, null, 2)}`, (err) => {
             if (err) { console.error(err) }
             console.log('Saved')
         })

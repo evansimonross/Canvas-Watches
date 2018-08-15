@@ -11,7 +11,7 @@ var getWatchFromXml = (xmlName) => {
     if(xmlName.indexOf('.xml')>-1){
         xmlName = xmlName.substring(0,xmlName.indexOf('.xml'));
     }
-    var xmlWatch = require('fs').readFileSync(xmlName + '.xml', 'utf8');
+    var xmlWatch = fs.readFileSync('../xml/' + xmlName + '.xml', 'utf8');
     var options = { compact: true, ignoreComment: true, alwaysChildren: true };
     var jsWatch = convert.xml2js(xmlWatch, options);
 

@@ -96,6 +96,8 @@ var getWatchFromXml = (xmlName) => {
 
         }
 
+        
+
         canvasJS.generate('watch.js');
     }
 

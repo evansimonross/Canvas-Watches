@@ -12,6 +12,7 @@ var millisecond = now.getMilliseconds();
 
 function drawClock() {
   drawFace();
+  drawTriangle();
   cutOut();
 }
 
@@ -31,5 +32,26 @@ function drawFace() {
   ctx.arc(0, 0, radius, 0, 2 * Math.PI);
   ctx.fillStyle = 'black';
   ctx.fill();
+}
+
+function drawTriangle(ctx,x,y,w,h,ang,color,opacity) {
+  x*=(canvas.width/512);
+  y*=(canvas.width/512);
+  w*=(canvas.width/512);
+  h*=(canvas.width/512);
+  ctx.save();
+  ctx.globalAlpha = opacity/100;
+  ang = math.rad(ang);
+  ctx.translate(x,y);
+  ctx.rotate(ang);
+  ctx.beginPath();
+  ctx.moveTo(0, -1*(h/2));
+  ctx.lineTo(w/2, h/2);
+  ctx.lineTo(-1*(w/2), h/2);
+  ctx.fillStyle = color;
+  ctx.fill();
+  ctx.rotate(-ang);
+  ctx.translate(-x,-y);
+  ctx.restore();
 }
 

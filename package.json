@@ -33,7 +33,7 @@
     ".watch"
   ],
   "author": "Evan Simon Ross",
-  "license": "GNU GPLv3",
+  "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/evansimonross/Canvas-Watches/issues"
   },

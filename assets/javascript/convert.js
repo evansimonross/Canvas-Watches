@@ -1,6 +1,7 @@
 var convert = require('xml-js');
 var parser = require('luaparse');
 var fs = require('fs');
+var variables = require('./variables.js')
 
 var interpret = (lua) => {
     var ast = parser.parse(lua);
@@ -46,17 +47,7 @@ var getWatchFromXml = (xmlName) => {
                 'var second = now.getSeconds();',
                 'var millisecond = now.getMilliseconds();',
             ],
-            drawFunctions: [{
-                name: 'drawFace',
-                params: [],
-                lines: [
-                    'var grad;',
-                    'ctx.beginPath();',
-                    'ctx.arc(0, 0, radius, 0, 2 * Math.PI);',
-                    "ctx.fillStyle = 'black';",
-                    'ctx.fill();'
-                ]
-            }],
+            drawFunctions: [variables.draw.drawFace, variables.draw.drawTriangle],
 
             generate: function (file) {
                 var text = "";

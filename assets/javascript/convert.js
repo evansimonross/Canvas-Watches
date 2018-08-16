@@ -62,7 +62,7 @@ var getWatchFromXml = (xmlName) => {
                 text += 'function drawClock() {\n';
                 for (var i = 0; i < this.drawFunctions.length; i++){
                     var f = this.drawFunctions[i];
-                    text += '  ' + f.name + '();\n';
+                    if(f.params.length===0) { text += '  ' + f.name + '();\n'; }
                 }
                 text += '  cutOut();\n';
                 text += '}\n\n';

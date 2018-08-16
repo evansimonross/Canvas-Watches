@@ -44,7 +44,7 @@ var draw = {
     },
     drawTriangle: {
         name: 'drawTriangle',
-        params: ['ctx', 'x', 'y', 'w', 'h', 'ang', 'color', 'opacity'],
+        params: ['x', 'y', 'w', 'h', 'ang', 'color', 'opacity'],
         lines: [
                 'x*=(canvas.width/512);',
                 'y*=(canvas.width/512);',

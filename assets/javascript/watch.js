@@ -12,7 +12,6 @@ var millisecond = now.getMilliseconds();
 
 function drawClock() {
   drawFace();
-  drawTriangle();
   cutOut();
 }
 
@@ -34,7 +33,7 @@ function drawFace() {
   ctx.fill();
 }
 
-function drawTriangle(ctx,x,y,w,h,ang,color,opacity) {
+function drawTriangle(x,y,w,h,ang,color,opacity) {
   x*=(canvas.width/512);
   y*=(canvas.width/512);
   w*=(canvas.width/512);

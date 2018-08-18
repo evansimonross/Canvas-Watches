@@ -16,6 +16,14 @@ var getWatchFromXml = (xmlName) => {
     var options = { compact: true, ignoreComment: true, alwaysChildren: true };
     var jsWatch = convert.xml2js(xmlWatch, options);
 
+    // Evaluate lua chunks
+    var chunk = (chunk) => {
+        var line = "";
+
+        return line;
+    }
+
+    // Parse the jsWatch file's layers for displayable content
     var parse = () => {
         var layers = jsWatch.Watch.Layer;
         for (var i = 0; i < layers.length; i++) {
@@ -47,10 +55,80 @@ var getWatchFromXml = (xmlName) => {
                 'var second = now.getSeconds();',
                 'var millisecond = now.getMilliseconds();',
             ],
-            drawFunctions: [variables.draw.drawFace, variables.draw.drawTriangle],
+            drawFunctions: [variables.draw.drawFace],
 
             generate: function (file) {
                 var text = "";
+                var functionsAdded = [];
+
+                // read layers from file and generate drawComponents function.
+                // adds necessary draw functions as needed
+                var drawComponents = {
+                    name: 'drawComponents',
+                    params: [],
+                    lines: []
+                };
+
+                for (var i = 0; i < layers.length; i++) {
+                    var layer = layers[i]["_attributes"];
+                    if (layer.type === "shape") {
+                        if (layer.shape === "Triangle") {
+                            if (functionsAdded.indexOf("Triangle") === -1) {
+                                this.drawFunctions.push(variables.draw.drawTriangle);
+                                this.drawFunctions.push(variables.draw.adjustTriangleHeight);
+                                functionsAdded.push("Triangle");
+                            }
+
+                            var line = 'drawTriangle(';
+
+                            // x-coord of center
+                            if (layer.x.type === "Chunk") {
+                                console.log('chunk reached')
+                                line += '0, '; // TEMP
+                            }
+                            else { line += layer.x + ', '; }
+
+                            // y-coord of center
+                            if (layer.y.type === "Chunk") {
+                                console.log('chunk reached')
+                                line += '0, '; // TEMP
+                            }
+                            else { line += layer.y + ', '; }
+
+                            // width of shape
+                            if (layer.width.type === "Chunk") {
+                                console.log('chunk reached')
+                                line += '0, '; // TEMP
+                            }
+                            else { line += layer.width + ', '; }
+
+                            // height of shape
+                            if (layer.height.type === "Chunk") {
+                                console.log('chunk reached')
+                                line += '0, '; // TEMP
+                            }
+                            else { line += 'adjustTriangleHeight(' + layer.height + '), '; }
+
+                            // rotation
+                            if (layer.rotation.type === "Chunk") {
+                                console.log('chunk reached')
+                                line += '0, '; // TEMP
+                            }
+                            else { line += layer.rotation + ', '; }
+
+                            // color
+                            if (layer.color.type === "Chunk") {
+                                console.log('chunk reached')
+                                line += '0, '; // TEMP
+                            }
+                            else { line += '"#' + layer.color + '");'; }
+
+                            drawComponents.lines.push(line);
+                        }
+                    }
+                }
+
+                this.drawFunctions.push(drawComponents);
 
                 // top level declarations 
                 for (var i = 0; i < this.declarations.length; i++) {
@@ -60,9 +138,9 @@ var getWatchFromXml = (xmlName) => {
 
                 // draw clock
                 text += 'function drawClock() {\n';
-                for (var i = 0; i < this.drawFunctions.length; i++){
+                for (var i = 0; i < this.drawFunctions.length; i++) {
                     var f = this.drawFunctions[i];
-                    if(f.params.length===0) { text += '  ' + f.name + '();\n'; }
+                    if (f.params.length === 0) { text += '  ' + f.name + '();\n'; }
                 }
                 text += '  cutOut();\n';
                 text += '}\n\n';
@@ -72,10 +150,10 @@ var getWatchFromXml = (xmlName) => {
                 text += '  ctx.beginPath(); \n  ctx.arc(radius, radius, radius, 0, 2 * Math.PI); \n  ctx.fill(); \n  ctx.restore(); \n}\n\n'
 
                 // draw functions
-                for (var i = 0; i < this.drawFunctions.length; i++){
+                for (var i = 0; i < this.drawFunctions.length; i++) {
                     var f = this.drawFunctions[i];
                     text += 'function ' + f.name + '(' + f.params + ') {\n';
-                    for (var j = 0; j < f.lines.length; j++){
+                    for (var j = 0; j < f.lines.length; j++) {
                         text += '  ' + f.lines[j] + "\n";
                     }
                     text += "}\n\n";
@@ -86,8 +164,6 @@ var getWatchFromXml = (xmlName) => {
             }
 
         }
-
-        
 
         canvasJS.generate('watch.js');
     }

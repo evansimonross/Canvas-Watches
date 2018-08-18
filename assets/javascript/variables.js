@@ -46,24 +46,45 @@ var draw = {
         name: 'drawTriangle',
         params: ['x', 'y', 'w', 'h', 'ang', 'color', 'opacity'],
         lines: [
-                'x*=(canvas.width/512);',
-                'y*=(canvas.width/512);',
-                'w*=(canvas.width/512);',
-                'h*=(canvas.width/512);',
-                'ctx.save();',
-                'ctx.globalAlpha = opacity/100;',
-                'ang = math.rad(ang);',
-                'ctx.translate(x,y);',
-                'ctx.rotate(ang);',
-                'ctx.beginPath();',
-                'ctx.moveTo(0, -1*(h/2));',
-                'ctx.lineTo(w/2, h/2);',
-                'ctx.lineTo(-1*(w/2), h/2);',
-                'ctx.fillStyle = color;',
-                'ctx.fill();',
-                'ctx.rotate(-ang);',
-                'ctx.translate(-x,-y);',
-                'ctx.restore();'
+            'x*=(canvas.width/512);',
+            'y*=(canvas.width/512);',
+            'w*=(canvas.width/512);',
+            'h*=(canvas.width/512);',
+            'ctx.save();',
+            'ctx.globalAlpha = opacity/100;',
+            'ang = math.rad(ang);',
+            'ctx.translate(x,y);',
+            'ctx.rotate(ang);',
+            'ctx.beginPath();',
+            'ctx.moveTo(0, -1*(h/2));',
+            'ctx.lineTo(w/2, h/2);',
+            'ctx.lineTo(-1*(w/2), h/2);',
+            'ctx.fillStyle = color;',
+            'ctx.fill();',
+            'ctx.rotate(-ang);',
+            'ctx.translate(-x,-y);',
+            'ctx.restore();'
+        ]
+    },
+    adjustTriangleHeight: {
+        name: 'adjustTriangleHeight',
+        params: ['unadjusted'],
+        lines: [
+            'return unadjusted * Math.sqrt(3) / 2;'
+        ]
+    },
+    linearGradient: {
+        name: 'linearGradient',
+        params: ['start', 'end', 'length', 'scale'],
+        lines: [
+            'length*=(canvas.width/512);',
+            'scale = (100-scale)/100;',
+            'var grd = ctx.createLinearGradient(-length/2, -length/2, -length/2, length/2);',
+            'grd.addColorStop(0, start);',
+            'grd.addColorStop(scale/2, start);',
+            'grd.addColorStop(1-(scale/2), end);',
+            'grd.addColorStop(1, end);',
+            'return grd;'
         ]
     }
 }

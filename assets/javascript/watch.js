@@ -12,6 +12,7 @@ var millisecond = now.getMilliseconds();
 
 function drawClock() {
   drawFace();
+  drawComponents();
   cutOut();
 }
 
@@ -52,5 +53,24 @@ function drawTriangle(x,y,w,h,ang,color,opacity) {
   ctx.rotate(-ang);
   ctx.translate(-x,-y);
   ctx.restore();
+}
+
+function adjustTriangleHeight(unadjusted) {
+  return unadjusted * Math.sqrt(3) / 2;
+}
+
+function drawComponents() {
+  drawTriangle(130*math.sin(-79), -130*math.cos(-79), 100, adjustTriangleHeight(300), 101, "#4629a1");
+  drawTriangle(130*math.sin(-47.4), -130*math.cos(-47.4), 100, adjustTriangleHeight(300), 132.6, "#4629a1");
+  drawTriangle(130*math.sin(-15.8), -130*math.cos(-15.8), 100, adjustTriangleHeight(300), 164.2, "#4629a1");
+  drawTriangle(130*math.sin(15.8), -130*math.cos(15.8), 100, adjustTriangleHeight(300), 195.8, "#4629a1");
+  drawTriangle(130*math.sin(47.4), -130*math.cos(47.4), 100, adjustTriangleHeight(300), 227.4, "#4629a1");
+  drawTriangle(130*math.sin(79), -130*math.cos(79), 100, adjustTriangleHeight(300), 259, "#4629a1");
+  drawTriangle(130*math.sin(243.2), -130*math.cos(243.2), 45, adjustTriangleHeight(300), 63.2, "#be1717");
+  drawTriangle(130*math.sin(211.6), -130*math.cos(211.6), 45, adjustTriangleHeight(300), 31.6, "#be1717");
+  drawTriangle(130*math.sin(180), -130*math.cos(180), 45, adjustTriangleHeight(300), 0, "#be1717");
+  drawTriangle(130*math.sin(148.4), -130*math.cos(148.4), 45, adjustTriangleHeight(300), -31.6, "#be1717");
+  drawTriangle(130*math.sin(116.8), -130*math.cos(116.8), 45, adjustTriangleHeight(300), -63.2, "#be1717");
+  //drawTriangle(0, 0, 45, adjustTriangleHeight(300), 0, "#be1717");
 }
 

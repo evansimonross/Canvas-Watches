@@ -43,8 +43,8 @@ var getWatch = (watchName) => {
         }
         jsWatch.Watch.Layer = layers;
 
-        // create a permanent file with a unique filename for reuse
-        fs.writeFile(`${watchName}.js`, `var watch = ${JSON.stringify(jsWatch, null, 2)}`, (err) => {
+        // Save the AST for bug checking and further development
+        fs.writeFile(`${watchName}AST.js`, `var watch = ${JSON.stringify(jsWatch, null, 2)}`, (err) => {
             if (err) { console.error(err) }
             console.log('Saved')
         })
@@ -224,7 +224,10 @@ var getWatch = (watchName) => {
                         else {
                             color = chunk(layer.color);
                         }
-                        line += color + ');';
+                        line += color + ', ';
+
+                        // opacity
+                        line += chunk(layer.opacity) + ');'
 
                         drawComponents.lines.push(line);
                     }
@@ -278,7 +281,11 @@ var getWatch = (watchName) => {
 
         }
 
+        // Saves to watch.js for immediate viewability via index.html
         canvasJS.generate('watch.js');
+
+        // Saves as a file unique to the watch name to facilitate multiple conversions.
+        fs.createReadStream('watch.js').pipe(fs.createWriteStream(`${watchName}.js`));
     }
 
     parse();

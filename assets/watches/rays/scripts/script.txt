@@ -1,0 +1,5 @@
+var_screen = 0
+var_tens = {-63.2,-31.6,0,31.6,63.2}
+local sin, cos = math.sin, math.cos
+math.sin = function (x) return sin(math.rad(x)) end
+math.cos = function (x) return cos(math.rad(x)) end

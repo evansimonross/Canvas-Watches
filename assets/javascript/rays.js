@@ -1591,6 +1591,265 @@ var watch = {
           "u_4": "70"
         }
       }
-    ]
+    ],
+    "script": {
+      "type": "Chunk",
+      "body": [
+        {
+          "type": "AssignmentStatement",
+          "variables": [
+            {
+              "type": "Identifier",
+              "name": "var_screen"
+            }
+          ],
+          "init": [
+            {
+              "type": "NumericLiteral",
+              "value": 0,
+              "raw": "0"
+            }
+          ]
+        },
+        {
+          "type": "AssignmentStatement",
+          "variables": [
+            {
+              "type": "Identifier",
+              "name": "var_tens"
+            }
+          ],
+          "init": [
+            {
+              "type": "TableConstructorExpression",
+              "fields": [
+                {
+                  "type": "TableValue",
+                  "value": {
+                    "type": "UnaryExpression",
+                    "operator": "-",
+                    "argument": {
+                      "type": "NumericLiteral",
+                      "value": 63.2,
+                      "raw": "63.2"
+                    }
+                  }
+                },
+                {
+                  "type": "TableValue",
+                  "value": {
+                    "type": "UnaryExpression",
+                    "operator": "-",
+                    "argument": {
+                      "type": "NumericLiteral",
+                      "value": 31.6,
+                      "raw": "31.6"
+                    }
+                  }
+                },
+                {
+                  "type": "TableValue",
+                  "value": {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                },
+                {
+                  "type": "TableValue",
+                  "value": {
+                    "type": "NumericLiteral",
+                    "value": 31.6,
+                    "raw": "31.6"
+                  }
+                },
+                {
+                  "type": "TableValue",
+                  "value": {
+                    "type": "NumericLiteral",
+                    "value": 63.2,
+                    "raw": "63.2"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "LocalStatement",
+          "variables": [
+            {
+              "type": "Identifier",
+              "name": "sin"
+            },
+            {
+              "type": "Identifier",
+              "name": "cos"
+            }
+          ],
+          "init": [
+            {
+              "type": "MemberExpression",
+              "indexer": ".",
+              "identifier": {
+                "type": "Identifier",
+                "name": "sin"
+              },
+              "base": {
+                "type": "Identifier",
+                "name": "math"
+              }
+            },
+            {
+              "type": "MemberExpression",
+              "indexer": ".",
+              "identifier": {
+                "type": "Identifier",
+                "name": "cos"
+              },
+              "base": {
+                "type": "Identifier",
+                "name": "math"
+              }
+            }
+          ]
+        },
+        {
+          "type": "AssignmentStatement",
+          "variables": [
+            {
+              "type": "MemberExpression",
+              "indexer": ".",
+              "identifier": {
+                "type": "Identifier",
+                "name": "sin"
+              },
+              "base": {
+                "type": "Identifier",
+                "name": "math"
+              }
+            }
+          ],
+          "init": [
+            {
+              "type": "FunctionDeclaration",
+              "identifier": null,
+              "isLocal": false,
+              "parameters": [
+                {
+                  "type": "Identifier",
+                  "name": "x"
+                }
+              ],
+              "body": [
+                {
+                  "type": "ReturnStatement",
+                  "arguments": [
+                    {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "Identifier",
+                        "name": "sin"
+                      },
+                      "arguments": [
+                        {
+                          "type": "CallExpression",
+                          "base": {
+                            "type": "MemberExpression",
+                            "indexer": ".",
+                            "identifier": {
+                              "type": "Identifier",
+                              "name": "rad"
+                            },
+                            "base": {
+                              "type": "Identifier",
+                              "name": "math"
+                            }
+                          },
+                          "arguments": [
+                            {
+                              "type": "Identifier",
+                              "name": "x"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "AssignmentStatement",
+          "variables": [
+            {
+              "type": "MemberExpression",
+              "indexer": ".",
+              "identifier": {
+                "type": "Identifier",
+                "name": "cos"
+              },
+              "base": {
+                "type": "Identifier",
+                "name": "math"
+              }
+            }
+          ],
+          "init": [
+            {
+              "type": "FunctionDeclaration",
+              "identifier": null,
+              "isLocal": false,
+              "parameters": [
+                {
+                  "type": "Identifier",
+                  "name": "x"
+                }
+              ],
+              "body": [
+                {
+                  "type": "ReturnStatement",
+                  "arguments": [
+                    {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "Identifier",
+                        "name": "cos"
+                      },
+                      "arguments": [
+                        {
+                          "type": "CallExpression",
+                          "base": {
+                            "type": "MemberExpression",
+                            "indexer": ".",
+                            "identifier": {
+                              "type": "Identifier",
+                              "name": "rad"
+                            },
+                            "base": {
+                              "type": "Identifier",
+                              "name": "math"
+                            }
+                          },
+                          "arguments": [
+                            {
+                              "type": "Identifier",
+                              "name": "x"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "comments": []
+    }
   }
 }

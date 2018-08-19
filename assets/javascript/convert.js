@@ -1,6 +1,7 @@
 var convert = require('xml-js');
 var parser = require('luaparse');
 var fs = require('fs');
+var AdmZip = require('adm-zip');
 var variables = require('./variables.js')
 
 var interpret = (lua) => {
@@ -8,13 +9,24 @@ var interpret = (lua) => {
     return ast;
 }
 
-var getWatchFromXml = (xmlName) => {
-    if (xmlName.indexOf('.xml') > -1) {
-        xmlName = xmlName.substring(0, xmlName.indexOf('.xml'));
+var extract = (watchName) => {
+    if (watchName.indexOf('.watch') > -1) {
+        watchName = watchName.substring(0, watchName.indexOf('.watch'));
     }
-    var xmlWatch = fs.readFileSync('../xml/' + xmlName + '.xml', 'utf8');
+
+    // reading archives
+    var zipWatch = new AdmZip("../watches/" + watchName + '.watch');
+    zipWatch.extractAllTo("../watches/" + watchName + '/', true);
+    getWatch(watchName);
+}
+
+var getWatch = (watchName) => {
+    var xmlWatch = fs.readFileSync('../watches/' + watchName + '/watch.xml', 'utf8');
     var options = { compact: true, ignoreComment: true, alwaysChildren: true };
     var jsWatch = convert.xml2js(xmlWatch, options);
+
+    var script = fs.readFileSync('../watches/' + watchName + '/scripts/script.txt', 'utf8');
+    console.log(script);
 
     // Parse the jsWatch file's layers for displayable content
     var parse = () => {
@@ -29,10 +41,11 @@ var getWatchFromXml = (xmlName) => {
                 layer['_attributes'][attribute] = /{/.test(statement) ? interpret(attribute + '=' + statement) : statement;
             }
         }
+        jsWatch.Watch.Script = interpret(script);
         jsWatch.Watch.Layer = layers;
 
         // create a permanent file with a unique filename for reuse
-        fs.writeFile(`${xmlName}.js`, `var watch = ${JSON.stringify(jsWatch, null, 2)}`, (err) => {
+        fs.writeFile(`${watchName}.js`, `var watch = ${JSON.stringify(jsWatch, null, 2)}`, (err) => {
             if (err) { console.error(err) }
             console.log('Saved')
         })
@@ -59,7 +72,6 @@ var getWatchFromXml = (xmlName) => {
                     var type = input.type;
                     switch (type) {
                         case "Chunk":
-                            console.log('chunk reached');
                             return chunk(input.body[0]);
                         case "AssignmentStatement":
                             return chunk(input.init[0]);
@@ -74,7 +86,7 @@ var getWatchFromXml = (xmlName) => {
                             if (input.operator === "~") {
                                 return "!" + chunk(input.argument);
                             }
-                            else{
+                            else {
                                 return input.operator + chunk(input.argument);
                             }
                         case "BinaryExpression":
@@ -86,27 +98,27 @@ var getWatchFromXml = (xmlName) => {
                             }
                         case "TableConstructorExpression":
                             var variableName = input.fields[0].value.name;
-                            if(variablesAdded.indexOf(variableName)===-1){
+                            if (variablesAdded.indexOf(variableName) === -1) {
                                 this.timeVariables.push(variables.time[variableName]);
                                 variablesAdded.push(variableName);
                             }
                             return variableName;
                         case "CallExpression":
-                            if (input.base.type==="MemberExpression"){
+                            if (input.base.type === "MemberExpression") {
                                 var func = input.base.base.name + input.base.indexer + input.base.identifier.name;
                                 var params = [];
-                                for(var i = 0; i < input.arguments.length; i++){
+                                for (var i = 0; i < input.arguments.length; i++) {
                                     params.push(chunk(input.arguments[i]));
                                 }
                                 return func + '(' + params + ')';
                             }
-                            else{
+                            else {
                                 // What other types of CallExpressions exist?
                                 return "";
                             }
                         case "IndexExpression":
                             var variableName = input.base.name;
-                            if(variablesAdded.indexOf(variableName)===-1){
+                            if (variablesAdded.indexOf(variableName) === -1) {
                                 // Fetch variable definition from script and put it in the declarations
                                 variablesAdded.push(variableName);
                             }
@@ -209,14 +221,14 @@ var getWatchFromXml = (xmlName) => {
                     text += this.declarations[i] + "\n";
                 }
                 text += "\n";
-                for (var i = 0; i < this.timeVariables.length; i++){
+                for (var i = 0; i < this.timeVariables.length; i++) {
                     text += 'var ' + this.timeVariables[i].name + ';\n';
                 }
                 text += "\n";
 
                 // draw clock
                 text += 'function drawClock() {\n';
-                for (var i = 0; i < this.timeVariables.length; i++){
+                for (var i = 0; i < this.timeVariables.length; i++) {
                     text += '  ' + this.timeVariables[i].name + ' = ' + this.timeVariables[i].declaration + ';\n';
                 }
                 text += "\n";
@@ -253,4 +265,4 @@ var getWatchFromXml = (xmlName) => {
     parse();
 }
 
-getWatchFromXml(process.argv[2]);
+extract(process.argv[2]);

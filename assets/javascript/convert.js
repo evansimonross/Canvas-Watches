@@ -25,8 +25,8 @@ var getWatch = (watchName) => {
     var options = { compact: true, ignoreComment: true, alwaysChildren: true };
     var jsWatch = convert.xml2js(xmlWatch, options);
 
-    var script = fs.readFileSync('../watches/' + watchName + '/scripts/script.txt', 'utf8');
-    console.log(script);
+    var script = interpret(fs.readFileSync('../watches/' + watchName + '/scripts/script.txt', 'utf8'));
+    jsWatch.Watch.Script = script;
 
     // Parse the jsWatch file's layers for displayable content
     var parse = () => {
@@ -41,7 +41,6 @@ var getWatch = (watchName) => {
                 layer['_attributes'][attribute] = /{/.test(statement) ? interpret(attribute + '=' + statement) : statement;
             }
         }
-        jsWatch.Watch.Script = interpret(script);
         jsWatch.Watch.Layer = layers;
 
         // create a permanent file with a unique filename for reuse
@@ -97,12 +96,27 @@ var getWatch = (watchName) => {
                                 return chunk(input.left) + input.operator + chunk(input.right);
                             }
                         case "TableConstructorExpression":
-                            var variableName = input.fields[0].value.name;
-                            if (variablesAdded.indexOf(variableName) === -1) {
-                                this.timeVariables.push(variables.time[variableName]);
-                                variablesAdded.push(variableName);
+                            if (input.fields.length === 1) {
+                                var variableName = input.fields[0].value.name;
+                                if (variablesAdded.indexOf(variableName) === -1) {
+                                    this.timeVariables.push(variables.time[variableName]);
+                                    variablesAdded.push(variableName);
+                                }
+                                return variableName;
                             }
-                            return variableName;
+                            else{
+                                var array = '[0, '; // start with something empty because lua arrays begin at index 1
+                                for(var i=0; i<input.fields.length; i++){
+                                    array+= chunk(input.fields[i].value);
+                                    if(i === input.fields.length -1){
+                                        array += "]";
+                                    }
+                                    else{
+                                        array += ", ";
+                                    }
+                                }
+                                return array;
+                            }
                         case "CallExpression":
                             if (input.base.type === "MemberExpression") {
                                 var func = input.base.base.name + input.base.indexer + input.base.identifier.name;
@@ -119,8 +133,13 @@ var getWatch = (watchName) => {
                         case "IndexExpression":
                             var variableName = input.base.name;
                             if (variablesAdded.indexOf(variableName) === -1) {
-                                // Fetch variable definition from script and put it in the declarations
-                                variablesAdded.push(variableName);
+                                for (var i = 0; i < script.body.length; i++) {
+                                    if (script.body[i].variables[0].name === variableName) {
+                                        this.declarations.push('var ' + variableName + ' = ' + chunk(script.body[i].init[0]));
+                                        variablesAdded.push(variableName);
+                                        break;
+                                    }
+                                }
                             }
                             return variableName + '[' + chunk(input.index) + ']';
                         case "NumericLiteral": return input.value;

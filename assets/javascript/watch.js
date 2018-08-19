@@ -4,6 +4,7 @@ var ctx = canvas.getContext("2d");
 var radius = canvas.height / 2;
 ctx.translate(radius, radius);
 setInterval(drawClock, 10);
+var var_tens = [0, -63.2, -31.6, 0, 31.6, 63.2]
 
 var now;
 var hour;

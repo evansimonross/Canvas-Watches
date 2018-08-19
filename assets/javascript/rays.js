@@ -1592,7 +1592,7 @@ var watch = {
         }
       }
     ],
-    "script": {
+    "Script": {
       "type": "Chunk",
       "body": [
         {

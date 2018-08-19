@@ -38,7 +38,7 @@ var getWatch = (watchName) => {
                 if (/([A-Fa-f0-9]{6})$/.test(statement)) {
                     statement = '"#' + statement + '"';
                 }
-                layer['_attributes'][attribute] = /{/.test(statement) ? interpret(attribute + '=' + statement) : statement;
+                layer['_attributes'][attribute] = /{|and|or/.test(statement) ? interpret(attribute + '=' + statement) : statement;
             }
         }
         jsWatch.Watch.Layer = layers;
@@ -57,7 +57,7 @@ var getWatch = (watchName) => {
                 'ctx.translate(radius, radius);',
                 'setInterval(drawClock, 10);',
             ],
-            timeVariables: [variables.time.now, variables.time.hour, variables.time.minute, variables.time.second, variables.time.millisecond],
+            timeVariables: [variables.time.now, variables.time.year, variables.time.month, variables.time.date, variables.time.day, variables.time.hour, variables.time.minute, variables.time.second, variables.time.millisecond],
             drawFunctions: [variables.draw.drawFace],
 
             generate: function (file) {
@@ -90,28 +90,38 @@ var getWatch = (watchName) => {
                             }
                         case "BinaryExpression":
                             if (input.operator === "~=") {
-                                return chunk(input.left) + '!=' + chunk(input.right);
+                                return '(' + chunk(input.left) + '!=' + chunk(input.right) + ')';
+                            }
+                            else if (input.operator === "==") {
+                                return '(' + chunk(input.left) + '===' + chunk(input.right) + ')';
                             }
                             else {
-                                return chunk(input.left) + input.operator + chunk(input.right);
+                                return '(' + chunk(input.left) + input.operator + chunk(input.right) + ')';
                             }
                         case "TableConstructorExpression":
                             if (input.fields.length === 1) {
                                 var variableName = input.fields[0].value.name;
+
                                 if (variablesAdded.indexOf(variableName) === -1) {
-                                    this.timeVariables.push(variables.time[variableName]);
+                                    if (variableName === "ucolor") {
+                                        this.declarations.push('var ucolor = "#' + jsWatch.Watch["_attributes"]["ucolor_default"] + '";')
+                                    }
+                                    else {
+                                        this.timeVariables.push(variables.time[variableName]);
+                                    }
                                     variablesAdded.push(variableName);
                                 }
+
                                 return variableName;
                             }
-                            else{
+                            else {
                                 var array = '[0, '; // start with something empty because lua arrays begin at index 1
-                                for(var i=0; i<input.fields.length; i++){
-                                    array+= chunk(input.fields[i].value);
-                                    if(i === input.fields.length -1){
+                                for (var i = 0; i < input.fields.length; i++) {
+                                    array += chunk(input.fields[i].value);
+                                    if (i === input.fields.length - 1) {
                                         array += "]";
                                     }
-                                    else{
+                                    else {
                                         array += ", ";
                                     }
                                 }
@@ -142,6 +152,18 @@ var getWatch = (watchName) => {
                                 }
                             }
                             return variableName + '[' + chunk(input.index) + ']';
+                        case "Identifier":
+                            var variableName = input.name;
+                            if (variablesAdded.indexOf(variableName) === -1) {
+                                for (var i = 0; i < script.body.length; i++) {
+                                    if (script.body[i].variables[0].name === variableName) {
+                                        this.declarations.push('var ' + variableName + ' = ' + chunk(script.body[i].init[0]));
+                                        variablesAdded.push(variableName);
+                                        break;
+                                    }
+                                }
+                            }
+                            return variableName;
                         case "NumericLiteral": return input.value;
                         case "StringLiteral":
                             if (/^([A-Fa-f0-9]{6})$/.test(input.value)) {
@@ -172,6 +194,13 @@ var getWatch = (watchName) => {
                             }
                             var line = 'drawCircle(';
                         }
+                        else if (layer.shape === "Square"){
+                            if (functionsAdded.indexOf("Square") === -1) {
+                                this.drawFunctions.push(variables.draw.drawSquare);
+                                functionsAdded.push("Square");
+                            }
+                            var line = 'drawSquare(';
+                        }
                         else if (layer.shape === "Triangle") {
                             if (functionsAdded.indexOf("Triangle") === -1) {
                                 this.drawFunctions.push(variables.draw.drawTriangle);
@@ -180,6 +209,7 @@ var getWatch = (watchName) => {
                             }
                             var line = 'drawTriangle(';
                         }
+                        else { break; }
 
                         // x-coord of center
                         let x = chunk(layer.x);

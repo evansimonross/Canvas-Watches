@@ -30,10 +30,10 @@ var watch = {
           "shape": "Triangle",
           "width": "100",
           "height": "300",
-          "color": "4629a1",
+          "color": "\"#4629a1\"",
           "display": "bd",
           "shader": "GradientLinear",
-          "u_1": "4629a1",
+          "u_1": "\"#4629a1\"",
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -133,10 +133,10 @@ var watch = {
           "shape": "Triangle",
           "width": "100",
           "height": "300",
-          "color": "4629a1",
+          "color": "\"#4629a1\"",
           "display": "bd",
           "shader": "GradientLinear",
-          "u_1": "4629a1",
+          "u_1": "\"#4629a1\"",
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -236,10 +236,10 @@ var watch = {
           "shape": "Triangle",
           "width": "100",
           "height": "300",
-          "color": "4629a1",
+          "color": "\"#4629a1\"",
           "display": "bd",
           "shader": "GradientLinear",
-          "u_1": "4629a1",
+          "u_1": "\"#4629a1\"",
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -339,10 +339,10 @@ var watch = {
           "shape": "Triangle",
           "width": "100",
           "height": "300",
-          "color": "4629a1",
+          "color": "\"#4629a1\"",
           "display": "bd",
           "shader": "GradientLinear",
-          "u_1": "4629a1",
+          "u_1": "\"#4629a1\"",
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -442,10 +442,10 @@ var watch = {
           "shape": "Triangle",
           "width": "100",
           "height": "300",
-          "color": "4629a1",
+          "color": "\"#4629a1\"",
           "display": "bd",
           "shader": "GradientLinear",
-          "u_1": "4629a1",
+          "u_1": "\"#4629a1\"",
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -545,10 +545,10 @@ var watch = {
           "shape": "Triangle",
           "width": "100",
           "height": "300",
-          "color": "4629a1",
+          "color": "\"#4629a1\"",
           "display": "bd",
           "shader": "GradientLinear",
-          "u_1": "4629a1",
+          "u_1": "\"#4629a1\"",
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -648,10 +648,10 @@ var watch = {
           "shape": "Triangle",
           "width": "45",
           "height": "300",
-          "color": "be1717",
+          "color": "\"#be1717\"",
           "display": "bd",
           "shader": "GradientLinear",
-          "u_1": "be1717",
+          "u_1": "\"#be1717\"",
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -769,10 +769,10 @@ var watch = {
           "shape": "Triangle",
           "width": "45",
           "height": "300",
-          "color": "be1717",
+          "color": "\"#be1717\"",
           "display": "bd",
           "shader": "GradientLinear",
-          "u_1": "be1717",
+          "u_1": "\"#be1717\"",
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -890,10 +890,10 @@ var watch = {
           "shape": "Triangle",
           "width": "45",
           "height": "300",
-          "color": "be1717",
+          "color": "\"#be1717\"",
           "display": "bd",
           "shader": "GradientLinear",
-          "u_1": "be1717",
+          "u_1": "\"#be1717\"",
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -1011,10 +1011,10 @@ var watch = {
           "shape": "Triangle",
           "width": "45",
           "height": "300",
-          "color": "be1717",
+          "color": "\"#be1717\"",
           "display": "bd",
           "shader": "GradientLinear",
-          "u_1": "be1717",
+          "u_1": "\"#be1717\"",
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -1132,10 +1132,10 @@ var watch = {
           "shape": "Triangle",
           "width": "45",
           "height": "300",
-          "color": "be1717",
+          "color": "\"#be1717\"",
           "display": "bd",
           "shader": "GradientLinear",
-          "u_1": "be1717",
+          "u_1": "\"#be1717\"",
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -1582,11 +1582,11 @@ var watch = {
           "shape": "Triangle",
           "width": "45",
           "height": "300",
-          "color": "be1717",
+          "color": "\"#be1717\"",
           "display": "bd",
           "shader": "GradientLinear",
-          "u_1": "fac4c4",
-          "u_2": "000000",
+          "u_1": "\"#fac4c4\"",
+          "u_2": "\"#000000\"",
           "u_3": "0",
           "u_4": "70"
         }

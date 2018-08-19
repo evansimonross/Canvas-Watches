@@ -42,6 +42,20 @@ var draw = {
             'ctx.fill();'
         ]
     },
+    drawCircle: {
+        name: 'drawCircle',
+        params: ['x', 'y', 'w', 'h', 'ang', 'color', 'opacity'],
+        lines: [
+            'x*=(canvas.width/512);',
+            'y*=(canvas.width/512);',
+            'w*=(canvas.width/512);',
+            'h*=(canvas.width/512);',
+            'ctx.beginPath();',
+            'ctx.ellipse(x, y, w, h, ang, 0, Math.PI*2)',
+            'ctx.fillStyle = color;',
+            'ctx.fill();'
+        ]
+    },
     drawTriangle: {
         name: 'drawTriangle',
         params: ['x', 'y', 'w', 'h', 'ang', 'color', 'opacity'],
@@ -66,16 +80,9 @@ var draw = {
             'ctx.restore();'
         ]
     },
-    adjustTriangleHeight: {
-        name: 'adjustTriangleHeight',
-        params: ['unadjusted'],
-        lines: [
-            'return unadjusted * Math.sqrt(3) / 2;'
-        ]
-    },
-    linearGradient: {
-        name: 'linearGradient',
-        params: ['start', 'end', 'length', 'scale'],
+    drawGradientLinear: {
+        name: 'drawGradientLinear',
+        params: ['start', 'end', 'rotation', 'scale', 'length'],
         lines: [
             'length*=(canvas.width/512);',
             'scale = (100-scale)/100;',
@@ -89,4 +96,16 @@ var draw = {
     }
 }
 
-module.exports = { time, draw }
+// utility functions
+
+var util = {
+    adjustTriangleHeight: {
+        name: 'adjustTriangleHeight',
+        params: ['unadjusted'],
+        lines: [
+            'return unadjusted * Math.sqrt(3) / 2;'
+        ]
+    },
+}
+
+module.exports = { time, draw, util }

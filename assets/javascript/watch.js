@@ -4,15 +4,24 @@ var ctx = canvas.getContext("2d");
 var radius = canvas.height / 2;
 ctx.translate(radius, radius);
 setInterval(drawClock, 10);
-var now = new Date();
-var hour = now.getHours();
-var minute = now.getMinutes();
-var second = now.getSeconds();
-var millisecond = now.getMilliseconds();
-var dh = hour === 0 ? 12 : hour % 12;
-var dm = minute;
+
+var now;
+var hour;
+var minute;
+var second;
+var millisecond;
+var dh;
+var dm;
 
 function drawClock() {
+  now = new Date();;
+  hour = now.getHours();;
+  minute = now.getMinutes();;
+  second = now.getSeconds();;
+  millisecond = now.getMilliseconds();;
+  dh = hour === 0 ? 12 : hour % 12;;
+  dm = minute;;
+
   drawFace();
   drawComponents();
   cutOut();
@@ -84,6 +93,6 @@ function drawComponents() {
   drawTriangle(130*math.sin(180), -130*math.cos(180), 45, adjustTriangleHeight(300), 0, drawGradientLinear("#be1717", dm%10>2 && dm%10<8 ? "#fac4c4" : "#000000", 0, 70, adjustTriangleHeight(300)));
   drawTriangle(130*math.sin(148.4), -130*math.cos(148.4), 45, adjustTriangleHeight(300), -31.6, drawGradientLinear("#be1717", dm%10>3 && dm%10<9 ? "#fac4c4" : "#000000", 0, 70, adjustTriangleHeight(300)));
   drawTriangle(130*math.sin(116.8), -130*math.cos(116.8), 45, adjustTriangleHeight(300), -63.2, drawGradientLinear("#be1717", dm%10>4 && dm%10<10 ? "#fac4c4" : "#000000", 0, 70, adjustTriangleHeight(300)));
-  //drawTriangle(130*math.sin(), *math.cos(), 45, adjustTriangleHeight(300), 180+, drawGradientLinear("#fac4c4", "#000000", 0, 70, adjustTriangleHeight(300)));
+  //drawTriangle(130*math.sin(var_tens[math.floor(dm/10)]), -130*math.cos(var_tens[math.floor(dm/10)]), 45, adjustTriangleHeight(300), 180+var_tens[math.floor(dm/10)], drawGradientLinear("#fac4c4", "#000000", 0, 70, adjustTriangleHeight(300)));
 }
 

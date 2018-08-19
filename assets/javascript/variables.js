@@ -1,32 +1,38 @@
 // time variables
 var time = {
+    // default time
+    now: { name: 'now', declaration: 'new Date();' },
+    hour: { name: 'hour', declaration: 'now.getHours();' },
+    minute: { name: 'minute', declaration: 'now.getMinutes();' },
+    second: { name: 'second', declaration: 'now.getSeconds();' },
+    millisecond: { name: 'millisecond', declaration: 'now.getMilliseconds();' },
     // hours
-    dh: "var dh = hour === 0 ? 12 : hour % 12;",
-    dh11: "var dh11 = hour % 12;",
-    dh24: "var dh24 = hour === 0 ? 24 : hour;",
-    dh23: "var dh23 = hour;",
-    dhz: "var dhz = hour === 0 ? 12 : hour % 12;\ndhz = dhz < 10 ? '0' + dhz : dhz;",
-    dh11z: "var dh11z = hour % 12;\ndh11z = dh11z < 10 ? '0' + dh11z : dh11z;",
-    dh24z: "var dh24z = hour === 0 ? 24 : hour;\ndh24z = dh24z < 10 ? '0' + dh24z : dh24z;",
-    dh23z: "var dh23z = hour;\ndh23z < 10 ? '0' + dh23z : dh23z",
-    drh: "var drh = 360*((hour % 12)/12)+360*(minute/60*60)+360*(second/(60*60*60));",
-    drh0: "var drh0=360*((hour % 12)/12);",
+    dh: { name: 'dh', declaration: "hour === 0 ? 12 : hour % 12;" },
+    dh11: { name: 'dh11', declaration: "hour % 12;" },
+    dh24: { name: 'dh24', declaration: "hour === 0 ? 24 : hour;" },
+    dh23: { name: 'dh23', declaration: "hour;" },
+    dhz: { name: 'dhz', declaration: "hour === 0 ? 12 : hour % 12;\ndhz = dhz < 10 ? '0' + dhz : dhz;" },
+    dh11z: { name: 'dh11z', declaration: "hour % 12;\ndh11z = dh11z < 10 ? '0' + dh11z : dh11z;" },
+    dh24z: { name: 'dh24z', declaration: "hour === 0 ? 24 : hour;\ndh24z = dh24z < 10 ? '0' + dh24z : dh24z;" },
+    dh23z: { name: 'dh23z', declaration: "hour;\ndh23z < 10 ? '0' + dh23z : dh23z" },
+    drh: { name: 'drh', declaration: "360*((hour % 12)/12)+360*(minute/60*60)+360*(second/(60*60*60));" },
+    drh0: { name: 'drh0', declaration: "360*((hour % 12)/12);" },
     // minutes
-    dm: "var dm = minute;",
-    dmz: "var dmz = minute < 10 ? '0' + minute : minute;",
-    drm: "var drm = 360*(minute/60)+360*(second/(60*60));",
+    dm: { name: 'dm', declaration: "minute;" },
+    dmz: { name: 'dmz', declaration: "minute < 10 ? '0' + minute : minute;" },
+    drm: { name: 'drm', declaration: "360*(minute/60)+360*(second/(60*60));" },
     // seconds
-    ds: "var ds = second;",
-    dsz: "var dsz = second < 10 ? '0' + second : second;",
-    drs: "var drs = 360*(second/60);",
-    drss: "var drss = 360*(second/60)+360*(millisecond/(60*1000));",
+    ds: { name: 'ds', declaration: "second;" },
+    dsz: { name: 'dsz', declaration: "second < 10 ? '0' + second : second;" },
+    drs: { name: 'drs', declaration: "360*(second/60);" },
+    drss: { name: 'drss', declaration: "360*(second/60)+360*(millisecond/(60*1000));" },
     // milliseconds
-    dss: "var dss = millisecond;",
-    dssz: "var dssz = millisecond;\ndssz = dssz < 10 ? '00' + dssz : (dssz < 100 ? '0' + dssz : dssz);",
-    dsps: "var dsps = second * 1000 + millisecond;",
-    drms: "var drms = 360*(millisecond/1000);",
+    dss: { name: 'dss', declaration: "millisecond;" },
+    dssz: { name: 'dssz', declaration: "millisecond;\ndssz = dssz < 10 ? '00' + dssz : (dssz < 100 ? '0' + dssz : dssz);" }, 
+    dsps: { name: 'dsps', declaration: "second * 1000 + millisecond;" },
+    drms: { name: 'drms', declaration: "360*(millisecond/1000);" },
     // other
-    da: "var da = hour < 12 ? 'AM' : 'PM';"
+    da: { name: 'da', declaration: "hour < 12 ? 'AM' : 'PM';" }
 }
 
 // draw functions

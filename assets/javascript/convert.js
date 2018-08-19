@@ -44,12 +44,8 @@ var getWatchFromXml = (xmlName) => {
                 'var radius = canvas.height / 2;',
                 'ctx.translate(radius, radius);',
                 'setInterval(drawClock, 10);',
-                'var now = new Date();',
-                'var hour = now.getHours();',
-                'var minute = now.getMinutes();',
-                'var second = now.getSeconds();',
-                'var millisecond = now.getMilliseconds();',
             ],
+            timeVariables: [variables.time.now, variables.time.hour, variables.time.minute, variables.time.second, variables.time.millisecond],
             drawFunctions: [variables.draw.drawFace],
 
             generate: function (file) {
@@ -74,6 +70,13 @@ var getWatchFromXml = (xmlName) => {
                             else if (input.operator === "and") {
                                 return chunk(input.left) + ' && ' + chunk(input.right);
                             }
+                        case "UnaryExpression":
+                            if (input.operator === "~") {
+                                return "!" + chunk(input.argument);
+                            }
+                            else{
+                                return input.operator + chunk(input.argument);
+                            }
                         case "BinaryExpression":
                             if (input.operator === "~=") {
                                 return chunk(input.left) + '!=' + chunk(input.right);
@@ -84,7 +87,7 @@ var getWatchFromXml = (xmlName) => {
                         case "TableConstructorExpression":
                             var variableName = input.fields[0].value.name;
                             if(variablesAdded.indexOf(variableName)===-1){
-                                this.declarations.push(variables.time[variableName]);
+                                this.timeVariables.push(variables.time[variableName]);
                                 variablesAdded.push(variableName);
                             }
                             return variableName;
@@ -97,6 +100,17 @@ var getWatchFromXml = (xmlName) => {
                                 }
                                 return func + '(' + params + ')';
                             }
+                            else{
+                                // What other types of CallExpressions exist?
+                                return "";
+                            }
+                        case "IndexExpression":
+                            var variableName = input.base.name;
+                            if(variablesAdded.indexOf(variableName)===-1){
+                                // Fetch variable definition from script and put it in the declarations
+                                variablesAdded.push(variableName);
+                            }
+                            return variableName + '[' + chunk(input.index) + ']';
                         case "NumericLiteral": return input.value;
                         case "StringLiteral":
                             if (/^([A-Fa-f0-9]{6})$/.test(input.value)) {
@@ -195,9 +209,17 @@ var getWatchFromXml = (xmlName) => {
                     text += this.declarations[i] + "\n";
                 }
                 text += "\n";
+                for (var i = 0; i < this.timeVariables.length; i++){
+                    text += 'var ' + this.timeVariables[i].name + ';\n';
+                }
+                text += "\n";
 
                 // draw clock
                 text += 'function drawClock() {\n';
+                for (var i = 0; i < this.timeVariables.length; i++){
+                    text += '  ' + this.timeVariables[i].name + ' = ' + this.timeVariables[i].declaration + ';\n';
+                }
+                text += "\n";
                 for (var i = 0; i < this.drawFunctions.length; i++) {
                     var f = this.drawFunctions[i];
                     if (f.params.length === 0) { text += '  ' + f.name + '();\n'; }

@@ -7,6 +7,10 @@ setInterval(drawClock, 10);
 var var_tens = [0, -63.2, -31.6, 0, 31.6, 63.2]
 
 var now;
+var year;
+var month;
+var date;
+var day;
 var hour;
 var minute;
 var second;
@@ -15,13 +19,17 @@ var dh;
 var dm;
 
 function drawClock() {
-  now = new Date();;
-  hour = now.getHours();;
-  minute = now.getMinutes();;
-  second = now.getSeconds();;
-  millisecond = now.getMilliseconds();;
-  dh = hour === 0 ? 12 : hour % 12;;
-  dm = minute;;
+  now = new Date();
+  year = now.getFullYear();
+  month = now.getMonth();
+  date = now.getDate();
+  day = now.getDay();
+  hour = now.getHours();
+  minute = now.getMinutes();
+  second = now.getSeconds();
+  millisecond = now.getMilliseconds();
+  dh = hour === 0 ? 12 : hour % 12;
+  dm = minute;
 
   drawFace();
   drawComponents();
@@ -83,17 +91,17 @@ function drawGradientLinear(start,end,rotation,scale,length) {
 }
 
 function drawComponents() {
-  drawTriangle(130*math.sin(-79), -130*math.cos(-79), 100, adjustTriangleHeight(300), 101, drawGradientLinear("#4629a1", dh>0 && dh<7 ? "#d6e8f8" : "#000000", 0, 70, adjustTriangleHeight(300)));
-  drawTriangle(130*math.sin(-47.4), -130*math.cos(-47.4), 100, adjustTriangleHeight(300), 132.6, drawGradientLinear("#4629a1", dh>1 && dh<8 ? "#d6e8f8" : "#000000", 0, 70, adjustTriangleHeight(300)));
-  drawTriangle(130*math.sin(-15.8), -130*math.cos(-15.8), 100, adjustTriangleHeight(300), 164.2, drawGradientLinear("#4629a1", dh>2 && dh<9 ? "#d6e8f8" : "#000000", 0, 70, adjustTriangleHeight(300)));
-  drawTriangle(130*math.sin(15.8), -130*math.cos(15.8), 100, adjustTriangleHeight(300), 195.8, drawGradientLinear("#4629a1", dh>3 && dh<10 ? "#d6e8f8" : "#000000", 0, 70, adjustTriangleHeight(300)));
-  drawTriangle(130*math.sin(47.4), -130*math.cos(47.4), 100, adjustTriangleHeight(300), 227.4, drawGradientLinear("#4629a1", dh>4 && dh<11 ? "#d6e8f8" : "#000000", 0, 70, adjustTriangleHeight(300)));
-  drawTriangle(130*math.sin(79), -130*math.cos(79), 100, adjustTriangleHeight(300), 259, drawGradientLinear("#4629a1", dh>5 && dh<12 ? "#d6e8f8" : "#000000", 0, 70, adjustTriangleHeight(300)));
-  drawTriangle(130*math.sin(243.2), -130*math.cos(243.2), 45, adjustTriangleHeight(300), 63.2, drawGradientLinear("#be1717", dm%10>0 && dm%10<6 ? "#fac4c4" : "#000000", 0, 70, adjustTriangleHeight(300)));
-  drawTriangle(130*math.sin(211.6), -130*math.cos(211.6), 45, adjustTriangleHeight(300), 31.6, drawGradientLinear("#be1717", dm%10>1 && dm%10<7 ? "#fac4c4" : "#000000", 0, 70, adjustTriangleHeight(300)));
-  drawTriangle(130*math.sin(180), -130*math.cos(180), 45, adjustTriangleHeight(300), 0, drawGradientLinear("#be1717", dm%10>2 && dm%10<8 ? "#fac4c4" : "#000000", 0, 70, adjustTriangleHeight(300)));
-  drawTriangle(130*math.sin(148.4), -130*math.cos(148.4), 45, adjustTriangleHeight(300), -31.6, drawGradientLinear("#be1717", dm%10>3 && dm%10<9 ? "#fac4c4" : "#000000", 0, 70, adjustTriangleHeight(300)));
-  drawTriangle(130*math.sin(116.8), -130*math.cos(116.8), 45, adjustTriangleHeight(300), -63.2, drawGradientLinear("#be1717", dm%10>4 && dm%10<10 ? "#fac4c4" : "#000000", 0, 70, adjustTriangleHeight(300)));
-  drawTriangle(130*math.sin(var_tens[math.floor(dm/10)]), -130*math.cos(var_tens[math.floor(dm/10)]), 45, adjustTriangleHeight(300), 180+var_tens[math.floor(dm/10)], drawGradientLinear("#fac4c4", "#000000", 0, 70, adjustTriangleHeight(300)));
+  drawTriangle((130*math.sin(-79)), (-130*math.cos(-79)), 100, adjustTriangleHeight(300), 101, drawGradientLinear("#4629a1", (dh>0) && (dh<7) ? "#d6e8f8" : "#000000", 0, 70, adjustTriangleHeight(300)), 100);
+  drawTriangle((130*math.sin(-47.4)), (-130*math.cos(-47.4)), 100, adjustTriangleHeight(300), 132.6, drawGradientLinear("#4629a1", (dh>1) && (dh<8) ? "#d6e8f8" : "#000000", 0, 70, adjustTriangleHeight(300)), 100);
+  drawTriangle((130*math.sin(-15.8)), (-130*math.cos(-15.8)), 100, adjustTriangleHeight(300), 164.2, drawGradientLinear("#4629a1", (dh>2) && (dh<9) ? "#d6e8f8" : "#000000", 0, 70, adjustTriangleHeight(300)), 100);
+  drawTriangle((130*math.sin(15.8)), (-130*math.cos(15.8)), 100, adjustTriangleHeight(300), 195.8, drawGradientLinear("#4629a1", (dh>3) && (dh<10) ? "#d6e8f8" : "#000000", 0, 70, adjustTriangleHeight(300)), 100);
+  drawTriangle((130*math.sin(47.4)), (-130*math.cos(47.4)), 100, adjustTriangleHeight(300), 227.4, drawGradientLinear("#4629a1", (dh>4) && (dh<11) ? "#d6e8f8" : "#000000", 0, 70, adjustTriangleHeight(300)), 100);
+  drawTriangle((130*math.sin(79)), (-130*math.cos(79)), 100, adjustTriangleHeight(300), 259, drawGradientLinear("#4629a1", (dh>5) && (dh<12) ? "#d6e8f8" : "#000000", 0, 70, adjustTriangleHeight(300)), 100);
+  drawTriangle((130*math.sin(243.2)), (-130*math.cos(243.2)), 45, adjustTriangleHeight(300), 63.2, drawGradientLinear("#be1717", ((dm%10)>0) && ((dm%10)<6) ? "#fac4c4" : "#000000", 0, 70, adjustTriangleHeight(300)), 100);
+  drawTriangle((130*math.sin(211.6)), (-130*math.cos(211.6)), 45, adjustTriangleHeight(300), 31.6, drawGradientLinear("#be1717", ((dm%10)>1) && ((dm%10)<7) ? "#fac4c4" : "#000000", 0, 70, adjustTriangleHeight(300)), 100);
+  drawTriangle((130*math.sin(180)), (-130*math.cos(180)), 45, adjustTriangleHeight(300), 0, drawGradientLinear("#be1717", ((dm%10)>2) && ((dm%10)<8) ? "#fac4c4" : "#000000", 0, 70, adjustTriangleHeight(300)), 100);
+  drawTriangle((130*math.sin(148.4)), (-130*math.cos(148.4)), 45, adjustTriangleHeight(300), -31.6, drawGradientLinear("#be1717", ((dm%10)>3) && ((dm%10)<9) ? "#fac4c4" : "#000000", 0, 70, adjustTriangleHeight(300)), 100);
+  drawTriangle((130*math.sin(116.8)), (-130*math.cos(116.8)), 45, adjustTriangleHeight(300), -63.2, drawGradientLinear("#be1717", ((dm%10)>4) && ((dm%10)<10) ? "#fac4c4" : "#000000", 0, 70, adjustTriangleHeight(300)), 100);
+  drawTriangle((130*math.sin(var_tens[math.floor((dm/10))])), (-130*math.cos(var_tens[math.floor((dm/10))])), 45, adjustTriangleHeight(300), (180+var_tens[math.floor((dm/10))]), drawGradientLinear("#fac4c4", "#000000", 0, 70, adjustTriangleHeight(300)), (math.floor((dm/10))!=0) ? 100 : 0);
 }
 

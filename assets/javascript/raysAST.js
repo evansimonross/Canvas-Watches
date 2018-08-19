@@ -18,22 +18,417 @@ var watch = {
     "Layer": [
       {
         "_attributes": {
-          "type": "shape",
-          "x": "130*math.sin(-79)",
-          "y": "-130*math.cos(-79)",
-          "gyro": "0",
-          "rotation": "101",
-          "skew_x": "0",
-          "skew_y": "0",
-          "opacity": "100",
-          "alignment": "cc",
-          "shape": "Triangle",
-          "width": "100",
-          "height": "300",
-          "color": "\"#4629a1\"",
-          "display": "bd",
-          "shader": "GradientLinear",
-          "u_1": "\"#4629a1\"",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "NumericLiteral",
+                      "value": 130,
+                      "raw": "130"
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "sin"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "UnaryExpression",
+                          "operator": "-",
+                          "argument": {
+                            "type": "NumericLiteral",
+                            "value": 79,
+                            "raw": "79"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "UnaryExpression",
+                      "operator": "-",
+                      "argument": {
+                        "type": "NumericLiteral",
+                        "value": 130,
+                        "raw": "130"
+                      }
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "cos"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "UnaryExpression",
+                          "operator": "-",
+                          "argument": {
+                            "type": "NumericLiteral",
+                            "value": 79,
+                            "raw": "79"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 101,
+                    "raw": "101"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "opacity": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "opacity"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Triangle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 300,
+                    "raw": "300"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#4629a1",
+                    "raw": "\"#4629a1\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shader": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shader"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "GradientLinear"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_1": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_1"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#4629a1",
+                    "raw": "\"#4629a1\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -115,28 +510,465 @@ var watch = {
             ],
             "comments": []
           },
-          "u_3": "0",
-          "u_4": "70"
+          "u_3": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_3"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_4": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_4"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 70,
+                    "raw": "70"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
-          "x": "130*math.sin(-47.4)",
-          "y": "-130*math.cos(-47.4)",
-          "gyro": "0",
-          "rotation": "132.6",
-          "skew_x": "0",
-          "skew_y": "0",
-          "opacity": "100",
-          "alignment": "cc",
-          "shape": "Triangle",
-          "width": "100",
-          "height": "300",
-          "color": "\"#4629a1\"",
-          "display": "bd",
-          "shader": "GradientLinear",
-          "u_1": "\"#4629a1\"",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "NumericLiteral",
+                      "value": 130,
+                      "raw": "130"
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "sin"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "UnaryExpression",
+                          "operator": "-",
+                          "argument": {
+                            "type": "NumericLiteral",
+                            "value": 47.4,
+                            "raw": "47.4"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "UnaryExpression",
+                      "operator": "-",
+                      "argument": {
+                        "type": "NumericLiteral",
+                        "value": 130,
+                        "raw": "130"
+                      }
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "cos"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "UnaryExpression",
+                          "operator": "-",
+                          "argument": {
+                            "type": "NumericLiteral",
+                            "value": 47.4,
+                            "raw": "47.4"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 132.6,
+                    "raw": "132.6"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "opacity": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "opacity"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Triangle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 300,
+                    "raw": "300"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#4629a1",
+                    "raw": "\"#4629a1\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shader": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shader"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "GradientLinear"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_1": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_1"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#4629a1",
+                    "raw": "\"#4629a1\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -218,28 +1050,465 @@ var watch = {
             ],
             "comments": []
           },
-          "u_3": "0",
-          "u_4": "70"
+          "u_3": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_3"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_4": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_4"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 70,
+                    "raw": "70"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
-          "x": "130*math.sin(-15.8)",
-          "y": "-130*math.cos(-15.8)",
-          "gyro": "0",
-          "rotation": "164.2",
-          "skew_x": "0",
-          "skew_y": "0",
-          "opacity": "100",
-          "alignment": "cc",
-          "shape": "Triangle",
-          "width": "100",
-          "height": "300",
-          "color": "\"#4629a1\"",
-          "display": "bd",
-          "shader": "GradientLinear",
-          "u_1": "\"#4629a1\"",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "NumericLiteral",
+                      "value": 130,
+                      "raw": "130"
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "sin"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "UnaryExpression",
+                          "operator": "-",
+                          "argument": {
+                            "type": "NumericLiteral",
+                            "value": 15.8,
+                            "raw": "15.8"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "UnaryExpression",
+                      "operator": "-",
+                      "argument": {
+                        "type": "NumericLiteral",
+                        "value": 130,
+                        "raw": "130"
+                      }
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "cos"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "UnaryExpression",
+                          "operator": "-",
+                          "argument": {
+                            "type": "NumericLiteral",
+                            "value": 15.8,
+                            "raw": "15.8"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 164.2,
+                    "raw": "164.2"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "opacity": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "opacity"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Triangle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 300,
+                    "raw": "300"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#4629a1",
+                    "raw": "\"#4629a1\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shader": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shader"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "GradientLinear"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_1": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_1"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#4629a1",
+                    "raw": "\"#4629a1\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -321,28 +1590,457 @@ var watch = {
             ],
             "comments": []
           },
-          "u_3": "0",
-          "u_4": "70"
+          "u_3": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_3"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_4": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_4"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 70,
+                    "raw": "70"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
-          "x": "130*math.sin(15.8)",
-          "y": "-130*math.cos(15.8)",
-          "gyro": "0",
-          "rotation": "195.8",
-          "skew_x": "0",
-          "skew_y": "0",
-          "opacity": "100",
-          "alignment": "cc",
-          "shape": "Triangle",
-          "width": "100",
-          "height": "300",
-          "color": "\"#4629a1\"",
-          "display": "bd",
-          "shader": "GradientLinear",
-          "u_1": "\"#4629a1\"",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "NumericLiteral",
+                      "value": 130,
+                      "raw": "130"
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "sin"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "NumericLiteral",
+                          "value": 15.8,
+                          "raw": "15.8"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "UnaryExpression",
+                      "operator": "-",
+                      "argument": {
+                        "type": "NumericLiteral",
+                        "value": 130,
+                        "raw": "130"
+                      }
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "cos"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "NumericLiteral",
+                          "value": 15.8,
+                          "raw": "15.8"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 195.8,
+                    "raw": "195.8"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "opacity": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "opacity"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Triangle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 300,
+                    "raw": "300"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#4629a1",
+                    "raw": "\"#4629a1\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shader": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shader"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "GradientLinear"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_1": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_1"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#4629a1",
+                    "raw": "\"#4629a1\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -424,28 +2122,457 @@ var watch = {
             ],
             "comments": []
           },
-          "u_3": "0",
-          "u_4": "70"
+          "u_3": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_3"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_4": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_4"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 70,
+                    "raw": "70"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
-          "x": "130*math.sin(47.4)",
-          "y": "-130*math.cos(47.4)",
-          "gyro": "0",
-          "rotation": "227.4",
-          "skew_x": "0",
-          "skew_y": "0",
-          "opacity": "100",
-          "alignment": "cc",
-          "shape": "Triangle",
-          "width": "100",
-          "height": "300",
-          "color": "\"#4629a1\"",
-          "display": "bd",
-          "shader": "GradientLinear",
-          "u_1": "\"#4629a1\"",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "NumericLiteral",
+                      "value": 130,
+                      "raw": "130"
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "sin"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "NumericLiteral",
+                          "value": 47.4,
+                          "raw": "47.4"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "UnaryExpression",
+                      "operator": "-",
+                      "argument": {
+                        "type": "NumericLiteral",
+                        "value": 130,
+                        "raw": "130"
+                      }
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "cos"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "NumericLiteral",
+                          "value": 47.4,
+                          "raw": "47.4"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 227.4,
+                    "raw": "227.4"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "opacity": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "opacity"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Triangle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 300,
+                    "raw": "300"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#4629a1",
+                    "raw": "\"#4629a1\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shader": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shader"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "GradientLinear"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_1": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_1"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#4629a1",
+                    "raw": "\"#4629a1\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -527,28 +2654,457 @@ var watch = {
             ],
             "comments": []
           },
-          "u_3": "0",
-          "u_4": "70"
+          "u_3": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_3"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_4": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_4"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 70,
+                    "raw": "70"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
-          "x": "130*math.sin(79)",
-          "y": "-130*math.cos(79)",
-          "gyro": "0",
-          "rotation": "259",
-          "skew_x": "0",
-          "skew_y": "0",
-          "opacity": "100",
-          "alignment": "cc",
-          "shape": "Triangle",
-          "width": "100",
-          "height": "300",
-          "color": "\"#4629a1\"",
-          "display": "bd",
-          "shader": "GradientLinear",
-          "u_1": "\"#4629a1\"",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "NumericLiteral",
+                      "value": 130,
+                      "raw": "130"
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "sin"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "NumericLiteral",
+                          "value": 79,
+                          "raw": "79"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "UnaryExpression",
+                      "operator": "-",
+                      "argument": {
+                        "type": "NumericLiteral",
+                        "value": 130,
+                        "raw": "130"
+                      }
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "cos"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "NumericLiteral",
+                          "value": 79,
+                          "raw": "79"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 259,
+                    "raw": "259"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "opacity": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "opacity"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Triangle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 300,
+                    "raw": "300"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#4629a1",
+                    "raw": "\"#4629a1\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shader": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shader"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "GradientLinear"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_1": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_1"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#4629a1",
+                    "raw": "\"#4629a1\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -630,28 +3186,457 @@ var watch = {
             ],
             "comments": []
           },
-          "u_3": "0",
-          "u_4": "70"
+          "u_3": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_3"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_4": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_4"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 70,
+                    "raw": "70"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
-          "x": "130*math.sin(243.2)",
-          "y": "-130*math.cos(243.2)",
-          "gyro": "0",
-          "rotation": "63.2",
-          "skew_x": "0",
-          "skew_y": "0",
-          "opacity": "100",
-          "alignment": "cc",
-          "shape": "Triangle",
-          "width": "45",
-          "height": "300",
-          "color": "\"#be1717\"",
-          "display": "bd",
-          "shader": "GradientLinear",
-          "u_1": "\"#be1717\"",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "NumericLiteral",
+                      "value": 130,
+                      "raw": "130"
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "sin"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "NumericLiteral",
+                          "value": 243.2,
+                          "raw": "243.2"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "UnaryExpression",
+                      "operator": "-",
+                      "argument": {
+                        "type": "NumericLiteral",
+                        "value": 130,
+                        "raw": "130"
+                      }
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "cos"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "NumericLiteral",
+                          "value": 243.2,
+                          "raw": "243.2"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 63.2,
+                    "raw": "63.2"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "opacity": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "opacity"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Triangle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 45,
+                    "raw": "45"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 300,
+                    "raw": "300"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#be1717",
+                    "raw": "\"#be1717\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shader": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shader"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "GradientLinear"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_1": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_1"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#be1717",
+                    "raw": "\"#be1717\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -751,28 +3736,457 @@ var watch = {
             ],
             "comments": []
           },
-          "u_3": "0",
-          "u_4": "70"
+          "u_3": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_3"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_4": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_4"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 70,
+                    "raw": "70"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
-          "x": "130*math.sin(211.6)",
-          "y": "-130*math.cos(211.6)",
-          "gyro": "0",
-          "rotation": "31.6",
-          "skew_x": "0",
-          "skew_y": "0",
-          "opacity": "100",
-          "alignment": "cc",
-          "shape": "Triangle",
-          "width": "45",
-          "height": "300",
-          "color": "\"#be1717\"",
-          "display": "bd",
-          "shader": "GradientLinear",
-          "u_1": "\"#be1717\"",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "NumericLiteral",
+                      "value": 130,
+                      "raw": "130"
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "sin"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "NumericLiteral",
+                          "value": 211.6,
+                          "raw": "211.6"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "UnaryExpression",
+                      "operator": "-",
+                      "argument": {
+                        "type": "NumericLiteral",
+                        "value": 130,
+                        "raw": "130"
+                      }
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "cos"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "NumericLiteral",
+                          "value": 211.6,
+                          "raw": "211.6"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 31.6,
+                    "raw": "31.6"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "opacity": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "opacity"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Triangle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 45,
+                    "raw": "45"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 300,
+                    "raw": "300"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#be1717",
+                    "raw": "\"#be1717\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shader": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shader"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "GradientLinear"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_1": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_1"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#be1717",
+                    "raw": "\"#be1717\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -872,28 +4286,457 @@ var watch = {
             ],
             "comments": []
           },
-          "u_3": "0",
-          "u_4": "70"
+          "u_3": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_3"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_4": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_4"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 70,
+                    "raw": "70"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
-          "x": "130*math.sin(180)",
-          "y": "-130*math.cos(180)",
-          "gyro": "0",
-          "rotation": "0",
-          "skew_x": "0",
-          "skew_y": "0",
-          "opacity": "100",
-          "alignment": "cc",
-          "shape": "Triangle",
-          "width": "45",
-          "height": "300",
-          "color": "\"#be1717\"",
-          "display": "bd",
-          "shader": "GradientLinear",
-          "u_1": "\"#be1717\"",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "NumericLiteral",
+                      "value": 130,
+                      "raw": "130"
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "sin"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "NumericLiteral",
+                          "value": 180,
+                          "raw": "180"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "UnaryExpression",
+                      "operator": "-",
+                      "argument": {
+                        "type": "NumericLiteral",
+                        "value": 130,
+                        "raw": "130"
+                      }
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "cos"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "NumericLiteral",
+                          "value": 180,
+                          "raw": "180"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "opacity": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "opacity"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Triangle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 45,
+                    "raw": "45"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 300,
+                    "raw": "300"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#be1717",
+                    "raw": "\"#be1717\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shader": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shader"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "GradientLinear"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_1": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_1"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#be1717",
+                    "raw": "\"#be1717\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -993,28 +4836,461 @@ var watch = {
             ],
             "comments": []
           },
-          "u_3": "0",
-          "u_4": "70"
+          "u_3": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_3"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_4": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_4"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 70,
+                    "raw": "70"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
-          "x": "130*math.sin(148.4)",
-          "y": "-130*math.cos(148.4)",
-          "gyro": "0",
-          "rotation": "-31.6",
-          "skew_x": "0",
-          "skew_y": "0",
-          "opacity": "100",
-          "alignment": "cc",
-          "shape": "Triangle",
-          "width": "45",
-          "height": "300",
-          "color": "\"#be1717\"",
-          "display": "bd",
-          "shader": "GradientLinear",
-          "u_1": "\"#be1717\"",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "NumericLiteral",
+                      "value": 130,
+                      "raw": "130"
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "sin"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "NumericLiteral",
+                          "value": 148.4,
+                          "raw": "148.4"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "UnaryExpression",
+                      "operator": "-",
+                      "argument": {
+                        "type": "NumericLiteral",
+                        "value": 130,
+                        "raw": "130"
+                      }
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "cos"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "NumericLiteral",
+                          "value": 148.4,
+                          "raw": "148.4"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "UnaryExpression",
+                    "operator": "-",
+                    "argument": {
+                      "type": "NumericLiteral",
+                      "value": 31.6,
+                      "raw": "31.6"
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "opacity": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "opacity"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Triangle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 45,
+                    "raw": "45"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 300,
+                    "raw": "300"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#be1717",
+                    "raw": "\"#be1717\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shader": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shader"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "GradientLinear"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_1": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_1"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#be1717",
+                    "raw": "\"#be1717\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -1114,28 +5390,461 @@ var watch = {
             ],
             "comments": []
           },
-          "u_3": "0",
-          "u_4": "70"
+          "u_3": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_3"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_4": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_4"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 70,
+                    "raw": "70"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
-          "x": "130*math.sin(116.8)",
-          "y": "-130*math.cos(116.8)",
-          "gyro": "0",
-          "rotation": "-63.2",
-          "skew_x": "0",
-          "skew_y": "0",
-          "opacity": "100",
-          "alignment": "cc",
-          "shape": "Triangle",
-          "width": "45",
-          "height": "300",
-          "color": "\"#be1717\"",
-          "display": "bd",
-          "shader": "GradientLinear",
-          "u_1": "\"#be1717\"",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "NumericLiteral",
+                      "value": 130,
+                      "raw": "130"
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "sin"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "NumericLiteral",
+                          "value": 116.8,
+                          "raw": "116.8"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "*",
+                    "left": {
+                      "type": "UnaryExpression",
+                      "operator": "-",
+                      "argument": {
+                        "type": "NumericLiteral",
+                        "value": 130,
+                        "raw": "130"
+                      }
+                    },
+                    "right": {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "cos"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "math"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "NumericLiteral",
+                          "value": 116.8,
+                          "raw": "116.8"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "UnaryExpression",
+                    "operator": "-",
+                    "argument": {
+                      "type": "NumericLiteral",
+                      "value": 63.2,
+                      "raw": "63.2"
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "opacity": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "opacity"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Triangle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 45,
+                    "raw": "45"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 300,
+                    "raw": "300"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#be1717",
+                    "raw": "\"#be1717\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shader": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shader"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "GradientLinear"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_1": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_1"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#be1717",
+                    "raw": "\"#be1717\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "u_2": {
             "type": "Chunk",
             "body": [
@@ -1235,13 +5944,75 @@ var watch = {
             ],
             "comments": []
           },
-          "u_3": "0",
-          "u_4": "70"
+          "u_3": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_3"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_4": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_4"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 70,
+                    "raw": "70"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "x": {
             "type": "Chunk",
             "body": [
@@ -1422,7 +6193,28 @@ var watch = {
             ],
             "comments": []
           },
-          "gyro": "0",
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "rotation": {
             "type": "Chunk",
             "body": [
@@ -1494,8 +6286,50 @@ var watch = {
             ],
             "comments": []
           },
-          "skew_x": "0",
-          "skew_y": "0",
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "opacity": {
             "type": "Chunk",
             "body": [
@@ -1578,17 +6412,244 @@ var watch = {
             ],
             "comments": []
           },
-          "alignment": "cc",
-          "shape": "Triangle",
-          "width": "45",
-          "height": "300",
-          "color": "\"#be1717\"",
-          "display": "bd",
-          "shader": "GradientLinear",
-          "u_1": "\"#fac4c4\"",
-          "u_2": "\"#000000\"",
-          "u_3": "0",
-          "u_4": "70"
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Triangle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 45,
+                    "raw": "45"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 300,
+                    "raw": "300"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#be1717",
+                    "raw": "\"#be1717\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shader": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shader"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "GradientLinear"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_1": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_1"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#fac4c4",
+                    "raw": "\"#fac4c4\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_2": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_2"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#000000",
+                    "raw": "\"#000000\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_3": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_3"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_4": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_4"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 70,
+                    "raw": "70"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       }
     ],

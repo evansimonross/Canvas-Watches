@@ -18,18 +18,267 @@ var watch = {
     "Layer": [
       {
         "_attributes": {
-          "type": "shape",
-          "x": "0",
-          "y": "0",
-          "gyro": "0",
-          "rotation": "0",
-          "skew_x": "0",
-          "skew_y": "0",
-          "opacity": "100",
-          "alignment": "cc",
-          "shape": "Circle",
-          "width": "440",
-          "height": "440",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "opacity": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "opacity"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Circle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 440,
+                    "raw": "440"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 440,
+                    "raw": "440"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "color": {
             "type": "Chunk",
             "body": [
@@ -59,36 +308,492 @@ var watch = {
             ],
             "comments": []
           },
-          "display": "bd"
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
-          "x": "0",
-          "y": "0",
-          "gyro": "0",
-          "rotation": "0",
-          "skew_x": "0",
-          "skew_y": "0",
-          "opacity": "100",
-          "alignment": "cc",
-          "shape": "Circle",
-          "width": "400",
-          "height": "400",
-          "color": "\"#000000\"",
-          "display": "bd"
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "opacity": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "opacity"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Circle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 400,
+                    "raw": "400"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 400,
+                    "raw": "400"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#000000",
+                    "raw": "\"#000000\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
-          "x": "0",
-          "y": "0",
-          "gyro": "0",
-          "rotation": "0",
-          "skew_x": "0",
-          "skew_y": "0",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "opacity": {
             "type": "Chunk",
             "body": [
@@ -137,10 +842,92 @@ var watch = {
             ],
             "comments": []
           },
-          "alignment": "cc",
-          "shape": "Circle",
-          "width": "335",
-          "height": "335",
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Circle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 335,
+                    "raw": "335"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 335,
+                    "raw": "335"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "color": {
             "type": "Chunk",
             "body": [
@@ -170,8 +957,48 @@ var watch = {
             ],
             "comments": []
           },
-          "display": "b",
-          "shader": "Segment",
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "b"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shader": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shader"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Segment"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "u_1": {
             "type": "Chunk",
             "body": [
@@ -201,42 +1028,623 @@ var watch = {
             ],
             "comments": []
           },
-          "u_2": "100",
-          "u_3": "0"
+          "u_2": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_2"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "u_3": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "u_3"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
-          "x": "0",
-          "y": "0",
-          "gyro": "0",
-          "rotation": "0",
-          "skew_x": "0",
-          "skew_y": "0",
-          "opacity": "100",
-          "alignment": "cc",
-          "shape": "Circle",
-          "width": "295",
-          "height": "295",
-          "color": "\"#000000\"",
-          "display": "bd"
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "opacity": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "opacity"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Circle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 295,
+                    "raw": "295"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 295,
+                    "raw": "295"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#000000",
+                    "raw": "\"#000000\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
-          "x": "0",
-          "y": "0",
-          "gyro": "0",
-          "rotation": "0",
-          "skew_x": "0",
-          "skew_y": "0",
-          "opacity": "100",
-          "alignment": "cc",
-          "shape": "Circle",
-          "width": "230",
-          "height": "230",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "opacity": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "opacity"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Circle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 230,
+                    "raw": "230"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 230,
+                    "raw": "230"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "color": {
             "type": "Chunk",
             "body": [
@@ -266,43 +1674,691 @@ var watch = {
             ],
             "comments": []
           },
-          "display": "bd"
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
-          "x": "0",
-          "y": "0",
-          "gyro": "0",
-          "rotation": "0",
-          "skew_x": "0",
-          "skew_y": "0",
-          "opacity": "100",
-          "alignment": "cc",
-          "shape": "Circle",
-          "width": "190",
-          "height": "190",
-          "color": "\"#000000\"",
-          "display": "bd",
-          "tap_action": "script:var_screen = var_screen + 1\nif var_screen > 1 then var_screen = 0 end"
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "opacity": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "opacity"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Circle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 190,
+                    "raw": "190"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 190,
+                    "raw": "190"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#000000",
+                    "raw": "\"#000000\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "tap_action": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "var_screen"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "+",
+                    "left": {
+                      "type": "Identifier",
+                      "name": "var_screen"
+                    },
+                    "right": {
+                      "type": "NumericLiteral",
+                      "value": 1,
+                      "raw": "1"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "IfStatement",
+                "clauses": [
+                  {
+                    "type": "IfClause",
+                    "condition": {
+                      "type": "BinaryExpression",
+                      "operator": ">",
+                      "left": {
+                        "type": "Identifier",
+                        "name": "var_screen"
+                      },
+                      "right": {
+                        "type": "NumericLiteral",
+                        "value": 1,
+                        "raw": "1"
+                      }
+                    },
+                    "body": [
+                      {
+                        "type": "AssignmentStatement",
+                        "variables": [
+                          {
+                            "type": "Identifier",
+                            "name": "var_screen"
+                          }
+                        ],
+                        "init": [
+                          {
+                            "type": "NumericLiteral",
+                            "value": 0,
+                            "raw": "0"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "markers_hm",
-          "x": "0",
-          "y": "0",
-          "gyro": "0",
-          "rotation": "0",
-          "skew_x": "0",
-          "skew_y": "0",
-          "opacity": "100",
-          "radius": "256",
-          "anim_scale_x": "100",
-          "anim_scale_y": "100",
-          "m_hour": "Circle",
-          "m_minute": "None",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "markers_hm"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "opacity": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "opacity"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "radius": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "radius"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 256,
+                    "raw": "256"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "anim_scale_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "anim_scale_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "anim_scale_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "anim_scale_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "m_hour": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "m_hour"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Circle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "m_minute": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "m_minute"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "None"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "color": {
             "type": "Chunk",
             "body": [
@@ -332,14 +2388,96 @@ var watch = {
             ],
             "comments": []
           },
-          "color2": "\"#ffffff\"",
-          "squarify": "0",
-          "display": "bd"
+          "color2": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color2"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#ffffff",
+                    "raw": "\"#ffffff\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "squarify": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "squarify"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "x": {
             "type": "Chunk",
             "body": [
@@ -454,7 +2592,28 @@ var watch = {
             ],
             "comments": []
           },
-          "gyro": "0",
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "rotation": {
             "type": "Chunk",
             "body": [
@@ -484,13 +2643,158 @@ var watch = {
             ],
             "comments": []
           },
-          "skew_x": "0",
-          "skew_y": "0",
-          "opacity": "100",
-          "alignment": "cc",
-          "shape": "Square",
-          "width": "20",
-          "height": "148",
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "opacity": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "opacity"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Square"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 20,
+                    "raw": "20"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 148,
+                    "raw": "148"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "color": {
             "type": "Chunk",
             "body": [
@@ -520,12 +2824,52 @@ var watch = {
             ],
             "comments": []
           },
-          "display": "bd"
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "x": {
             "type": "Chunk",
             "body": [
@@ -712,7 +3056,28 @@ var watch = {
             ],
             "comments": []
           },
-          "gyro": "0",
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "rotation": {
             "type": "Chunk",
             "body": [
@@ -779,20 +3144,226 @@ var watch = {
             ],
             "comments": []
           },
-          "skew_x": "0",
-          "skew_y": "0",
-          "opacity": "100",
-          "alignment": "cc",
-          "shape": "Square",
-          "width": "21",
-          "height": "21",
-          "color": "\"#010003\"",
-          "display": "bd"
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "opacity": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "opacity"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Square"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 21,
+                    "raw": "21"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 21,
+                    "raw": "21"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#010003",
+                    "raw": "\"#010003\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "x": {
             "type": "Chunk",
             "body": [
@@ -997,7 +3568,28 @@ var watch = {
             ],
             "comments": []
           },
-          "gyro": "0",
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "rotation": {
             "type": "Chunk",
             "body": [
@@ -1073,8 +3665,50 @@ var watch = {
             ],
             "comments": []
           },
-          "skew_x": "0",
-          "skew_y": "0",
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "opacity": {
             "type": "Chunk",
             "body": [
@@ -1140,17 +3774,160 @@ var watch = {
             ],
             "comments": []
           },
-          "alignment": "cc",
-          "shape": "Square",
-          "width": "21",
-          "height": "21",
-          "color": "\"#010003\"",
-          "display": "bd"
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Square"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 21,
+                    "raw": "21"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 21,
+                    "raw": "21"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#010003",
+                    "raw": "\"#010003\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "x": {
             "type": "Chunk",
             "body": [
@@ -1355,7 +4132,28 @@ var watch = {
             ],
             "comments": []
           },
-          "gyro": "0",
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "rotation": {
             "type": "Chunk",
             "body": [
@@ -1431,8 +4229,50 @@ var watch = {
             ],
             "comments": []
           },
-          "skew_x": "0",
-          "skew_y": "0",
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "opacity": {
             "type": "Chunk",
             "body": [
@@ -1498,17 +4338,160 @@ var watch = {
             ],
             "comments": []
           },
-          "alignment": "cc",
-          "shape": "Square",
-          "width": "21",
-          "height": "21",
-          "color": "\"#010003\"",
-          "display": "bd"
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Square"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 21,
+                    "raw": "21"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 21,
+                    "raw": "21"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#010003",
+                    "raw": "\"#010003\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "x": {
             "type": "Chunk",
             "body": [
@@ -1713,7 +4696,28 @@ var watch = {
             ],
             "comments": []
           },
-          "gyro": "0",
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "rotation": {
             "type": "Chunk",
             "body": [
@@ -1789,8 +4793,50 @@ var watch = {
             ],
             "comments": []
           },
-          "skew_x": "0",
-          "skew_y": "0",
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "opacity": {
             "type": "Chunk",
             "body": [
@@ -1856,17 +4902,160 @@ var watch = {
             ],
             "comments": []
           },
-          "alignment": "cc",
-          "shape": "Square",
-          "width": "21",
-          "height": "21",
-          "color": "\"#010003\"",
-          "display": "bd"
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Square"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 21,
+                    "raw": "21"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 21,
+                    "raw": "21"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#010003",
+                    "raw": "\"#010003\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "x": {
             "type": "Chunk",
             "body": [
@@ -2071,7 +5260,28 @@ var watch = {
             ],
             "comments": []
           },
-          "gyro": "0",
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "rotation": {
             "type": "Chunk",
             "body": [
@@ -2147,8 +5357,50 @@ var watch = {
             ],
             "comments": []
           },
-          "skew_x": "0",
-          "skew_y": "0",
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "opacity": {
             "type": "Chunk",
             "body": [
@@ -2214,23 +5466,292 @@ var watch = {
             ],
             "comments": []
           },
-          "alignment": "cc",
-          "shape": "Square",
-          "width": "21",
-          "height": "21",
-          "color": "\"#010003\"",
-          "display": "bd"
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Square"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 21,
+                    "raw": "21"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 21,
+                    "raw": "21"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#010003",
+                    "raw": "\"#010003\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "markers",
-          "x": "0",
-          "y": "0",
-          "gyro": "0",
-          "rotation": "0",
-          "skew_x": "0",
-          "skew_y": "0",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "markers"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "opacity": {
             "type": "Chunk",
             "body": [
@@ -2279,12 +5800,138 @@ var watch = {
             ],
             "comments": []
           },
-          "radius": "195",
-          "anim_scale_x": "100",
-          "anim_scale_y": "100",
-          "m_width": "20",
-          "m_height": "20",
-          "m_count": "4",
+          "radius": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "radius"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 195,
+                    "raw": "195"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "anim_scale_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "anim_scale_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "anim_scale_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "anim_scale_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "m_width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "m_width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 20,
+                    "raw": "20"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "m_height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "m_height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 20,
+                    "raw": "20"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "m_count": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "m_count"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 4,
+                    "raw": "4"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "color": {
             "type": "Chunk",
             "body": [
@@ -2314,20 +5961,227 @@ var watch = {
             ],
             "comments": []
           },
-          "shape": "Circle",
-          "squarify": "0",
-          "display": "bd"
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Circle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "squarify": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "squarify"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "markers",
-          "x": "0",
-          "y": "0",
-          "gyro": "0",
-          "rotation": "0",
-          "skew_x": "0",
-          "skew_y": "0",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "markers"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "opacity": {
             "type": "Chunk",
             "body": [
@@ -2376,12 +6230,138 @@ var watch = {
             ],
             "comments": []
           },
-          "radius": "140",
-          "anim_scale_x": "100",
-          "anim_scale_y": "100",
-          "m_width": "20",
-          "m_height": "20",
-          "m_count": "10",
+          "radius": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "radius"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 140,
+                    "raw": "140"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "anim_scale_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "anim_scale_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "anim_scale_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "anim_scale_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "m_width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "m_width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 20,
+                    "raw": "20"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "m_height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "m_height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 20,
+                    "raw": "20"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "m_count": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "m_count"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 10,
+                    "raw": "10"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "color": {
             "type": "Chunk",
             "body": [
@@ -2411,20 +6391,227 @@ var watch = {
             ],
             "comments": []
           },
-          "shape": "Circle",
-          "squarify": "0",
-          "display": "bd"
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Circle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "squarify": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "squarify"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "markers",
-          "x": "0",
-          "y": "0",
-          "gyro": "0",
-          "rotation": "0",
-          "skew_x": "0",
-          "skew_y": "0",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "markers"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "opacity": {
             "type": "Chunk",
             "body": [
@@ -2473,12 +6660,138 @@ var watch = {
             ],
             "comments": []
           },
-          "radius": "37",
-          "anim_scale_x": "100",
-          "anim_scale_y": "100",
-          "m_width": "20",
-          "m_height": "20",
-          "m_count": "6",
+          "radius": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "radius"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 37,
+                    "raw": "37"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "anim_scale_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "anim_scale_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "anim_scale_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "anim_scale_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 100,
+                    "raw": "100"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "m_width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "m_width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 20,
+                    "raw": "20"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "m_height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "m_height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 20,
+                    "raw": "20"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "m_count": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "m_count"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 6,
+                    "raw": "6"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "color": {
             "type": "Chunk",
             "body": [
@@ -2508,20 +6821,227 @@ var watch = {
             ],
             "comments": []
           },
-          "shape": "Circle",
-          "squarify": "0",
-          "display": "bd"
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Circle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "squarify": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "squarify"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
-          "x": "0",
-          "y": "0",
-          "gyro": "0",
-          "rotation": "0",
-          "skew_x": "0",
-          "skew_y": "0",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "opacity": {
             "type": "Chunk",
             "body": [
@@ -2570,10 +7090,92 @@ var watch = {
             ],
             "comments": []
           },
-          "alignment": "cc",
-          "shape": "Circle",
-          "width": "20",
-          "height": "20",
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Circle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 20,
+                    "raw": "20"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 20,
+                    "raw": "20"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "color": {
             "type": "Chunk",
             "body": [
@@ -2603,12 +7205,52 @@ var watch = {
             ],
             "comments": []
           },
-          "display": "bd"
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "x": {
             "type": "Chunk",
             "body": [
@@ -2741,10 +7383,94 @@ var watch = {
             ],
             "comments": []
           },
-          "gyro": "0",
-          "rotation": "0",
-          "skew_x": "0",
-          "skew_y": "0",
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "opacity": {
             "type": "Chunk",
             "body": [
@@ -2793,17 +7519,160 @@ var watch = {
             ],
             "comments": []
           },
-          "alignment": "cc",
-          "shape": "Circle",
-          "width": "17",
-          "height": "17",
-          "color": "\"#010000\"",
-          "display": "bd"
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Circle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 17,
+                    "raw": "17"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 17,
+                    "raw": "17"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#010000",
+                    "raw": "\"#010000\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "x": {
             "type": "Chunk",
             "body": [
@@ -2988,10 +7857,94 @@ var watch = {
             ],
             "comments": []
           },
-          "gyro": "0",
-          "rotation": "0",
-          "skew_x": "0",
-          "skew_y": "0",
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "opacity": {
             "type": "Chunk",
             "body": [
@@ -3040,17 +7993,160 @@ var watch = {
             ],
             "comments": []
           },
-          "alignment": "cc",
-          "shape": "Circle",
-          "width": "17",
-          "height": "17",
-          "color": "\"#010000\"",
-          "display": "bd"
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Circle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 17,
+                    "raw": "17"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 17,
+                    "raw": "17"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#010000",
+                    "raw": "\"#010000\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "x": {
             "type": "Chunk",
             "body": [
@@ -3201,10 +8297,94 @@ var watch = {
             ],
             "comments": []
           },
-          "gyro": "0",
-          "rotation": "0",
-          "skew_x": "0",
-          "skew_y": "0",
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "opacity": {
             "type": "Chunk",
             "body": [
@@ -3253,17 +8433,160 @@ var watch = {
             ],
             "comments": []
           },
-          "alignment": "cc",
-          "shape": "Circle",
-          "width": "17",
-          "height": "17",
-          "color": "\"#010000\"",
-          "display": "bd"
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Circle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 17,
+                    "raw": "17"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 17,
+                    "raw": "17"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#010000",
+                    "raw": "\"#010000\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "x": {
             "type": "Chunk",
             "body": [
@@ -3396,10 +8719,94 @@ var watch = {
             ],
             "comments": []
           },
-          "gyro": "0",
-          "rotation": "0",
-          "skew_x": "0",
-          "skew_y": "0",
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "opacity": {
             "type": "Chunk",
             "body": [
@@ -3473,23 +8880,292 @@ var watch = {
             ],
             "comments": []
           },
-          "alignment": "cc",
-          "shape": "Circle",
-          "width": "17",
-          "height": "17",
-          "color": "\"#010000\"",
-          "display": "bd"
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Circle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 17,
+                    "raw": "17"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 17,
+                    "raw": "17"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#010000",
+                    "raw": "\"#010000\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       },
       {
         "_attributes": {
-          "type": "shape",
-          "x": "0",
-          "y": "0",
-          "gyro": "0",
-          "rotation": "0",
-          "skew_x": "0",
-          "skew_y": "0",
+          "type": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "type"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "gyro": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "gyro"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "rotation": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "rotation"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_x": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_x"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "skew_y": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "skew_y"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 0,
+                    "raw": "0"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "opacity": {
             "type": "Chunk",
             "body": [
@@ -3563,12 +9239,135 @@ var watch = {
             ],
             "comments": []
           },
-          "alignment": "cc",
-          "shape": "Circle",
-          "width": "17",
-          "height": "17",
-          "color": "\"#010000\"",
-          "display": "bd"
+          "alignment": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "alignment"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "cc"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "shape": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "shape"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "Circle"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "width": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "width"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 17,
+                    "raw": "17"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "height": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "height"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "NumericLiteral",
+                    "value": 17,
+                    "raw": "17"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "color": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "color"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "#010000",
+                    "raw": "\"#010000\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
+          "display": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "display"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "Identifier",
+                    "name": "bd"
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          }
         }
       }
     ],

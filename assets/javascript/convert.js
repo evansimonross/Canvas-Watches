@@ -38,7 +38,10 @@ var getWatch = (watchName) => {
                 if (/([A-Fa-f0-9]{6})$/.test(statement)) {
                     statement = '"#' + statement + '"';
                 }
-                layer['_attributes'][attribute] = /{|and|or/.test(statement) ? interpret(attribute + '=' + statement) : statement;
+                if (/^script/.test(statement)) { layer['_attributes'][attribute] = interpret(statement.substring(7, statement.length)); }
+                else { //layer['_attributes'][attribute] = /{|and|or/.test(statement) ? 
+                    layer['_attributes'][attribute] = interpret(attribute + '=' + statement); //: statement;
+                }
             }
         }
         jsWatch.Watch.Layer = layers;
@@ -67,8 +70,9 @@ var getWatch = (watchName) => {
 
                 // Evaluate lua chunks
                 var chunk = (input) => {
+                    if (!(input)) { return input; }
                     if (!(input.type)) { return input; }
-                    var type = input.type;
+                    var type = chunk(input.type);
                     switch (type) {
                         case "Chunk":
                             return chunk(input.body[0]);
@@ -159,18 +163,18 @@ var getWatch = (watchName) => {
                                     if (script.body[i].variables[0].name === variableName) {
                                         this.declarations.push('var ' + variableName + ' = ' + chunk(script.body[i].init[0]));
                                         variablesAdded.push(variableName);
-                                        break;
+                                        return variableName;
                                     }
                                 }
                             }
-                            return variableName;
+                            return '"' + variableName + '"';
                         case "NumericLiteral": return input.value;
                         case "StringLiteral":
                             if (/^([A-Fa-f0-9]{6})$/.test(input.value)) {
                                 return '"#' + input.value + '"';
                             }
                             else {
-                                return input.value;
+                                return '"' + input.value + '"';
                             }
                         default: return "";
                     }
@@ -186,22 +190,24 @@ var getWatch = (watchName) => {
 
                 for (var i = 0; i < layers.length; i++) {
                     var layer = layers[i]["_attributes"];
-                    if (layer.type === "shape") {
-                        if (layer.shape === "Circle") {
+                    var type = chunk(layer.type);
+                    if (type === '"shape"') {
+                        var shape = chunk(layer.shape);
+                        if (shape === '"Circle"') {
                             if (functionsAdded.indexOf("Circle") === -1) {
                                 this.drawFunctions.push(variables.draw.drawCircle);
                                 functionsAdded.push("Circle");
                             }
                             var line = 'drawCircle(';
                         }
-                        else if (layer.shape === "Square"){
+                        else if (shape === '"Square"') {
                             if (functionsAdded.indexOf("Square") === -1) {
                                 this.drawFunctions.push(variables.draw.drawSquare);
                                 functionsAdded.push("Square");
                             }
                             var line = 'drawSquare(';
                         }
-                        else if (layer.shape === "Triangle") {
+                        else if (shape === '"Triangle"') {
                             if (functionsAdded.indexOf("Triangle") === -1) {
                                 this.drawFunctions.push(variables.draw.drawTriangle);
                                 this.drawFunctions.push(variables.util.adjustTriangleHeight);
@@ -225,7 +231,7 @@ var getWatch = (watchName) => {
 
                         // height of shape
                         let h = chunk(layer.height);
-                        if (layer.shape === "Triangle") { h = 'adjustTriangleHeight(' + h + ')' }
+                        if (shape === '"Triangle"') { h = 'adjustTriangleHeight(' + h + ')' }
                         line += h + ', ';
 
                         // rotation
@@ -234,7 +240,7 @@ var getWatch = (watchName) => {
 
                         // color
                         let color = "";
-                        if (layer.shader === "GradientLinear") {
+                        if (chunk(layer.shader) === '"GradientLinear"') {
                             if (functionsAdded.indexOf("GradientLinear") === -1) {
                                 this.drawFunctions.push(variables.draw.drawGradientLinear);
                                 functionsAdded.push("GradientLinear");
@@ -262,6 +268,93 @@ var getWatch = (watchName) => {
                         drawComponents.lines.push(line);
                     }
                     // non-shape layers
+                    else if (type === '"markers_hm"') {
+                        if (functionsAdded.indexOf("MarkersHM") === -1) {
+                            this.drawFunctions.push(variables.draw.drawMarkersHM);
+                            functionsAdded.push("MarkersHM");
+                        }
+                        switch (chunk(layer['m_hour'])) {
+                            case '"Circle"':
+                                if (functionsAdded.indexOf("Circle") === -1) {
+                                    this.drawFunctions.push(variables.draw.drawCircle);
+                                    functionsAdded.push("Circle");
+                                }
+                                break;
+                            case '"Triangle"':
+                                if (functionsAdded.indexOf("Triangle") === -1) {
+                                    this.drawFunctions.push(variables.draw.drawTriangle);
+                                    this.drawFunctions.push(variables.util.adjustTriangleHeight);
+                                    functionsAdded.push("Triangle");
+                                }
+                                break;
+                            default:
+                                if (functionsAdded.indexOf("Square") === -1) {
+                                    this.drawFunctions.push(variables.draw.drawSquare);
+                                    functionsAdded.push("Square");
+                                }
+                                break;
+                        }
+                        switch (chunk(layer['m_minute'])) {
+                            case '"Circle"':
+                                if (functionsAdded.indexOf("Circle") === -1) {
+                                    this.drawFunctions.push(variables.draw.drawCircle);
+                                    functionsAdded.push("Circle");
+                                }
+                                break;
+                            case '"Triangle"':
+                                if (functionsAdded.indexOf("Triangle") === -1) {
+                                    this.drawFunctions.push(variables.draw.drawTriangle);
+                                    this.drawFunctions.push(variables.util.adjustTriangleHeight);
+                                    functionsAdded.push("Triangle");
+                                }
+                                break;
+                            default:
+                                if (functionsAdded.indexOf("Square") === -1) {
+                                    this.drawFunctions.push(variables.draw.drawSquare);
+                                    functionsAdded.push("Square");
+                                }
+                                break;
+                        }
+
+                        var line = 'drawMarkersHM(';
+
+                        // x-coord of center
+                        let x = chunk(layer.x);
+                        line += x + ', ';
+
+                        // y-coord of center
+                        let y = chunk(layer.y);
+                        line += y + ', ';
+
+                        // width of shape
+                        let radius = chunk(layer.radius);
+                        line += radius + ', ';
+
+                        // rotation
+                        let rotation = chunk(layer.rotation);
+                        line += rotation + ', ';
+
+                        // hourMarkers
+                        let hourMarkers = chunk(layer['m_hour']);
+                        line += hourMarkers + ', ';
+
+                        // minuteMarkers
+                        let minuteMarkers = chunk(layer['m_minute']);
+                        line += minuteMarkers + ', ';
+
+                        // hourColor
+                        let hourColor = chunk(layer.color);
+                        line += hourColor + ', ';
+
+                        // minuteColor
+                        let minuteColor = chunk(layer.color2);
+                        line += minuteColor + ', ';
+
+                        // opacity
+                        line += chunk(layer.opacity) + ');'
+
+                        drawComponents.lines.push(line);
+                    }
                     else {
 
                     }

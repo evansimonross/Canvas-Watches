@@ -1,3 +1,6 @@
+//This code was generated bia the Canvas-Watches tool by Evan Simon Ross
+//More info at https://github.com/evansimonross/Canvas-Watches
+
 var math = { rad: function (degrees) { return degrees / 180 * Math.PI; }, sin: function (degrees) { return Math.sin(degrees / 180 * Math.PI); }, cos: function (degrees) { return Math.cos(degrees / 180 * Math.PI); }, floor: function (input) { return Math.floor(input); } }
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");

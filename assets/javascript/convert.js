@@ -47,10 +47,12 @@ var getWatch = (watchName) => {
         jsWatch.Watch.Layer = layers;
 
         // Save the AST for bug checking and further development
-        fs.writeFile(`${watchName}AST.js`, `var watch = ${JSON.stringify(jsWatch, null, 2)}`, (err) => {
-            if (err) { console.error(err) }
-            console.log('Saved')
-        })
+        if (process.argv[3] === "ast") {
+            fs.writeFile(`${watchName}AST.js`, `var watch = ${JSON.stringify(jsWatch, null, 2)}`, (err) => {
+                if (err) { console.error(err) }
+                console.log('Saved as AST')
+            })
+        }
 
         var canvasJS = {
             declarations: ['var math = { rad: function (degrees) { return degrees / 180 * Math.PI; }, sin: function (degrees) { return Math.sin(degrees / 180 * Math.PI); }, cos: function (degrees) { return Math.cos(degrees / 180 * Math.PI); }, floor: function (input) { return Math.floor(input); } }',
@@ -149,7 +151,7 @@ var getWatch = (watchName) => {
                             if (variablesAdded.indexOf(variableName) === -1) {
                                 for (var i = 0; i < script.body.length; i++) {
                                     if (script.body[i].variables[0].name === variableName) {
-                                        this.declarations.push('var ' + variableName + ' = ' + chunk(script.body[i].init[0]));
+                                        this.declarations.push('var ' + variableName + ' = ' + chunk(script.body[i].init[0]) + ';');
                                         variablesAdded.push(variableName);
                                         break;
                                     }
@@ -161,13 +163,13 @@ var getWatch = (watchName) => {
                             if (variablesAdded.indexOf(variableName) === -1) {
                                 for (var i = 0; i < script.body.length; i++) {
                                     if (script.body[i].variables[0].name === variableName) {
-                                        this.declarations.push('var ' + variableName + ' = ' + chunk(script.body[i].init[0]));
+                                        this.declarations.push('var ' + variableName + ' = ' + chunk(script.body[i].init[0]) + ';');
                                         variablesAdded.push(variableName);
                                         return variableName;
                                     }
                                 }
                             }
-                            return '"' + variableName + '"';
+                            return variablesAdded.indexOf(variableName) === -1 ? '"' + variableName + '"' : variableName;
                         case "NumericLiteral": return input.value;
                         case "StringLiteral":
                             if (/^([A-Fa-f0-9]{6})$/.test(input.value)) {
@@ -326,7 +328,7 @@ var getWatch = (watchName) => {
                         let y = chunk(layer.y);
                         line += y + ', ';
 
-                        // width of shape
+                        // radius to outer edge of the markers
                         let radius = chunk(layer.radius);
                         line += radius + ', ';
 
@@ -355,11 +357,84 @@ var getWatch = (watchName) => {
 
                         drawComponents.lines.push(line);
                     }
+                    else if (type === '"markers"') {
+                        if (functionsAdded.indexOf("Markers") === -1) {
+                            this.drawFunctions.push(variables.draw.drawMarkers);
+                            functionsAdded.push("Markers");
+                        }
+                        switch (chunk(layer.shape)) {
+                            case '"Circle"':
+                                if (functionsAdded.indexOf("Circle") === -1) {
+                                    this.drawFunctions.push(variables.draw.drawCircle);
+                                    functionsAdded.push("Circle");
+                                }
+                                break;
+                            case '"Triangle"':
+                                if (functionsAdded.indexOf("Triangle") === -1) {
+                                    this.drawFunctions.push(variables.draw.drawTriangle);
+                                    this.drawFunctions.push(variables.util.adjustTriangleHeight);
+                                    functionsAdded.push("Triangle");
+                                }
+                                break;
+                           case '"Square"':
+                                if (functionsAdded.indexOf("Square") === -1) {
+                                    this.drawFunctions.push(variables.draw.drawSquare);
+                                    functionsAdded.push("Square");
+                                }
+                                break;
+                        }
+                        var line = 'drawMarkers(';
+
+                        // x-coord of center
+                        let x = chunk(layer.x);
+                        line += x + ', ';
+
+                        // y-coord of center
+                        let y = chunk(layer.y);
+                        line += y + ', ';
+
+                        // width of each marker
+                        let w = chunk(layer['m_width']);
+                        line += w + ', ';
+
+                        // height of each marker
+                        let h = chunk(layer['m_height']);
+                        line += h + ', ';
+
+                        // radius to outer edge of the markers
+                        let radius = chunk(layer.radius);
+                        line += radius + ', ';
+
+                        // rotation
+                        let rotation = chunk(layer.rotation);
+                        line += rotation + ', ';
+
+                        // count
+                        let count = chunk(layer['m_count']);
+                        line += count + ', ';
+
+                        // shape
+                        let shape = chunk(layer.shape);
+                        line += shape + ', ';
+
+                        // color
+                        let hourColor = chunk(layer.color);
+                        line += hourColor + ', ';
+
+                        // opacity
+                        line += chunk(layer.opacity) + ');'
+
+                        drawComponents.lines.push(line);
+                    }
                     else {
 
                     }
                 }
                 this.drawFunctions.push(drawComponents);
+
+                // comment 
+                text+= "//This code was generated bia the Canvas-Watches tool by Evan Simon Ross\n";
+                text+= "//More info at https://github.com/evansimonross/Canvas-Watches\n\n";
 
                 // top level declarations 
                 for (var i = 0; i < this.declarations.length; i++) {

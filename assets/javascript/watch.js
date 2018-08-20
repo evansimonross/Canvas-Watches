@@ -1,3 +1,6 @@
+//This code was generated bia the Canvas-Watches tool by Evan Simon Ross
+//More info at https://github.com/evansimonross/Canvas-Watches
+
 var math = { rad: function (degrees) { return degrees / 180 * Math.PI; }, sin: function (degrees) { return Math.sin(degrees / 180 * Math.PI); }, cos: function (degrees) { return Math.cos(degrees / 180 * Math.PI); }, floor: function (input) { return Math.floor(input); } }
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
@@ -5,7 +8,7 @@ var radius = canvas.height / 2;
 ctx.translate(radius, radius);
 setInterval(drawClock, 10);
 var ucolor = "#7388c7";
-var var_screen = 0
+var var_screen = 0;
 
 var now;
 var year;
@@ -201,6 +204,37 @@ function drawSquare(x,y,w,h,ang,color,opacity) {
   ctx.restore();
 }
 
+function drawMarkers(x,y,w,h,radius,rotation,count,shape,color,opacity) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.rotate(rotation);
+  var ang;
+  var num;
+  for(num= 0; num < count; num++){
+    ang = num * Math.PI / (count/2);
+    ctx.rotate(ang);
+    switch(shape){
+      case "Square":
+        drawSquare(0, -radius + h/2, w, h, 0, color, opacity);
+        break;
+      case "Circle":
+        drawCircle(0, -radius + h/2, w, h, 0, color, opacity);
+        break;
+      case "Triangle":
+        h = adjustTriangleHeight (h);
+        drawTriangle(0, -radius + h/2, w, h, 180, color, opacity);
+        break;
+      default:
+        console.log("This type of marker not found");
+        break;
+    }
+    ctx.rotate(-ang);
+    }
+  ctx.rotate(-rotation);
+  ctx.translate(-x,-y);
+  ctx.restore();
+}
+
 function drawComponents() {
   drawCircle(0, 0, 440, 440, 0, ucolor, 100);
   drawCircle(0, 0, 400, 400, 0, "#000000", 100);
@@ -215,11 +249,14 @@ function drawComponents() {
   drawSquare((210*math.sin((((dm-(dm%5))+10)*6))), (-210*math.cos((((dm-(dm%5))+10)*6))), 21, 21, (((dm-(dm%5))+10)*6), "#010003", ((dm%5)>=2) ? 100 : 0);
   drawSquare((210*math.sin((((dm-(dm%5))+15)*6))), (-210*math.cos((((dm-(dm%5))+15)*6))), 21, 21, (((dm-(dm%5))+15)*6), "#010003", ((dm%5)>=3) ? 100 : 0);
   drawSquare((210*math.sin((((dm-(dm%5))+20)*6))), (-210*math.cos((((dm-(dm%5))+20)*6))), 21, 21, (((dm-(dm%5))+20)*6), "#010003", ((dm%5)>=4) ? 100 : 0);
-  drawCircle(0, 0, 20, 20, 0, ucolor, ("var_screen"===1) ? 100 : 0);
-  drawCircle((246*math.sin((dn*30))), (-246*math.cos((dn*30))), 17, 17, 0, "#010000", ("var_screen"===1) ? 100 : 0);
-  drawCircle((185*math.sin((math.floor((dd/10))*90))), (-185*math.cos((math.floor((dd/10))*90))), 17, 17, 0, "#010000", ("var_screen"===1) ? 100 : 0);
-  drawCircle((130*math.sin(((dd%10)*36))), (-130*math.cos(((dd%10)*36))), 17, 17, 0, "#010000", ("var_screen"===1) ? 100 : 0);
-  drawCircle((27*math.sin((ddw0*60))), (-27*math.cos((ddw0*60))), 17, 17, 0, "#010000", ("var_screen"===1) && (ddw0!=6) ? 100 : 0);
-  drawCircle(0, 0, 17, 17, 0, "#010000", ("var_screen"===1) && (ddw0===6) ? 100 : 0);
+  drawMarkers(0, 0, 20, 20, 195, 0, 4, "Circle", ucolor, (var_screen===1) ? 100 : 0);
+  drawMarkers(0, 0, 20, 20, 140, 0, 10, "Circle", ucolor, (var_screen===1) ? 100 : 0);
+  drawMarkers(0, 0, 20, 20, 37, 0, 6, "Circle", ucolor, (var_screen===1) ? 100 : 0);
+  drawCircle(0, 0, 20, 20, 0, ucolor, (var_screen===1) ? 100 : 0);
+  drawCircle((246*math.sin((dn*30))), (-246*math.cos((dn*30))), 17, 17, 0, "#010000", (var_screen===1) ? 100 : 0);
+  drawCircle((185*math.sin((math.floor((dd/10))*90))), (-185*math.cos((math.floor((dd/10))*90))), 17, 17, 0, "#010000", (var_screen===1) ? 100 : 0);
+  drawCircle((130*math.sin(((dd%10)*36))), (-130*math.cos(((dd%10)*36))), 17, 17, 0, "#010000", (var_screen===1) ? 100 : 0);
+  drawCircle((27*math.sin((ddw0*60))), (-27*math.cos((ddw0*60))), 17, 17, 0, "#010000", (var_screen===1) && (ddw0!=6) ? 100 : 0);
+  drawCircle(0, 0, 17, 17, 0, "#010000", (var_screen===1) && (ddw0===6) ? 100 : 0);
 }
 

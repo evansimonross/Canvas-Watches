@@ -146,6 +146,26 @@ var getWatch = (watchName) => {
                                 // What other types of CallExpressions exist?
                                 return "";
                             }
+                        case "MemberExpression":
+                            var baseName = input.base.name;
+                            if (variablesAdded.indexOf(baseName) === -1) {
+                                this.declarations.push('var ' + baseName + ' = {};');
+                                variablesAdded.push(baseName);
+                            }
+                            var variableName = input.identifier.name;
+                            if (variablesAdded.indexOf(baseName + "." + variableName) === -1) {
+                                for (var i = 0; i < script.body.length; i++) {
+                                    if (script.body[i].type!="AssignmentStatement") {continue; }
+                                    var expression = script.body[i].variables[0];
+                                    if (expression.type!="MemberExpression") { continue; }
+                                    if (expression.identifier.name === variableName && expression.base.name === baseName) {
+                                        this.declarations.push(baseName + "." + variableName + ' = ' + chunk(script.body[i].init[0]) + ';');
+                                        variablesAdded.push(baseName + "." + variableName);
+                                        break;
+                                    }
+                                }
+                            }
+                            return baseName + "." + variableName;
                         case "IndexExpression":
                             var variableName = input.base.name;
                             if (variablesAdded.indexOf(variableName) === -1) {
@@ -162,10 +182,13 @@ var getWatch = (watchName) => {
                             var variableName = input.name;
                             if (variablesAdded.indexOf(variableName) === -1) {
                                 for (var i = 0; i < script.body.length; i++) {
-                                    if (script.body[i].variables[0].name === variableName) {
-                                        this.declarations.push('var ' + variableName + ' = ' + chunk(script.body[i].init[0]) + ';');
-                                        variablesAdded.push(variableName);
-                                        return variableName;
+                                    let scriptLine = script.body[i];
+                                    if (scriptLine.variables) {
+                                        if (scriptLine.variables[0].name === variableName) {
+                                            this.declarations.push('var ' + variableName + ' = ' + chunk(scriptLine.init[0]) + ';');
+                                            variablesAdded.push(variableName);
+                                            return variableName;
+                                        }
                                     }
                                 }
                             }
@@ -376,7 +399,7 @@ var getWatch = (watchName) => {
                                     functionsAdded.push("Triangle");
                                 }
                                 break;
-                           case '"Square"':
+                            case '"Square"':
                                 if (functionsAdded.indexOf("Square") === -1) {
                                     this.drawFunctions.push(variables.draw.drawSquare);
                                     functionsAdded.push("Square");
@@ -433,8 +456,8 @@ var getWatch = (watchName) => {
                 this.drawFunctions.push(drawComponents);
 
                 // comment 
-                text+= "//This code was generated via the Canvas-Watches tool by Evan Simon Ross\n";
-                text+= "//More info at https://github.com/evansimonross/Canvas-Watches\n\n";
+                text += "//This code was generated via the Canvas-Watches tool by Evan Simon Ross\n";
+                text += "//More info at https://github.com/evansimonross/Canvas-Watches\n\n";
 
                 // top level declarations 
                 for (var i = 0; i < this.declarations.length; i++) {

@@ -28,7 +28,7 @@ var time = {
     dh24to: { name: 'dh24tt', declaration: "hour === 0 ? 4 : hour % 10" },
     dh23tt: { name: 'dh23tt', declaration: "math.floor(hour/10)" },
     dh23to: { name: 'dh23to', declaration: "hour % 10" },
-    drh: { name: 'drh', declaration: "360*((hour % 12)/12)+360*(minute/60*60)+360*(second/(60*60*60);" },
+    drh: { name: 'drh', declaration: "360*((hour % 12)/12)+360*(minute/(60*60))+360*(second/(60*60*60))" },
     drh0: { name: 'drh0', declaration: "360*((hour % 12)/12)" },
     // minutes
     dm: { name: 'dm', declaration: "minute" },

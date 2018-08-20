@@ -1,4 +1,4 @@
-//This code was generated bia the Canvas-Watches tool by Evan Simon Ross
+//This code was generated via the Canvas-Watches tool by Evan Simon Ross
 //More info at https://github.com/evansimonross/Canvas-Watches
 
 var math = { rad: function (degrees) { return degrees / 180 * Math.PI; }, sin: function (degrees) { return Math.sin(degrees / 180 * Math.PI); }, cos: function (degrees) { return Math.cos(degrees / 180 * Math.PI); }, floor: function (input) { return Math.floor(input); } }
@@ -221,8 +221,8 @@ function drawMarkers(x,y,w,h,radius,rotation,count,shape,color,opacity) {
         drawCircle(0, -radius + h/2, w, h, 0, color, opacity);
         break;
       case "Triangle":
-        h = adjustTriangleHeight (h);
-        drawTriangle(0, -radius + h/2, w, h, 180, color, opacity);
+        var th = adjustTriangleHeight (h);
+        drawTriangle(0, -radius + th/2, w, th, 180, color, opacity);
         break;
       default:
         console.log("This type of marker not found");

@@ -15,17 +15,17 @@ var extract = (watchName) => {
     }
 
     // reading archives
-    var zipWatch = new AdmZip("../watches/" + watchName + '.watch');
-    zipWatch.extractAllTo("../watches/" + watchName + '/', true);
+    var zipWatch = new AdmZip("watches/" + watchName + '.watch');
+    zipWatch.extractAllTo("watches/" + watchName + '/', true);
     getWatch(watchName);
 }
 
 var getWatch = (watchName) => {
-    var xmlWatch = fs.readFileSync('../watches/' + watchName + '/watch.xml', 'utf8');
+    var xmlWatch = fs.readFileSync('watches/' + watchName + '/watch.xml', 'utf8');
     var options = { compact: true, ignoreComment: true, alwaysChildren: true };
     var jsWatch = convert.xml2js(xmlWatch, options);
 
-    var script = interpret(fs.readFileSync('../watches/' + watchName + '/scripts/script.txt', 'utf8'));
+    var script = interpret(fs.readFileSync('watches/' + watchName + '/scripts/script.txt', 'utf8'));
     jsWatch.Watch.Script = script;
 
     // Parse the jsWatch file's layers for displayable content
@@ -48,7 +48,7 @@ var getWatch = (watchName) => {
 
         // Save the AST for bug checking and further development
         if (process.argv[3] === "ast") {
-            fs.writeFile(`${watchName}AST.js`, `var watch = ${JSON.stringify(jsWatch, null, 2)}`, (err) => {
+            fs.writeFile(`watches/${watchName}AST.js`, `var watch = ${JSON.stringify(jsWatch, null, 2)}`, (err) => {
                 if (err) { console.error(err) }
                 console.log('Saved as AST')
             })
@@ -433,7 +433,7 @@ var getWatch = (watchName) => {
                 this.drawFunctions.push(drawComponents);
 
                 // comment 
-                text+= "//This code was generated bia the Canvas-Watches tool by Evan Simon Ross\n";
+                text+= "//This code was generated via the Canvas-Watches tool by Evan Simon Ross\n";
                 text+= "//More info at https://github.com/evansimonross/Canvas-Watches\n\n";
 
                 // top level declarations 
@@ -483,7 +483,7 @@ var getWatch = (watchName) => {
         canvasJS.generate('watch.js');
 
         // Saves as a file unique to the watch name to facilitate multiple conversions.
-        fs.createReadStream('watch.js').pipe(fs.createWriteStream(`${watchName}.js`));
+        fs.createReadStream('watch.js').pipe(fs.createWriteStream(`watches/${watchName}.js`));
     }
 
     parse();

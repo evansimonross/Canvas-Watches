@@ -1,4 +1,4 @@
-//This code was generated bia the Canvas-Watches tool by Evan Simon Ross
+//This code was generated via the Canvas-Watches tool by Evan Simon Ross
 //More info at https://github.com/evansimonross/Canvas-Watches
 
 var math = { rad: function (degrees) { return degrees / 180 * Math.PI; }, sin: function (degrees) { return Math.sin(degrees / 180 * Math.PI); }, cos: function (degrees) { return Math.cos(degrees / 180 * Math.PI); }, floor: function (input) { return Math.floor(input); } }
@@ -7,7 +7,7 @@ var ctx = canvas.getContext("2d");
 var radius = canvas.height / 2;
 ctx.translate(radius, radius);
 setInterval(drawClock, 10);
-var var_tens = [0, -63.2, -31.6, 0, 31.6, 63.2]
+var var_tens = [0, -63.2, -31.6, 0, 31.6, 63.2];
 
 var now;
 var year;

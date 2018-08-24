@@ -35,6 +35,7 @@ function drawClock() {
   drm = 360*(minute/60)+360*(second/(60*60));
   drss = 360*(second/60)+360*(millisecond/(60*1000));
   drh = 360*((hour % 12)/12)+360*(minute/(60*60))+360*(second/(60*60*60));
+
   drawFace();
   drawComponents();
   cutOut();
@@ -65,10 +66,12 @@ function drawCircle(x,y,w,h,ang,color,opacity) {
   h*=(canvas.width/512);
   ctx.save();
   ctx.globalAlpha = opacity/100;
+  ctx.rotate(ang);
   ctx.beginPath();
   ctx.ellipse(x, y, w/2, h/2, ang, 0, Math.PI*2)
   ctx.fillStyle = color;
   ctx.fill();
+  ctx.rotate(-ang);
   ctx.restore();
 }
 

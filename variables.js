@@ -155,7 +155,8 @@ var draw = {
         params: ['start', 'end', 'rotation', 'scale', 'length'],
         lines: [
             'length*=(canvas.width/512);',
-            'scale = (100-scale)/100;',
+            // TODO: figure out how to accept scales not between 0 and 100
+            'scale = scale > 100 ? 1 : scale < 0 ? 0 : (100-scale)/100;',
             'var grd = ctx.createLinearGradient(-length/2, -length/2, -length/2, length/2);',
             'grd.addColorStop(0, start);',
             'grd.addColorStop(scale/2, start);',

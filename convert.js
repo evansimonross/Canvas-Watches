@@ -27,6 +27,7 @@ var getWatch = (watchName) => {
 
     var script = interpret(fs.readFileSync('watches/' + watchName + '/scripts/script.txt', 'utf8'));
     jsWatch.Watch.Script = script;
+    //console.log(JSON.stringify(jsWatch, null, 2));
 
     // Parse the jsWatch file's layers for displayable content
     var parse = () => {
@@ -39,8 +40,13 @@ var getWatch = (watchName) => {
                     statement = '"#' + statement + '"';
                 }
                 if (/^script/.test(statement)) { layer['_attributes'][attribute] = interpret(statement.substring(7, statement.length)); }
-                else { //layer['_attributes'][attribute] = /{|and|or/.test(statement) ? 
-                    layer['_attributes'][attribute] = interpret(attribute + '=' + statement); //: statement;
+                else {
+                    try {
+                        layer['_attributes'][attribute] = interpret(attribute + '=' + statement);
+                    }
+                    catch (err) {
+                        console.log(err);
+                    }
                 }
             }
         }
@@ -82,10 +88,21 @@ var getWatch = (watchName) => {
                             return chunk(input.init[0]);
                         case "LogicalExpression":
                             if (input.operator === "or") {
-                                return input.left.operator === "and" ? chunk(input.left.left) + ' ? ' + chunk(input.left.right) + ' : ' + chunk(input.right) : chunk(input.left) + ' || ' + chunk(input.right);
+                                return chunk(input.left) + " : " + chunk(input.right);
+                                // if (input.left.operator === "and") {
+                                //     return chunk(input.left.left) + ' ? ' + chunk(input.left.right) + ' : ' + chunk(input.right);
+                                // }
+                                // else if (input.left.operator === "or") {
+                                //     if(input.left.left.operator === "and") {
+
+                                //     }
+                                // }
+                                // else {
+                                //     return chunk(input.left) + ' || ' + chunk(input.right);
+                                // }
                             }
                             else if (input.operator === "and") {
-                                return chunk(input.left) + ' && ' + chunk(input.right);
+                                return chunk(input.left) + ' ? ' + chunk(input.right);
                             }
                         case "UnaryExpression":
                             if (input.operator === "~") {
@@ -155,9 +172,9 @@ var getWatch = (watchName) => {
                             var variableName = input.identifier.name;
                             if (variablesAdded.indexOf(baseName + "." + variableName) === -1) {
                                 for (var i = 0; i < script.body.length; i++) {
-                                    if (script.body[i].type!="AssignmentStatement") {continue; }
+                                    if (script.body[i].type != "AssignmentStatement") { continue; }
                                     var expression = script.body[i].variables[0];
-                                    if (expression.type!="MemberExpression") { continue; }
+                                    if (expression.type != "MemberExpression") { continue; }
                                     if (expression.identifier.name === variableName && expression.base.name === baseName) {
                                         this.declarations.push(baseName + "." + variableName + ' = ' + chunk(script.body[i].init[0]) + ';');
                                         variablesAdded.push(baseName + "." + variableName);
@@ -448,6 +465,12 @@ var getWatch = (watchName) => {
                         line += chunk(layer.opacity) + ');'
 
                         drawComponents.lines.push(line);
+                    }
+                    else if (type === '"image"') {
+                        console.log('image');
+                    }
+                    else if (type === '"text"') {
+                        console.log('text');
                     }
                     else {
 

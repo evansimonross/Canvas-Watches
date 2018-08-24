@@ -84,7 +84,7 @@ function adjustTriangleHeight(unadjusted) {
 
 function drawGradientLinear(start,end,rotation,scale,length) {
   length*=(canvas.width/512);
-  scale = (100-scale)/100;
+  scale = scale > 100 ? 1 : scale < 0 ? 0 : (100-scale)/100;
   var grd = ctx.createLinearGradient(-length/2, -length/2, -length/2, length/2);
   grd.addColorStop(0, start);
   grd.addColorStop(scale/2, start);

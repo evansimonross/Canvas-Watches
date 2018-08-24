@@ -35,6 +35,7 @@ function drawClock() {
   drm = 360*(minute/60)+360*(second/(60*60));
   drss = 360*(second/60)+360*(millisecond/(60*1000));
   drh = 360*((hour % 12)/12)+360*(minute/(60*60))+360*(second/(60*60*60));
+
   drawFace();
   drawComponents();
   cutOut();
@@ -64,17 +65,22 @@ function drawCircle(x,y,w,h,ang,color,opacity) {
   w*=(canvas.width/512);
   h*=(canvas.width/512);
   ctx.save();
+  ctx.translate(x,y);
+  ang = math.rad(ang);
+  ctx.rotate(ang);
   ctx.globalAlpha = opacity/100;
   ctx.beginPath();
-  ctx.ellipse(x, y, w/2, h/2, ang, 0, Math.PI*2)
+  ctx.ellipse(0, 0, w/2, h/2, 0, 0, Math.PI*2)
   ctx.fillStyle = color;
   ctx.fill();
+  ctx.rotate(-ang);
+  ctx.translate(-x,-y);
   ctx.restore();
 }
 
 function drawGradientLinear(start,end,rotation,scale,length) {
   length*=(canvas.width/512);
-  scale = scale > 100 ? 1 : scale < 0 ? 0 : (100-scale)/100;
+  scale = scale > 100 ? 0 : scale < 0 ? 1 : (100-scale)/100;
   var grd = ctx.createLinearGradient(-length/2, -length/2, -length/2, length/2);
   grd.addColorStop(0, start);
   grd.addColorStop(scale/2, start);

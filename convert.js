@@ -88,21 +88,20 @@ var getWatch = (watchName) => {
                             return chunk(input.init[0]);
                         case "LogicalExpression":
                             if (input.operator === "or") {
-                                return chunk(input.left) + " : " + chunk(input.right);
-                                // if (input.left.operator === "and") {
-                                //     return chunk(input.left.left) + ' ? ' + chunk(input.left.right) + ' : ' + chunk(input.right);
-                                // }
-                                // else if (input.left.operator === "or") {
-                                //     if(input.left.left.operator === "and") {
-
-                                //     }
-                                // }
-                                // else {
-                                //     return chunk(input.left) + ' || ' + chunk(input.right);
-                                // }
+                                if (input.left.operator === "and") {
+                                    return chunk(input.left.left) + ' ? ' + chunk(input.left.right) + ' : ' + chunk(input.right);
+                                }
+                                else if (input.left.operator === "or") {
+                                    if(input.left.left.operator === "and") {
+                                        return chunk(input.left.left.left) + ' ? ' + chunk(input.left.left.right) + ' : ' + chunk(input.left.right.left) + ' ? ' + chunk(input.left.right.right) + ' : ' + chunk(input.right);
+                                    }
+                                }
+                                else {
+                                    return chunk(input.left) + ' || ' + chunk(input.right);
+                                }
                             }
                             else if (input.operator === "and") {
-                                return chunk(input.left) + ' ? ' + chunk(input.right);
+                                return chunk(input.left) + ' && ' + chunk(input.right);
                             }
                         case "UnaryExpression":
                             if (input.operator === "~") {

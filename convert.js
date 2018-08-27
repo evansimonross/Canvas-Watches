@@ -10,14 +10,19 @@ var interpret = (lua) => {
 }
 
 var extract = (watchName) => {
-    if (watchName.indexOf('.watch') > -1) {
-        watchName = watchName.substring(0, watchName.indexOf('.watch'));
-    }
+    if (watchName) {
+        if (watchName.indexOf('.watch') > -1) {
+            watchName = watchName.substring(0, watchName.indexOf('.watch'));
+        }
 
-    // reading archives
-    var zipWatch = new AdmZip("watches/" + watchName + '.watch');
-    zipWatch.extractAllTo("watches/" + watchName + '/', true);
-    getWatch(watchName);
+        // reading archives
+        var zipWatch = new AdmZip("watches/" + watchName + '.watch');
+        zipWatch.extractAllTo("watches/" + watchName + '/', true);
+        getWatch(watchName);
+    }
+    else{
+        console.log("ERROR: Please include the name of your watch file in the command line after 'node convert'");
+    }
 }
 
 var getWatch = (watchName) => {
@@ -92,7 +97,7 @@ var getWatch = (watchName) => {
                                     return chunk(input.left.left) + ' ? ' + chunk(input.left.right) + ' : ' + chunk(input.right);
                                 }
                                 else if (input.left.operator === "or") {
-                                    if(input.left.left.operator === "and") {
+                                    if (input.left.left.operator === "and") {
                                         return chunk(input.left.left.left) + ' ? ' + chunk(input.left.left.right) + ' : ' + chunk(input.left.right.left) + ' ? ' + chunk(input.left.right.right) + ' : ' + chunk(input.right);
                                     }
                                 }
@@ -281,7 +286,7 @@ var getWatch = (watchName) => {
 
                         // color
                         let color = "";
-                        if (chunk(layer.shader) === '"GradientRadial"'){
+                        if (chunk(layer.shader) === '"GradientRadial"') {
                             if (functionsAdded.indexOf("GradientRadial") === -1) {
                                 this.drawFunctions.push(variables.draw.drawGradientRadial);
                                 functionsAdded.push("GradientRadial");

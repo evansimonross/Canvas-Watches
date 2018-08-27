@@ -295,8 +295,10 @@ var getWatch = (watchName) => {
                             color += rotation + ', ';
                             let scale = chunk(layer.u_4);
                             color += scale + ', ';
-                            let length = h;
-                            color += length + ')';
+                            let width = w;
+                            color += width + ', ';
+                            let height = h;
+                            color += height + ')';
                         }
                         else {
                             color = chunk(layer.color);

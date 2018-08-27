@@ -80,7 +80,9 @@ function drawCircle(x,y,w,h,ang,color,opacity) {
 }
 
 function drawGradientLinear(start,end,ang,scale,width,height) {
-  length*=(canvas.width/512);
+  width*=(canvas.width/512);
+  height*=(canvas.width/512);
+  ang+=90
   scale = scale > 100 ? 0 : scale < 0 ? 1 : (100-scale)/100;
   var x1, y1, x2, y2;
   if ((0 <= ang && ang < 45)) {

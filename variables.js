@@ -162,7 +162,9 @@ var draw = {
         name: 'drawGradientLinear',
         params: ['start', 'end', 'ang', 'scale', 'width', 'height'],
         lines: [
-            'length*=(canvas.width/512);',
+            'width*=(canvas.width/512);',
+            'height*=(canvas.width/512);',
+            'ang+=90',
             // TODO: figure out how to accept scales not between 0 and 100
             'scale = scale > 100 ? 0 : scale < 0 ? 1 : (100-scale)/100;',
             'var x1, y1, x2, y2;',

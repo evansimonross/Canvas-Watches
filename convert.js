@@ -281,7 +281,24 @@ var getWatch = (watchName) => {
 
                         // color
                         let color = "";
-                        if (chunk(layer.shader) === '"GradientLinear"') {
+                        if (chunk(layer.shader) === '"GradientRadial"'){
+                            if (functionsAdded.indexOf("GradientRadial") === -1) {
+                                this.drawFunctions.push(variables.draw.drawGradientRadial);
+                                functionsAdded.push("GradientRadial");
+                            }
+                            color = 'drawGradientRadial(';
+                            let start = chunk(layer.u_1);
+                            color += start + ', ';
+                            let end = chunk(layer.u_2);
+                            color += end + ', ';
+                            let scale = chunk(layer.u_3);
+                            color += scale + ', ';
+                            let width = w;
+                            color += width + ', ';
+                            let height = h;
+                            color += height + ')';
+                        }
+                        else if (chunk(layer.shader) === '"GradientLinear"') {
                             if (functionsAdded.indexOf("GradientLinear") === -1) {
                                 this.drawFunctions.push(variables.draw.drawGradientLinear);
                                 functionsAdded.push("GradientLinear");

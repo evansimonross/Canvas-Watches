@@ -158,6 +158,21 @@ var draw = {
             'ctx.restore();'
         ]
     },
+    drawGradientRadial: {
+        name: 'drawGradientRadial',
+        params: ['start', 'end', 'scale', 'width', 'height'],
+        lines: [
+            'width*=(canvas.width/512);',
+            'height*=(canvas.width/512);',
+            'var r = width>height ? height / 2 : width / 2;',
+            'scale = scale > 100 ? 0 : scale < 0 ? 1 : (100-scale)/100;',
+            'var grd = ctx.createRadialGradient(r, r, 0, r, r, r);',
+            'grd.addColorStop(0, start);',
+            'grd.addColorStop(1-(scale/2), end);',
+            'grd.addColorStop(1, end);',
+            'return grd;'
+        ]
+    },
     drawGradientLinear: {
         name: 'drawGradientLinear',
         params: ['start', 'end', 'ang', 'scale', 'width', 'height'],

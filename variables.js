@@ -29,6 +29,7 @@ var time = {
     dh23tt: { name: 'dh23tt', declaration: "math.floor(hour/10)" },
     dh23to: { name: 'dh23to', declaration: "hour % 10" },
     drh: { name: 'drh', declaration: "360*((hour % 12)/12)+360*(minute/(60*60))+360*(second/(60*60*60))" },
+    drh24: { name: 'drh24', declaration: "360*(hour/24)+360*(minute/(120*60))+360*(second/(120*60*60))"},
     drh0: { name: 'drh0', declaration: "360*((hour % 12)/12)" },
     // minutes
     dm: { name: 'dm', declaration: "minute" },
@@ -358,6 +359,25 @@ var draw = {
             'ctx.rotate(-rotation);',
             'ctx.translate(-x,-y);',
             'ctx.restore();',
+        ]
+    },
+    drawImage: {
+        name: 'drawImage',
+        params: ['img', 'x', 'y', 'w', 'h', 'ang', 'opacity'],
+        lines: [
+            'w *= (canvas.width / 512);',
+            'h *= (canvas.width / 512);',
+            'ctx.save();',
+            'ctx.translate(x, y);',
+            'ang = math.rad(ang);',
+            'ctx.rotate(ang);',
+            'ctx.globalAlpha = opacity / 100;',
+            'ctx.translate(-w/2, -h/2);',
+            'ctx.drawImage(img, 0, 0, w, h);',
+            'ctx.translate(w/2, h/2);',
+            'ctx.rotate(-ang);',
+            'ctx.translate(-x, -y);',
+            'ctx.restore();'
         ]
     }
 }

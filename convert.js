@@ -18,9 +18,11 @@ var extract = (watchName) => {
         // reading archives
         var zipWatch = new AdmZip("watches/" + watchName + '.watch');
         zipWatch.extractAllTo("watches/" + watchName + '/', true);
+        fs.unlink("watches/" + watchName + "/preview.jpg", (err) => { });
+        fs.unlink("watches/" + watchName + "/preview_dim.jpg", (err) => { });
         getWatch(watchName);
     }
-    else{
+    else {
         console.log("ERROR: Please include the name of your watch file in the command line after 'node convert'");
     }
 }
@@ -75,6 +77,7 @@ var getWatch = (watchName) => {
             ],
             timeVariables: [variables.time.now, variables.time.year, variables.time.month, variables.time.date, variables.time.day, variables.time.hour, variables.time.minute, variables.time.second, variables.time.millisecond],
             drawFunctions: [variables.draw.drawFace],
+            images: [],
 
             generate: function (file) {
                 var text = "";
@@ -490,7 +493,42 @@ var getWatch = (watchName) => {
                         drawComponents.lines.push(line);
                     }
                     else if (type === '"image"') {
-                        console.log('image');
+                        if (functionsAdded.indexOf("Image") === -1) {
+                            this.drawFunctions.push(variables.draw.drawImage);
+                            functionsAdded.push("Image");
+                        }
+
+                        var image = {};
+                        image.name = `img${this.images.length}`;
+                        image.path = `"watches/${watchName}/images/${layer.path}"`;
+                        this.images.push(image);
+
+                        var line = `drawImage(${image.name}, `;
+
+                        // x-coord of center
+                        let x = chunk(layer.x);
+                        line += x + ', ';
+
+                        // y-coord of center
+                        let y = chunk(layer.y);
+                        line += y + ', ';
+
+                        // width of image
+                        let w = chunk(layer.width);
+                        line += w + ', ';
+
+                        // height of image
+                        let h = chunk(layer.height);
+                        line += h + ', ';
+
+                        // rotation
+                        let rotation = chunk(layer.rotation);
+                        line += rotation + ', ';
+
+                        // opacity
+                        line += chunk(layer.opacity) + ');'
+
+                        drawComponents.lines.push(line);
                     }
                     else if (type === '"text"') {
                         console.log('text');
@@ -514,6 +552,13 @@ var getWatch = (watchName) => {
                     text += 'var ' + this.timeVariables[i].name + ';\n';
                 }
                 text += "\n";
+
+                // image decalarations
+                for (var i = 0; i < this.images.length; i++) {
+                    text += 'var ' + this.images[i].name + ' = new Image();\n';
+                    text += this.images[i].name + '.src = ' + this.images[i].path + ';\n';
+                    text += '\n';
+                }
 
                 // draw clock
                 text += 'function drawClock() {\n';

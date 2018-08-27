@@ -18,9 +18,13 @@ var hour;
 var minute;
 var second;
 var millisecond;
+var drh24;
 var drm;
 var drss;
 var drh;
+
+var img0 = new Image();
+img0.src = "watches/orbit/images/.img200.jpg";
 
 function drawClock() {
   now = new Date();
@@ -32,6 +36,7 @@ function drawClock() {
   minute = now.getMinutes();
   second = now.getSeconds();
   millisecond = now.getMilliseconds();
+  drh24 = 360*(hour/24)+360*(minute/(120*60))+360*(second/(120*60*60));
   drm = 360*(minute/60)+360*(second/(60*60));
   drss = 360*(second/60)+360*(millisecond/(60*1000));
   drh = 360*((hour % 12)/12)+360*(minute/(60*60))+360*(second/(60*60*60));
@@ -56,6 +61,22 @@ function drawFace() {
   ctx.arc(0, 0, radius, 0, 2 * Math.PI);
   ctx.fillStyle = 'black';
   ctx.fill();
+}
+
+function drawImage(img,x,y,w,h,ang,opacity) {
+  w *= (canvas.width / 512);
+  h *= (canvas.width / 512);
+  ctx.save();
+  ctx.translate(x, y);
+  ang = math.rad(ang);
+  ctx.rotate(ang);
+  ctx.globalAlpha = opacity / 100;
+  ctx.translate(-w/2, -h/2);
+  ctx.drawImage(img, 0, 0, w, h);
+  ctx.translate(w/2, h/2);
+  ctx.rotate(-ang);
+  ctx.translate(-x, -y);
+  ctx.restore();
 }
 
 function drawCircle(x,y,w,h,ang,color,opacity) {
@@ -136,6 +157,7 @@ function drawGradientRadial(start,end,scale,width,height) {
 }
 
 function drawComponents() {
+  drawImage(img0, 0, 0, 835, 523, drh24, 50);
   drawCircle((-85*math.sin((drm*2))), (85*math.cos((drm*2))), 36, 36, (-(drss*4)%360), drawGradientLinear("#d2c200", "#544900", 40, 101, 36, 36), (var_screen===1) ? 100 : 0);
   drawCircle((-65*math.cos((drm*3))), (65*math.sin((drm*3))), 20, 20, ((drss*4)%360), drawGradientLinear("#978b00", "#540000", 40, 101, 20, 20), (var_screen===1) ? 100 : 0);
   drawCircle(((228*math.sin((drh+(12*math.cos((drss%180))))))-(3*math.sin((drss%180)))), ((-228*math.cos((drh+(12*math.cos((drss%180))))))-(3*math.sin((drss%180)))), 15, 15, (drss*3), drawGradientLinear("#aaaaaa", "#3a3a3a", 40, 101, 15, 15), (var_screen===1) ? 100 : (var_screen===4) ? 100 : 0);

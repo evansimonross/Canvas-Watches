@@ -32,9 +32,15 @@ var getWatch = (watchName) => {
     var options = { compact: true, ignoreComment: true, alwaysChildren: true };
     var jsWatch = convert.xml2js(xmlWatch, options);
 
-    var script = interpret(fs.readFileSync('watches/' + watchName + '/scripts/script.txt', 'utf8'));
-    jsWatch.Watch.Script = script;
-    //console.log(JSON.stringify(jsWatch, null, 2));
+    var script;
+    try{
+        script = interpret(fs.readFileSync('watches/' + watchName + '/scripts/script.txt', 'utf8'));
+        jsWatch.Watch.Script = script;
+    }
+    catch(err){
+        // No script
+    }
+
 
     // Parse the jsWatch file's layers for displayable content
     var parse = () => {
@@ -52,7 +58,7 @@ var getWatch = (watchName) => {
                         layer['_attributes'][attribute] = interpret(attribute + '=' + statement);
                     }
                     catch (err) {
-                        console.log(err);
+                        console.log(err.message);
                     }
                 }
             }
@@ -137,7 +143,13 @@ var getWatch = (watchName) => {
                                         this.declarations.push('var ucolor = "#' + jsWatch.Watch["_attributes"]["ucolor_default"] + '";')
                                     }
                                     else {
-                                        this.timeVariables.push(variables.time[variableName]);
+                                        if(variables.time[variableName]){
+                                            this.timeVariables.push(variables.time[variableName]);
+                                        }
+                                        else {
+                                            this.timeVariables.push({name: variableName, declaration: "0"})
+                                            console.log("No declaration found for " + variableName);
+                                        }
                                     }
                                     variablesAdded.push(variableName);
                                 }
@@ -204,7 +216,7 @@ var getWatch = (watchName) => {
                             return variableName + '[' + chunk(input.index) + ']';
                         case "Identifier":
                             var variableName = input.name;
-                            if (variablesAdded.indexOf(variableName) === -1) {
+                            if (variablesAdded.indexOf(variableName) === -1 && script) {
                                 for (var i = 0; i < script.body.length; i++) {
                                     let scriptLine = script.body[i];
                                     if (scriptLine.variables) {
@@ -494,6 +506,7 @@ var getWatch = (watchName) => {
                     }
                     else if (type === '"image"') {
                         if (functionsAdded.indexOf("Image") === -1) {
+                            this.drawFunctions.push(variables.draw.drawTintedImage);
                             this.drawFunctions.push(variables.draw.drawImage);
                             functionsAdded.push("Image");
                         }
@@ -524,6 +537,10 @@ var getWatch = (watchName) => {
                         // rotation
                         let rotation = chunk(layer.rotation);
                         line += rotation + ', ';
+
+                        // color
+                        let color = chunk(layer.color);
+                        line += color + ', ';
 
                         // opacity
                         line += chunk(layer.opacity) + ');'

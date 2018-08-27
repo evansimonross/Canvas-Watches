@@ -63,7 +63,25 @@ function drawFace() {
   ctx.fill();
 }
 
-function drawImage(img,x,y,w,h,ang,opacity) {
+function drawTintedImage(img,color,w,h) {
+  var buffer = document.createElement("canvas");
+  var bufferCtx = buffer.getContext("2d");
+  buffer.width = w;
+  buffer.height = h;
+  bufferCtx.clearRect(0, 0, w, h);
+  bufferCtx.globalAlpha = 1.0;
+  bufferCtx.fillStyle = color;
+  bufferCtx.fillRect(0, 0, w, h);
+  bufferCtx.globalCompositeOperation = "multiply";
+  bufferCtx.drawImage(img, 0, 0, w, h);
+  bufferCtx.globalCompositeOperation = "destination-atop";
+  bufferCtx.drawImage(img, 0, 0, w, h);
+  ctx.drawImage(buffer, 0, 0, w, h);
+}
+
+function drawImage(img,x,y,w,h,ang,color,opacity) {
+  x *= (canvas.width / 512);
+  y *= (canvas.width / 512);
   w *= (canvas.width / 512);
   h *= (canvas.width / 512);
   ctx.save();
@@ -71,9 +89,14 @@ function drawImage(img,x,y,w,h,ang,opacity) {
   ang = math.rad(ang);
   ctx.rotate(ang);
   ctx.globalAlpha = opacity / 100;
-  ctx.translate(-w/2, -h/2);
-  ctx.drawImage(img, 0, 0, w, h);
-  ctx.translate(w/2, h/2);
+  ctx.translate(-w / 2, -h / 2);
+  if (color === "#ffffff") {
+    ctx.drawImage(img, 0, 0, w, h);
+  }
+  else {
+    drawTintedImage(img, color, w, h);
+  }
+  ctx.translate(w / 2, h / 2);
   ctx.rotate(-ang);
   ctx.translate(-x, -y);
   ctx.restore();
@@ -157,7 +180,7 @@ function drawGradientRadial(start,end,scale,width,height) {
 }
 
 function drawComponents() {
-  drawImage(img0, 0, 0, 835, 523, drh24, 50);
+  drawImage(img0, 0, 0, 835, 523, drh24, "#ccccff", 50);
   drawCircle((-85*math.sin((drm*2))), (85*math.cos((drm*2))), 36, 36, (-(drss*4)%360), drawGradientLinear("#d2c200", "#544900", 40, 101, 36, 36), (var_screen===1) ? 100 : 0);
   drawCircle((-65*math.cos((drm*3))), (65*math.sin((drm*3))), 20, 20, ((drss*4)%360), drawGradientLinear("#978b00", "#540000", 40, 101, 20, 20), (var_screen===1) ? 100 : 0);
   drawCircle(((228*math.sin((drh+(12*math.cos((drss%180))))))-(3*math.sin((drss%180)))), ((-228*math.cos((drh+(12*math.cos((drss%180))))))-(3*math.sin((drss%180)))), 15, 15, (drss*3), drawGradientLinear("#aaaaaa", "#3a3a3a", 40, 101, 15, 15), (var_screen===1) ? 100 : (var_screen===4) ? 100 : 0);

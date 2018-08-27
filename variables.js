@@ -29,7 +29,7 @@ var time = {
     dh23tt: { name: 'dh23tt', declaration: "math.floor(hour/10)" },
     dh23to: { name: 'dh23to', declaration: "hour % 10" },
     drh: { name: 'drh', declaration: "360*((hour % 12)/12)+360*(minute/(60*60))+360*(second/(60*60*60))" },
-    drh24: { name: 'drh24', declaration: "360*(hour/24)+360*(minute/(120*60))+360*(second/(120*60*60))"},
+    drh24: { name: 'drh24', declaration: "360*(hour/24)+360*(minute/(120*60))+360*(second/(120*60*60))" },
     drh0: { name: 'drh0', declaration: "360*((hour % 12)/12)" },
     // minutes
     dm: { name: 'dm', declaration: "minute" },
@@ -361,10 +361,31 @@ var draw = {
             'ctx.restore();',
         ]
     },
+    drawTintedImage: {
+        name: 'drawTintedImage',
+        params: ['img', 'color', 'w', 'h'],
+        lines: [
+            'var buffer = document.createElement("canvas");',
+            'var bufferCtx = buffer.getContext("2d");',
+            'buffer.width = w;',
+            'buffer.height = h;',
+            'bufferCtx.clearRect(0, 0, w, h);',
+            'bufferCtx.globalAlpha = 1.0;',
+            'bufferCtx.fillStyle = color;',
+            'bufferCtx.fillRect(0, 0, w, h);',
+            'bufferCtx.globalCompositeOperation = "multiply";',
+            'bufferCtx.drawImage(img, 0, 0, w, h);',
+            'bufferCtx.globalCompositeOperation = "destination-atop";',
+            'bufferCtx.drawImage(img, 0, 0, w, h);',
+            'ctx.drawImage(buffer, 0, 0, w, h);'
+        ]
+    },
     drawImage: {
         name: 'drawImage',
-        params: ['img', 'x', 'y', 'w', 'h', 'ang', 'opacity'],
+        params: ['img', 'x', 'y', 'w', 'h', 'ang', 'color', 'opacity'],
         lines: [
+            'x *= (canvas.width / 512);',
+            'y *= (canvas.width / 512);',
             'w *= (canvas.width / 512);',
             'h *= (canvas.width / 512);',
             'ctx.save();',
@@ -372,9 +393,14 @@ var draw = {
             'ang = math.rad(ang);',
             'ctx.rotate(ang);',
             'ctx.globalAlpha = opacity / 100;',
-            'ctx.translate(-w/2, -h/2);',
-            'ctx.drawImage(img, 0, 0, w, h);',
-            'ctx.translate(w/2, h/2);',
+            'ctx.translate(-w / 2, -h / 2);',
+            'if (color === "#ffffff") {',
+            '  ctx.drawImage(img, 0, 0, w, h);',
+            '}',
+            'else {',
+            '  drawTintedImage(img, color, w, h);',
+            '}',
+            'ctx.translate(w / 2, h / 2);',
             'ctx.rotate(-ang);',
             'ctx.translate(-x, -y);',
             'ctx.restore();'

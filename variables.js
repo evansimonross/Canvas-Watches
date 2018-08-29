@@ -54,6 +54,9 @@ var time = {
     dd: { name: 'dd', declaration: "date" },
     ddz: { name: 'ddz', declaration: "date < 10 ? '0' + date : date" },
     ddy: { name: 'ddy', declaration: "Math.floor(((now - new Date(now.getFullYear(), 0, 0)) + ((new Date(now.getFullYear(), 0, 0).getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000)) / (1000 * 60 * 60 * 24))" },
+    ddw: { name: 'ddw', declaration: "['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][day]" },
+    ddw2: { name: 'ddw2', declaration: "['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'][day]" },
+    ddww: { name: 'ddww', declaration: "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][day]" },
     ddw0: { name: 'ddw0', declaration: "day" },
     ddim: { name: 'ddim', declaration: "date" },
 
@@ -64,6 +67,8 @@ var time = {
     // month
     dn: { name: 'dn', declaration: "month + 1" },
     dnn: { name: 'dnn', declaration: "month < 9 ? '0' + (month+1) : month + 1" },
+    dnnn: { name: 'dnnn', declaration: "['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][month]" },
+    dnnnn: { name: 'dnnnn', declaration: "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][month]" },
 
     // year
     dy: { name: 'dy', declaration: "year % 100" },
@@ -403,6 +408,29 @@ var draw = {
             'ctx.translate(w / 2, h / 2);',
             'ctx.rotate(-ang);',
             'ctx.translate(-x, -y);',
+            'ctx.restore();'
+        ]
+    },
+    drawText: {
+        name: 'drawText',
+        params: ['x','y','ang','text','size','font','color','opacity'],
+        lines: [
+            'x*=(canvas.width/512);',
+            'y*=(canvas.width/512);',
+            'size*=(canvas.width/512)*2;',
+            'ctx.save();',
+            'ctx.globalAlpha = opacity/100;',
+            'ctx.translate(x,y);',
+            'ang = math.rad(ang);',
+            'ctx.rotate(ang);',
+            'ctx.font = size + "px " + font;',
+            'ctx.textBaseline="middle";',
+            // TODO: Change the possible alignments
+            'ctx.textAlign="center";',
+            'ctx.fillStyle=color;',
+            'ctx.fillText(text, 0, 0);',
+            'ctx.rotate(-ang);',
+            'ctx.translate(-x,-y);',
             'ctx.restore();'
         ]
     }

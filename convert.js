@@ -33,11 +33,11 @@ var getWatch = (watchName) => {
     var jsWatch = convert.xml2js(xmlWatch, options);
 
     var script;
-    try{
+    try {
         script = interpret(fs.readFileSync('watches/' + watchName + '/scripts/script.txt', 'utf8'));
         jsWatch.Watch.Script = script;
     }
-    catch(err){
+    catch (err) {
         // No script
     }
 
@@ -84,6 +84,7 @@ var getWatch = (watchName) => {
             timeVariables: [variables.time.now, variables.time.year, variables.time.month, variables.time.date, variables.time.day, variables.time.hour, variables.time.minute, variables.time.second, variables.time.millisecond],
             drawFunctions: [variables.draw.drawFace],
             images: [],
+            fonts: [],
 
             generate: function (file) {
                 var text = "";
@@ -136,18 +137,18 @@ var getWatch = (watchName) => {
                             }
                         case "TableConstructorExpression":
                             if (input.fields.length === 1) {
-                                var variableName = input.fields[0].value.name;
+                                var variableName = input.fields[0].value.name.toLowerCase();
 
                                 if (variablesAdded.indexOf(variableName) === -1) {
                                     if (variableName === "ucolor") {
                                         this.declarations.push('var ucolor = "#' + jsWatch.Watch["_attributes"]["ucolor_default"] + '";')
                                     }
                                     else {
-                                        if(variables.time[variableName]){
+                                        if (variables.time[variableName]) {
                                             this.timeVariables.push(variables.time[variableName]);
                                         }
                                         else {
-                                            this.timeVariables.push({name: variableName, declaration: "0"})
+                                            this.timeVariables.push({ name: variableName, declaration: "0" })
                                             console.log("No declaration found for " + variableName);
                                         }
                                     }
@@ -548,7 +549,47 @@ var getWatch = (watchName) => {
                         drawComponents.lines.push(line);
                     }
                     else if (type === '"text"') {
-                        console.log('text');
+                        if (functionsAdded.indexOf("Text") === -1) {
+                            this.drawFunctions.push(variables.draw.drawText);
+                            functionsAdded.push("Text");
+                        }
+
+                        var line = 'drawText(';
+
+                        // x-coord of center
+                        let x = chunk(layer.x);
+                        line += x + ', ';
+
+                        // y-coord of center
+                        let y = chunk(layer.y);
+                        line += y + ', ';
+
+                        // rotation
+                        let rotation = chunk(layer.rotation);
+                        line += rotation + ', ';
+
+                        // text content
+                        let t = chunk(layer.text);
+                        line += t + ', ';
+
+                        // text size
+                        let ts = chunk(layer.text_size);
+                        line += ts + ', ';
+
+                        // font
+                        let font = chunk(layer.font);
+                        line += font + ', ';
+
+                        // color
+                        let color = chunk(layer.color);
+                        line += color + ', ';
+
+                        // opacity
+                        let opacity = chunk(layer.opacity);
+                        line += opacity + ')';
+
+                        drawComponents.lines.push(line);
+
                     }
                     else {
 

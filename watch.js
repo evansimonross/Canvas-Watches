@@ -200,7 +200,7 @@ function drawGradientRadial(start,end,scale,width,height) {
 function drawText(x,y,ang,text,size,font,color,opacity) {
   x*=(canvas.width/512);
   y*=(canvas.width/512);
-  size*=(canvas.width/512)*2;
+  size*=(canvas.width/512)*1.25;
   ctx.save();
   ctx.globalAlpha = opacity/100;
   ctx.translate(x,y);

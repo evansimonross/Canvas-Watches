@@ -53,8 +53,8 @@ function drawClock() {
   dm = minute;
   ds = second;
   wt = 0;
-  ddw = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][day];;
-  dnnn = 0;
+  ddw = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][day];
+  dnnn = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][month];
   dd = date;
   pblp = 0;
   blp = 0;
@@ -200,7 +200,7 @@ function drawGradientRadial(start,end,scale,width,height) {
 function drawText(x,y,ang,text,size,font,color,opacity) {
   x*=(canvas.width/512);
   y*=(canvas.width/512);
-  size*=(canvas.width/512)*2;
+  size*=(canvas.width/512)*1.25;
   ctx.save();
   ctx.globalAlpha = opacity/100;
   ctx.translate(x,y);

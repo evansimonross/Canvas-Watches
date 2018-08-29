@@ -578,6 +578,9 @@ var getWatch = (watchName) => {
 
                         // font
                         let font = chunk(layer.font);
+                        if (this.fonts.indexOf(font.substring(1, font.length - 1)) === -1) {
+                            this.fonts.push(font.substring(1, font.length - 1));
+                        }
                         line += font + ', ';
 
                         // color
@@ -645,10 +648,46 @@ var getWatch = (watchName) => {
                     text += "}\n\n";
                 }
                 fs.writeFile(file, text, (err) => {
-                    if (err) { console.error(err) }
+                    if (err) { console.error(err); }
                 });
-            }
 
+                // fonts
+                var css =`:root {
+    --bg-color: #aaa;
+}
+
+body{
+    background-color: var(--bg-color);
+}
+                
+h1{
+    font-size: 3em;
+    font-weight: 800;
+    text-align: center;
+    margin: 10px;
+}
+                
+canvas{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+`;
+
+                fs.writeFile('css/style.css', css, (err) => {
+                    if (err) { console.error(err); }
+                })
+
+
+                for (var i = 0; i < this.fonts.length; i++) {
+                    fs.appendFile('css/style.css',
+                        `\n@font-face {\n   font-family: ${this.fonts[i]};\n    src: url(../watches/${watchName}/fonts/${this.fonts[i]}.ttf);\n}\n`,
+                        (err) => {
+                            if (err) { console.error(err); }
+                        });
+                }
+
+            }
         }
 
         // Saves to watch.js for immediate viewability via index.html

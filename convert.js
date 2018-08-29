@@ -578,10 +578,12 @@ var getWatch = (watchName) => {
 
                         // font
                         let font = chunk(layer.font);
-                        if (this.fonts.indexOf(font.substring(1, font.length - 1)) === -1) {
-                            this.fonts.push(font.substring(1, font.length - 1));
+                        font = font.substring(1,font.length-1);
+                        font = font.split('"').join('');
+                        if (this.fonts.indexOf(font) === -1) {
+                            this.fonts.push(font);
                         }
-                        line += font + ', ';
+                        line += '"' + font + '", ';
 
                         // color
                         let color = chunk(layer.color);

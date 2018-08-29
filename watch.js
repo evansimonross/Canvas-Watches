@@ -98,6 +98,7 @@ function drawTintedImage(img,color,w,h) {
 }
 
 function drawImage(img,x,y,w,h,ang,color,opacity) {
+  if(opacity===0) { return; }
   x *= (canvas.width / 512);
   y *= (canvas.width / 512);
   w *= (canvas.width / 512);
@@ -121,6 +122,7 @@ function drawImage(img,x,y,w,h,ang,color,opacity) {
 }
 
 function drawCircle(x,y,w,h,ang,color,opacity) {
+  if(opacity===0) { return; }
   x*=(canvas.width/512);
   y*=(canvas.width/512);
   w*=(canvas.width/512);
@@ -198,6 +200,7 @@ function drawGradientRadial(start,end,scale,width,height) {
 }
 
 function drawText(x,y,ang,text,size,font,color,opacity) {
+  if(opacity===0) { return; }
   x*=(canvas.width/512);
   y*=(canvas.width/512);
   size*=(canvas.width/512)*1.25;

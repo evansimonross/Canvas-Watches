@@ -91,6 +91,7 @@ var draw = {
         name: 'drawCircle',
         params: ['x', 'y', 'w', 'h', 'ang', 'color', 'opacity'],
         lines: [
+            'if(opacity===0) { return; }',
             'x*=(canvas.width/512);',
             'y*=(canvas.width/512);',
             'w*=(canvas.width/512);',
@@ -115,6 +116,7 @@ var draw = {
         name: 'drawSquare',
         params: ['x', 'y', 'w', 'h', 'ang', 'color', 'opacity'],
         lines: [
+            'if(opacity===0) { return; }',
             'x*=(canvas.width/512);',
             'y*=(canvas.width/512);',
             'w*=(canvas.width/512);',
@@ -142,6 +144,7 @@ var draw = {
         name: 'drawTriangle',
         params: ['x', 'y', 'w', 'h', 'ang', 'color', 'opacity'],
         lines: [
+            'if(opacity===0) { return; }',
             'x*=(canvas.width/512);',
             'y*=(canvas.width/512);',
             'w*=(canvas.width/512);',
@@ -231,6 +234,7 @@ var draw = {
         name: 'drawMarkers',
         params: ['x', 'y', 'w', 'h', 'radius', 'rotation', 'count', 'shape', 'color', 'opacity'],
         lines: [
+            'if(opacity===0) { return; }',
             'ctx.save();',
             'ctx.translate(x, y);',
             'ctx.rotate(rotation);',
@@ -265,6 +269,7 @@ var draw = {
         name: 'drawMarkersHM',
         params: ['x', 'y', 'radius', 'rotation', 'hourMarkers', 'minuteMarkers', 'hourColor', 'minuteColor', 'opacity'],
         lines: [
+            'if(opacity===0) { return; }',
             'ctx.save();',
             'ctx.translate(x, y);',
             'ctx.rotate(rotation);',
@@ -389,6 +394,7 @@ var draw = {
         name: 'drawImage',
         params: ['img', 'x', 'y', 'w', 'h', 'ang', 'color', 'opacity'],
         lines: [
+            'if(opacity===0) { return; }',
             'x *= (canvas.width / 512);',
             'y *= (canvas.width / 512);',
             'w *= (canvas.width / 512);',
@@ -415,6 +421,7 @@ var draw = {
         name: 'drawText',
         params: ['x','y','ang','text','size','font','color','opacity'],
         lines: [
+            'if(opacity===0) { return; }',
             'x*=(canvas.width/512);',
             'y*=(canvas.width/512);',
             'size*=(canvas.width/512)*1.25;',

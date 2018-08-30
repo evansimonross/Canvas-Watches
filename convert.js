@@ -49,8 +49,56 @@ var getWatch = (watchName) => {
             var layer = layers[i];
             for (attribute in layer['_attributes']) {
                 var statement = layer['_attributes'][attribute];
-                if (/([A-Fa-f0-9]{6})$/.test(statement)) {
+                // Add hashtag before color values
+                if (/([A-Fa-f0-9]{6})/.test(statement)) {
                     statement = '"#' + statement + '"';
+                }
+                // Add concatenation for strings combined with watchmakers tags
+                if (/(\{)/.test(statement) && !/([0-9])/.test(statement)){
+                    var test = statement;
+                    while (test.indexOf("{")!=-1){
+                        test=test.substring(0,test.indexOf("{"))+test.substring(test.indexOf("}")+1,test.length);
+                    }
+                    test.trim();
+                    if(test!=""){
+                        var split = statement.split("");
+                        var inTag = false;
+                        var inString = false;
+                        statement = "";
+                        for(var j = 0; j < split.length; j++){
+                            var char = split[j];
+                            if(char==="") { continue; }
+                            if (char==="{"){
+                                if(statement===""){
+                                    statement += "{";
+                                }
+                                else{
+                                    if(inString){
+                                        statement += '"';
+                                        inString = false;
+                                    }
+                                    statement += " .. {";
+                                }
+                                inTag = true;
+                            }
+                            else if (char==="}"){
+                                statement += "}";
+                                if(j!=split.length-1){
+                                    statement += " .. ";
+                                }
+                                inTag = false;
+                            }
+                            else{
+                                if(inTag || inString) {
+                                    statement += char;
+                                }
+                                else{
+                                    inString = true;
+                                    statement += '"' + char;
+                                }
+                            }
+                        }
+                    }
                 }
                 if (/^script/.test(statement)) { layer['_attributes'][attribute] = interpret(statement.substring(7, statement.length)); }
                 else {
@@ -131,6 +179,9 @@ var getWatch = (watchName) => {
                             }
                             else if (input.operator === "==") {
                                 return '(' + chunk(input.left) + '===' + chunk(input.right) + ')';
+                            }
+                            else if (input.operator === "..") {
+                                return '(' + chunk(input.left) + '+' + chunk(input.right) + ')';
                             }
                             else {
                                 return '(' + chunk(input.left) + input.operator + chunk(input.right) + ')';

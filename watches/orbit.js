@@ -26,6 +26,7 @@ var dh;
 var dm;
 var ds;
 var wt;
+var wm;
 var ddw;
 var dnnn;
 var dd;
@@ -53,6 +54,7 @@ function drawClock() {
   dm = minute;
   ds = second;
   wt = 0;
+  wm = 0;
   ddw = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][day];
   dnnn = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][month];
   dd = date;
@@ -233,7 +235,7 @@ function drawComponents() {
   drawText((150*math.sin(drm)), (-150*math.cos(drm)), 0, dm, 18, "pirulen", "#000000", (var_screen===0) ? 100 : 0)
   drawText(((150*math.sin(drm))+(60*math.sin(drss))), ((-150*math.cos(drm))-(60*math.cos(drss))), 0, ds, 13, "pirulen", "#000000", (var_screen===0) ? 100 : 0)
   drawText((150*math.sin(drm)), (-150*math.cos(drm)), 0, wt, 18, "pirulen", "#000000", (var_screen===2) ? 100 : 0)
-  drawText(((150*math.sin(drm))+(60*math.sin(drss))), ((-150*math.cos(drm))-(60*math.cos(drss))), 0, °{wm}, 13, "pirulen", "#000000", (var_screen===2) ? 100 : 0)
+  drawText(((150*math.sin(drm))+(60*math.sin(drss))), ((-150*math.cos(drm))-(60*math.cos(drss))), 0, ("°"+wm), 13, "pirulen", "#000000", (var_screen===2) ? 100 : 0)
   drawText(0, 0, 0, ddw, 25, "pirulen", "#000000", (var_screen===3) ? 100 : 0)
   drawText((150*math.sin(drm)), (-150*math.cos(drm)), 0, dnnn, 13, "pirulen", "#000000", (var_screen===3) ? 100 : 0)
   drawText(((150*math.sin(drm))+(60*math.sin(drss))), ((-150*math.cos(drm))-(60*math.cos(drss))), 0, dd, 13, "pirulen", "#000000", (var_screen===3) ? 100 : 0)

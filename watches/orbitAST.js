@@ -7676,7 +7676,44 @@ var watch = {
             ],
             "comments": []
           },
-          "text": "°{wm}",
+          "text": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "text"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "BinaryExpression",
+                    "operator": "..",
+                    "left": {
+                      "type": "StringLiteral",
+                      "value": "°",
+                      "raw": "\"°\""
+                    },
+                    "right": {
+                      "type": "TableConstructorExpression",
+                      "fields": [
+                        {
+                          "type": "TableValue",
+                          "value": {
+                            "type": "Identifier",
+                            "name": "wm"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "text_size": {
             "type": "Chunk",
             "body": [

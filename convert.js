@@ -32,6 +32,16 @@ var getWatch = (watchName) => {
     var options = { compact: true, ignoreComment: true, alwaysChildren: true };
     var jsWatch = convert.xml2js(xmlWatch, options);
 
+    // Save the raw json from the xmp for bug checking and further development
+    if (process.argv[3] === "raw") {
+        fs.writeFile(`watches/${watchName}RAW.js`, `var watch = ${JSON.stringify(jsWatch, null, 2)}`, (err) => {
+            if (err) { console.error(err) }
+            console.log('Saved as raw, unparsed JSON')
+        })
+    }
+
+    // Add the script
+
     var script;
     try {
         script = interpret(fs.readFileSync('watches/' + watchName + '/scripts/script.txt', 'utf8'));
@@ -41,10 +51,10 @@ var getWatch = (watchName) => {
         // No script
     }
 
-
     // Parse the jsWatch file's layers for displayable content
     var parse = () => {
         var layers = jsWatch.Watch.Layer;
+        var onceOver = false;
         for (var i = 0; i < layers.length; i++) {
             var layer = layers[i];
             for (attribute in layer['_attributes']) {
@@ -53,60 +63,68 @@ var getWatch = (watchName) => {
                 if (/([A-Fa-f0-9]{6})/.test(statement)) {
                     statement = '"#' + statement + '"';
                 }
-                // Add concatenation for strings combined with watchmakers tags
-                if (/(\{)/.test(statement) && !/([0-9])/.test(statement)){
-                    var test = statement;
-                    while (test.indexOf("{")!=-1){
-                        test=test.substring(0,test.indexOf("{"))+test.substring(test.indexOf("}")+1,test.length);
-                    }
-                    test.trim();
-                    if(test!=""){
-                        var split = statement.split("");
-                        var inTag = false;
-                        var inString = false;
-                        statement = "";
-                        for(var j = 0; j < split.length; j++){
-                            var char = split[j];
-                            if(char==="") { continue; }
-                            if (char==="{"){
-                                if(statement===""){
-                                    statement += "{";
-                                }
-                                else{
-                                    if(inString){
-                                        statement += '"';
-                                        inString = false;
-                                    }
-                                    statement += " .. {";
-                                }
-                                inTag = true;
-                            }
-                            else if (char==="}"){
-                                statement += "}";
-                                if(j!=split.length-1){
-                                    statement += " .. ";
-                                }
-                                inTag = false;
-                            }
-                            else{
-                                if(inTag || inString) {
-                                    statement += char;
-                                }
-                                else{
-                                    inString = true;
-                                    statement += '"' + char;
-                                }
-                            }
-                        }
-                    }
-                }
                 if (/^script/.test(statement)) { layer['_attributes'][attribute] = interpret(statement.substring(7, statement.length)); }
                 else {
                     try {
                         layer['_attributes'][attribute] = interpret(attribute + '=' + statement);
                     }
                     catch (err) {
-                        console.log(err.message);
+                        // Add concatenation for strings combined with watchmakers tags
+                        if (/(\{)/.test(statement)) {
+                            var test = statement;
+                            while (test.indexOf("{") != -1) {
+                                test = test.substring(0, test.indexOf("{")) + test.substring(test.indexOf("}") + 1, test.length);
+                            }
+                            test.trim();
+                            if (test != "") {
+                                var split = statement.split("");
+                                var inTag = false;
+                                var inString = false;
+                                statement = "";
+                                for (var j = 0; j < split.length; j++) {
+                                    var char = split[j];
+                                    if (char === "") { continue; }
+                                    if (char === "{") {
+                                        if (statement === "") {
+                                            statement += "{";
+                                        }
+                                        else {
+                                            if (inString) {
+                                                statement += '"';
+                                                inString = false;
+                                            }
+                                            statement += " .. {";
+                                        }
+                                        inTag = true;
+                                    }
+                                    else if (char === "}") {
+                                        statement += "}";
+                                        if (j != split.length - 1) {
+                                            statement += " .. ";
+                                        }
+                                        inTag = false;
+                                    }
+                                    else {
+                                        if (inTag || inString) {
+                                            statement += char;
+                                        }
+                                        else {
+                                            inString = true;
+                                            statement += '"' + char;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else {
+                            statement = '"' + statement + '"';
+                        }
+                        try {
+                            layer['_attributes'][attribute] = interpret(attribute + '=' + statement);
+                        }
+                        catch (err) {
+                            console.error(err);
+                        }
                     }
                 }
             }
@@ -565,7 +583,7 @@ var getWatch = (watchName) => {
 
                         var image = {};
                         image.name = `img${this.images.length}`;
-                        image.path = `"watches/${watchName}/images/${layer.path}"`;
+                        image.path = `"watches/${watchName}/images/${layer.path.body[0].init[0].value}"`;
                         this.images.push(image);
 
                         var line = `drawImage(${image.name}, `;
@@ -629,7 +647,7 @@ var getWatch = (watchName) => {
 
                         // font
                         let font = chunk(layer.font);
-                        font = font.substring(1,font.length-1);
+                        font = font.substring(1, font.length - 1);
                         font = font.split('"').join('');
                         if (this.fonts.indexOf(font) === -1) {
                             this.fonts.push(font);
@@ -705,7 +723,7 @@ var getWatch = (watchName) => {
                 });
 
                 // fonts
-                var css =`:root {
+                var css = `:root {
     --bg-color: #aaa;
 }
 

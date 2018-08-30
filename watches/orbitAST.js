@@ -16,7 +16,28 @@ var watch = {
     "Layer": [
       {
         "_attributes": {
-          "name": "Layer 1",
+          "name": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "name"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "Layer 1",
+                    "raw": "\"Layer 1\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "type": {
             "type": "Chunk",
             "body": [
@@ -220,7 +241,28 @@ var watch = {
             ],
             "comments": []
           },
-          "path": ".img200.jpg",
+          "path": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "path"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": ".img200.jpg",
+                    "raw": "\".img200.jpg\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "width": {
             "type": "Chunk",
             "body": [
@@ -8473,7 +8515,28 @@ var watch = {
             ],
             "comments": []
           },
-          "cond_grid": "3x3",
+          "cond_grid": {
+            "type": "Chunk",
+            "body": [
+              {
+                "type": "AssignmentStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "cond_grid"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "StringLiteral",
+                    "value": "3x3",
+                    "raw": "\"3x3\""
+                  }
+                ]
+              }
+            ],
+            "comments": []
+          },
           "display": {
             "type": "Chunk",
             "body": [

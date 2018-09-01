@@ -284,8 +284,8 @@ function drawComponents() {
   drawText(-125, (dh23===23) ? ((-30*drm)/360) : 0, 0, weekday((ddw0+0)), 30, "Euro Caps", "#000000", 100)
   drawText(-125, (dh23===23) ? (30-((30*drm)/360)) : 30, 0, weekday((ddw0+1)), 30, "Euro Caps", "#000000", 100)
   drawSquare(140, 0, 115, 35, 0, "#ffffff", (var_screen===3) ? 100 : 0);
-  drawText(125, (dd===dn) && (dh23>11) ? ((-30*drm)/360) : 0, 0, (dnn+0), 30, "Euro Caps", "#000000", 100)
-  drawText(125, (dd===dn) && (dh23>11) ? (30-((30*drm)/360)) : 30, 0, (dnn+1), 30, "Euro Caps", "#000000", 100)
+  drawText(125, (dd===dn) && (dh23>11) ? ((-30*drm)/360) : 0, 0, month((dnn+0)), 30, "Euro Caps", "#000000", 100)
+  drawText(125, (dd===dn) && (dh23>11) ? (30-((30*drm)/360)) : 30, 0, month((dnn+1)), 30, "Euro Caps", "#000000", 100)
   drawText(180, (dh23===23) ? ((-30*drm)/360) : 0, 0, ddz, 25, "BebasNeue Regular", "#000000", 100)
   drawText(180, (dh23===23) ? (30-((30*drm)/360)) : 30, 0, (dd<9) ? ("0"+(dd+1)) : (dd+1), 25, "BebasNeue Regular", "#000000", 100)
   drawTriangle((244*math.sin(swrs)), (-244*math.cos(swrs)), 30, adjustTriangleHeight(30), (180+swrs), "#4d9ffb", (var_screen===2) ? 100 : 0);
@@ -296,7 +296,7 @@ function drawComponents() {
   drawImage(img0, 0, 1, 420, 420, (110-((40*pbl)/100)), (pbl>50) ? (hexa2(math.floor((((100-pbl)*255)/50)))+"ff00") : ("ff"+(hexa2(math.floor(((pbl*255)/50)))+"00")), (var_screen===1) ? 100 : 0);
   drawImage(img0, 0, 0, 430, 430, ((dh%2)===0) ? ((drm/3)-60) : -((drm/3)-60), "#ffffff", 100);
   drawImage(img0, 0, 0, 430, 430, ((dm%2)===0) ? ((drss/3)+120) : -((drss/3)+120), "#ffffff", 100);
-  //drawCircle(0, 0, 100, 100, 0, "#4629a1", 100);
+  drawCircle(0, 0, 100, 100, 0, "#4629a1", 100);
   drawText(0, 0, 0, "speed             demon", 18, "Air Americana", "#ffffff", ((var_screen%2)===0) ? 100 : 0)
 }
 

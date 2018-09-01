@@ -1,0 +1,53 @@
+var_screen=0
+local sin, cos = math.sin, math.cos
+math.sin = function (x) return sin(math.rad(x)) end
+math.cos = function (x) return cos(math.rad(x)) end
+
+hexa1 = function(x)
+local k = ""
+if x < 10 then k = x end 
+if x == 10 then k = "a" end
+if x == 11 then k = "b" end
+if x == 12 then k = "c" end 
+if x == 13 then k = "d" end 
+if x == 14 then k = "e" end 
+if x == 15 then k = "f" end
+return k
+end
+
+hexa2 = function(x)
+return hexa1(math.floor(x/16))..hexa1(x%16)
+end
+
+weekday = function(x)
+local k = ""
+x=x%7
+if x == 0 then k = "SUN"
+elseif x == 1 then k = "MON"
+elseif x == 2 then k = "TUE"
+elseif x == 3 then k = "WED"
+elseif x == 4 then k = "THU"
+elseif x == 5 then k = "FRI"
+elseif x == 6 then k = "SAT"
+end
+return k
+end
+
+month = function(x) 
+local k = ""
+x=x%12
+if x == 0 then k = "DEC"
+elseif x == 1 then k = "JAN"
+elseif x == 2 then k = "FEB"
+elseif x == 3 then k = "MAR"
+elseif x == 4 then k = "APR"
+elseif x == 5 then k = "MAY"
+elseif x == 6 then k = "JUN"
+elseif x == 7 then k = "JUL"
+elseif x == 8 then k = "AUG"
+elseif x == 9 then k = "SEP"
+elseif x == 10 then k = "OCT"
+elseif x == 11 then k = "NOV"
+end
+return k
+end

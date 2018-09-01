@@ -54,7 +54,6 @@ var getWatch = (watchName) => {
     // Parse the jsWatch file's layers for displayable content
     var parse = () => {
         var layers = jsWatch.Watch.Layer;
-        var onceOver = false;
         for (var i = 0; i < layers.length; i++) {
             var layer = layers[i];
             for (attribute in layer['_attributes']) {
@@ -140,7 +139,7 @@ var getWatch = (watchName) => {
         }
 
         var canvasJS = {
-            declarations: ['var math = { rad: function (degrees) { return degrees / 180 * Math.PI; }, sin: function (degrees) { return Math.sin(degrees / 180 * Math.PI); }, cos: function (degrees) { return Math.cos(degrees / 180 * Math.PI); }, floor: function (input) { return Math.floor(input); } }',
+            declarations: ['var math = { rad: function (degrees) { return degrees / 180 * Math.PI; }, sin: function (degrees) { return Math.sin(degrees / 180 * Math.PI); }, cos: function (degrees) { return Math.cos(degrees / 180 * Math.PI); }, floor: function (input) { return Math.floor(input); }, abs: function (input) { return input < 0 ? input*-1 : input; } }',
                 'var canvas = document.getElementById("canvas");',
                 'var ctx = canvas.getContext("2d");',
                 'var radius = canvas.height / 2;',
@@ -149,6 +148,7 @@ var getWatch = (watchName) => {
             ],
             timeVariables: [variables.time.now, variables.time.year, variables.time.month, variables.time.date, variables.time.day, variables.time.hour, variables.time.minute, variables.time.second, variables.time.millisecond],
             drawFunctions: [variables.draw.drawFace],
+            scriptFunctions: [],
             images: [],
             fonts: [],
 
@@ -249,8 +249,24 @@ var getWatch = (watchName) => {
                                 return func + '(' + params + ')';
                             }
                             else {
-                                // What other types of CallExpressions exist?
-                                return "";
+                                var func = input.base.name;
+                                var params = [];
+                                for (var i = 0; i < input.arguments.length; i++) {
+                                    params.push(chunk(input.arguments[i]));
+                                }
+                                if (functionsAdded.indexOf(func) === -1) {
+                                    var f = { name: func, params: [], lines: [] };
+                                    for (var i = 0; i < script.body.length; i++) {
+                                        if (script.body[i].type != "AssignmentStatement") { continue; }
+                                        if (script.body[i].variables[0].name != f.name) { continue; }
+                                        var expression = script.body[i].init[0];
+                                        if (expression.type != "FunctionDeclaration") { continue; }
+                                        // TODO: Convert the expression into lines of js
+                                    }
+                                    functionsAdded.push(func);
+                                    this.scriptFunctions.push(f);
+                                }
+                                return func + '(' + params + ')';
                             }
                         case "MemberExpression":
                             var baseName = input.base.name;
@@ -582,9 +598,18 @@ var getWatch = (watchName) => {
                         }
 
                         var image = {};
-                        image.name = `img${this.images.length}`;
-                        image.path = `"watches/${watchName}/images/${layer.path.body[0].init[0].value}"`;
-                        this.images.push(image);
+                        image.path = `"watches/${watchName}/images/${chunk(layer.path.body[0].init[0])}"`;
+                        var hasImage = false;
+                        this.images.forEach(function (img){
+                            if (img.path === image.path) { 
+                                hasImage = true; 
+                                image.name = img.name;
+                            }
+                        });
+                        if (!hasImage) {
+                            image.name = `img${this.images.length}`;
+                            this.images.push(image);
+                        }
 
                         var line = `drawImage(${image.name}, `;
 
@@ -752,7 +777,7 @@ canvas{
 
                 for (var i = 0; i < this.fonts.length; i++) {
                     fs.appendFile('css/style.css',
-                        `\n@font-face {\n   font-family: ${this.fonts[i]};\n    src: url(../watches/${watchName}/fonts/${this.fonts[i]}.ttf);\n}\n`,
+                        `\n@font-face {\n   font-family: ${this.fonts[i]};\n    src: url('../watches/${watchName}/fonts/${this.fonts[i]}.ttf');\n}\n`,
                         (err) => {
                             if (err) { console.error(err); }
                         });

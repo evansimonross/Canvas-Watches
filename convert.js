@@ -166,7 +166,12 @@ var getWatch = (watchName) => {
                         case "Chunk":
                             return chunk(input.body[0]);
                         case "AssignmentStatement":
-                            return chunk(input.init[0]);
+                            if(input.init.length ===1) { return chunk(input.init[0]); }
+                            let arr = [];
+                            for(var i = 0; i<input.init.length; i++){
+                                arr.push(chunk(input.init[i]));
+                            }
+                            return arr;
                         case "LogicalExpression":
                             if (input.operator === "or") {
                                 if (input.left.operator === "and") {
@@ -733,6 +738,10 @@ var getWatch = (watchName) => {
                         // show every how many numbers
                         let showEvery = chunk(layer.show_every);
                         line += showEvery + ', ';
+
+                        // hide text
+                        let hideText = chunk(layer.hide_text);
+                        line += '[' + hideText + '], ';
 
                         // text rotation
                         let t = chunk(layer.rotated_text);

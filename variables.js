@@ -443,7 +443,7 @@ var draw = {
     },
     drawNumbers: {
         name: 'drawNumbers',
-        params: ['x', 'y', 'radius', 'rotation', 'angStart', 'angEnd', 'firstNum', 'lastNum', 'showEvery', 'textRotation', 'size', 'font', 'color', 'opacity'],
+        params: ['x', 'y', 'radius', 'rotation', 'angStart', 'angEnd', 'firstNum', 'lastNum', 'showEvery', 'hideText', 'textRotation', 'size', 'font', 'color', 'opacity'],
         lines: [
             'if(opacity===0) { return; }',
             'x*=(canvas.width/512);',
@@ -461,6 +461,7 @@ var draw = {
             'for(var num = firstNum < lastNum ? firstNum-1 : firstNum;  firstNum < lastNum ? num <= lastNum : num > lastNum-1;  firstNum < lastNum ? num++ : num--){',
             '  if(num===firstNum-1) { continue; }',
             '  if(num%showEvery !=0) { continue; }',
+            '  if(hideText.includes(num)) { continue; }',
             '  var ang = angStart + ((num-(firstNum-1))/(lastNum-(firstNum-1)))*(angEnd - angStart);',
             '  ang*=Math.PI/180;',
             '  ctx.rotate(ang);',

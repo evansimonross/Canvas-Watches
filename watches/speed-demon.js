@@ -167,7 +167,7 @@ function drawText(x,y,ang,text,size,font,color,opacity) {
   ctx.restore();
 }
 
-function drawNumbers(x,y,radius,rotation,angStart,angEnd,firstNum,lastNum,showEvery,textRotation,size,font,color,opacity) {
+function drawNumbers(x,y,radius,rotation,angStart,angEnd,firstNum,lastNum,showEvery,hideText,textRotation,size,font,color,opacity) {
   if(opacity===0) { return; }
   x*=(canvas.width/512);
   y*=(canvas.width/512);
@@ -181,8 +181,10 @@ function drawNumbers(x,y,radius,rotation,angStart,angEnd,firstNum,lastNum,showEv
   ctx.textBaseline="middle";
   ctx.textAlign="center";
   ctx.fillStyle=color;
-  for(var num = firstNum-1; num <= lastNum; num++){
+  for(var num = firstNum < lastNum ? firstNum-1 : firstNum;  firstNum < lastNum ? num <= lastNum : num > lastNum-1;  firstNum < lastNum ? num++ : num--){
+    if(num===firstNum-1) { continue; }
     if(num%showEvery !=0) { continue; }
+    if(hideText.includes(num)) { continue; }
     var ang = angStart + ((num-(firstNum-1))/(lastNum-(firstNum-1)))*(angEnd - angStart);
     ang*=Math.PI/180;
     ctx.rotate(ang);
@@ -274,13 +276,13 @@ function drawComponents() {
   drawText(((200+(5*math.abs((2-var_screen))))*math.sin(60)), (-(200+(5*math.abs((2-var_screen))))*math.cos(60)), 0, ((dh%2)===1) ? dh : (dh===12) ? 1 : (dh+1), (var_screen===2) ? 27 : 35, "Euro Caps", "#ffffff", ((dh%2)===1) && (dm===59) && (ds===59) ? (100-((100*drms)/360)) : ((dh%2)===0) && (dm===0) && (ds===0) ? ((100*drms)/360) : 100)
   drawText(((200+(5*math.abs((2-var_screen))))*math.sin(120)), (-(200+(5*math.abs((2-var_screen))))*math.cos(120)), 0, ((dm%2)===0) ? dm : (dm===59) ? 0 : (dm+1), (var_screen===2) ? 27 : 35, "Euro Caps", "#ffffff", ((dm%2)===0) && (ds===59) ? (100-((100*drms)/360)) : ((dm%2)===1) && (ds===0) ? ((100*drms)/360) : 100)
   drawText(((200+(5*math.abs((2-var_screen))))*math.sin(240)), (-(200+(5*math.abs((2-var_screen))))*math.cos(240)), 0, ((dm%2)===1) ? dm : (dm+1), (var_screen===2) ? 27 : 35, "Euro Caps", "#ffffff", ((dm%2)===1) && (ds===59) ? (100-((100*drms)/360)) : ((dm%2)===0) && (ds===0) ? ((100*drms)/360) : 100)
-  drawNumbers(0, 0, 220, 0, 249, 291, 0, 100, 25, "n", 18, "BebasNeue Regular", "#ffffff", (var_screen===1) ? 100 : 0)
-  drawNumbers(0, 0, 220, 0, 69, 111, 100, 0, 25, "n", 18, "BebasNeue Regular", "#ffffff", (var_screen===1) ? 100 : 0)
-  drawNumbers(0, 0, 220, 0, -52, 50, 5, 55, 5, "n", 18, "BebasNeue Regular", "#ffffff", orundefined)
-  drawNumbers(0, 0, 220, 0, -50, 52, 55, 5, 5, "n", 18, "BebasNeue Regular", "#ffffff", orundefined)
-  drawNumbers(0, 0, 220, 0, 128, 230, 5, 55, 5, "n", 18, "BebasNeue Regular", "#ffffff", orundefined)
-  drawNumbers(0, 0, 220, 0, 130, 232, 55, 5, 5, "n", 18, "BebasNeue Regular", "#ffffff", orundefined)
-  drawNumbers(0, 0, 220, 0, 0, 360, 1, 60, 1, "n", 14, "BebasNeue", "#ffffff", (var_screen===2) ? 100 : 0)
+  drawNumbers(0, 0, 220, 0, 249, 291, 0, 100, 25, [""], "n", 18, "BebasNeue Regular", "#ffffff", (var_screen===1) ? 100 : 0)
+  drawNumbers(0, 0, 220, 0, 69, 111, 100, 0, 25, [""], "n", 18, "BebasNeue Regular", "#ffffff", (var_screen===1) ? 100 : 0)
+  drawNumbers(0, 0, 220, 0, -52, 50, 5, 55, 5, [""], "n", 18, "BebasNeue Regular", "#ffffff", orundefined)
+  drawNumbers(0, 0, 220, 0, -50, 52, 55, 5, 5, [""], "n", 18, "BebasNeue Regular", "#ffffff", orundefined)
+  drawNumbers(0, 0, 220, 0, 128, 230, 5, 55, 5, [""], "n", 18, "BebasNeue Regular", "#ffffff", orundefined)
+  drawNumbers(0, 0, 220, 0, 130, 232, 55, 5, 5, [""], "n", 18, "BebasNeue Regular", "#ffffff", orundefined)
+  drawNumbers(0, 0, 220, 0, 0, 360, 1, 60, 1, [10,20,40,50], "n", 14, "BebasNeue", "#ffffff", (var_screen===2) ? 100 : 0)
   drawSquare(-125, 0, 80, 35, 0, "#ffffff", (var_screen===3) ? 100 : 0);
   drawText(-125, (dh23===23) ? ((-30*drm)/360) : 0, 0, weekday((ddw0+0)), 30, "Euro Caps", "#000000", 100)
   drawText(-125, (dh23===23) ? (30-((30*drm)/360)) : 30, 0, weekday((ddw0+1)), 30, "Euro Caps", "#000000", 100)

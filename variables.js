@@ -419,7 +419,7 @@ var draw = {
     },
     drawText: {
         name: 'drawText',
-        params: ['x','y','ang','text','size','font','color','opacity'],
+        params: ['x', 'y', 'ang', 'text', 'size', 'font', 'color', 'opacity'],
         lines: [
             'if(opacity===0) { return; }',
             'x*=(canvas.width/512);',
@@ -437,6 +437,41 @@ var draw = {
             'ctx.fillStyle=color;',
             'ctx.fillText(text, 0, 0);',
             'ctx.rotate(-ang);',
+            'ctx.translate(-x,-y);',
+            'ctx.restore();'
+        ]
+    },
+    drawNumbers: {
+        name: 'drawNumbers',
+        params: ['x', 'y', 'radius', 'rotation', 'angStart', 'angEnd', 'firstNum', 'lastNum', 'showEvery', 'textRotation', 'size', 'font', 'color', 'opacity'],
+        lines: [
+            'if(opacity===0) { return; }',
+            'x*=(canvas.width/512);',
+            'y*=(canvas.width/512);',
+            'radius*=(canvas.width/512);',
+            'size*=(canvas.width/512)*1.25;',
+            'ctx.save();',
+            'ctx.globalAlpha = opacity/100;',
+            'ctx.translate(x,y);',
+            'ctx.rotate(rotation);',
+            'ctx.font = size + "px " + font;',
+            'ctx.textBaseline="middle";',
+            'ctx.textAlign="center";',
+            'ctx.fillStyle=color;',
+            'angStart+=2;',
+            'for(var num = 1; num <= lastNum; num++){',
+            '  if(num%showEvery !=0) { continue; }',
+            '  var ang = angStart + ((num-firstNum)/(lastNum-firstNum))*(angEnd - angStart);',
+            '  ang*=Math.PI/180;',
+            '  ctx.rotate(ang);',
+            '  ctx.translate(0,-radius);',
+            '  if(textRotation==="n") { ctx.rotate(-ang); }',
+            '  ctx.fillText(num.toString(), 0, 0);',
+            '  if(textRotation==="n") { ctx.rotate(ang); }',
+            '  ctx.translate(0,radius);',
+            '  ctx.rotate(-ang);',
+            '}',
+            'ctx.rotate(-rotation);',
             'ctx.translate(-x,-y);',
             'ctx.restore();'
         ]

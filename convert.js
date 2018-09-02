@@ -337,6 +337,7 @@ var getWatch = (watchName) => {
 
                 for (var i = 0; i < layers.length; i++) {
                     var layer = layers[i]["_attributes"];
+                    if(layer.display.body[0].init[0].name==="n") { continue; }
                     var type = chunk(layer.type);
                     if (type === '"shape"') {
                         var shape = chunk(layer.shape);
@@ -664,6 +665,77 @@ var getWatch = (watchName) => {
 
                         // text content
                         let t = chunk(layer.text);
+                        line += t + ', ';
+
+                        // text size
+                        let ts = chunk(layer.text_size);
+                        line += ts + ', ';
+
+                        // font
+                        let font = chunk(layer.font);
+                        font = font.substring(1, font.length - 1);
+                        font = font.split('"').join('');
+                        if (this.fonts.indexOf(font) === -1) {
+                            this.fonts.push(font);
+                        }
+                        line += '"' + font + '", ';
+
+                        // color
+                        let color = chunk(layer.color);
+                        line += color + ', ';
+
+                        // opacity
+                        let opacity = chunk(layer.opacity);
+                        line += opacity + ')';
+
+                        drawComponents.lines.push(line);
+
+                    }
+                    else if(type==='"text_ring"') {
+                        if (functionsAdded.indexOf("Numbers") === -1) {
+                            this.drawFunctions.push(variables.draw.drawNumbers);
+                            functionsAdded.push("Numbers");
+                        }
+
+                        var line = 'drawNumbers(';
+
+                        // x-coord of center
+                        let x = chunk(layer.x);
+                        line += x + ', ';
+
+                        // y-coord of center
+                        let y = chunk(layer.y);
+                        line += y + ', ';
+
+                        // radius
+                        let radius = chunk(layer.radius);
+                        line += radius + ', ';
+
+                        // rotation
+                        let rotation = chunk(layer.rotation);
+                        line += rotation + ', ';
+
+                        // start angle
+                        let angStart = chunk(layer.angle_start);
+                        line += angStart + ', ';
+
+                        // end angle
+                        let angEnd = chunk(layer.angle_end);
+                        line += angEnd + ', ';
+
+                        // first and last numbers
+                        let numRange = chunk(layer.ring_type.body[0].init[0].value) + "";
+                        let splitIndex = numRange.indexOf("to") != -1 ? numRange.indexOf("to") : numRange.indexOf("-");
+                        let firstNum = numRange.substring(0,splitIndex).trim();
+                        let lastNum = numRange.indexOf("to") != -1 ? numRange.substring(splitIndex+2,numRange.length) : numRange.substring(splitIndex+1,numRange.length);
+                        line += firstNum + ', ' + lastNum + ', ';
+
+                        // show every how many numbers
+                        let showEvery = chunk(layer.show_every);
+                        line += showEvery + ', ';
+
+                        // text rotation
+                        let t = chunk(layer.rotated_text);
                         line += t + ', ';
 
                         // text size

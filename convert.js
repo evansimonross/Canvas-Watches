@@ -724,10 +724,10 @@ var getWatch = (watchName) => {
                         line += angEnd + ', ';
 
                         // first and last numbers
-                        let numRange = chunk(layer.ring_type.body[0].init[0].value) + "";
+                        let numRange = chunk(layer.ring_type.body[0].init[0]) + "";
                         let splitIndex = numRange.indexOf("to") != -1 ? numRange.indexOf("to") : numRange.indexOf("-");
-                        let firstNum = numRange.substring(0,splitIndex).trim();
-                        let lastNum = numRange.indexOf("to") != -1 ? numRange.substring(splitIndex+2,numRange.length) : numRange.substring(splitIndex+1,numRange.length);
+                        let firstNum = numRange.substring(1,splitIndex).trim();
+                        let lastNum = numRange.indexOf("to") != -1 ? numRange.substring(splitIndex+2,numRange.length-1).trim() : numRange.substring(splitIndex+1,numRange.length-1).trim();
                         line += firstNum + ', ' + lastNum + ', ';
 
                         // show every how many numbers

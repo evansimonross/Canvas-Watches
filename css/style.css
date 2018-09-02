@@ -20,13 +20,13 @@ canvas{
 }
 
 @font-face {
-   font-family: BebasNeue Regular;
-    src: url('../watches/speed-demon/fonts/BebasNeue Regular.ttf');
+   font-family: Euro Caps;
+    src: url('../watches/speed-demon/fonts/Euro Caps.ttf');
 }
 
 @font-face {
-   font-family: Euro Caps;
-    src: url('../watches/speed-demon/fonts/Euro Caps.ttf');
+   font-family: BebasNeue Regular;
+    src: url('../watches/speed-demon/fonts/BebasNeue Regular.ttf');
 }
 
 @font-face {

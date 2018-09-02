@@ -185,10 +185,10 @@ function drawNumbers(x,y,radius,rotation,angStart,angEnd,firstNum,lastNum,showEv
   ctx.textBaseline="middle";
   ctx.textAlign="center";
   ctx.fillStyle=color;
-  angStart+=2;
-  for(var num = 1; num <= lastNum; num++){
+  for(var num = firstNum-1; num <= lastNum; num++){
+    if(num===firstNum-1) { continue; }
     if(num%showEvery !=0) { continue; }
-    var ang = angStart + ((num-firstNum)/(lastNum-firstNum))*(angEnd - angStart);
+    var ang = angStart + ((num-(firstNum-1))/(lastNum-(firstNum-1)))*(angEnd - angStart);
     ang*=Math.PI/180;
     ctx.rotate(ang);
     ctx.translate(0,-radius);

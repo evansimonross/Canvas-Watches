@@ -158,10 +158,6 @@ var getWatch = (watchName) => {
                 var chunk = (input) => {
                     if (!(input)) { return input; }
                     if (!(input.type)) { return input; }
-                    var expected = "";
-                    if(arguments.length === 2){
-                        expected = arguments[1];
-                    }
                     var type = chunk(input.type);
                     var arr = [];
                     switch (type) {
@@ -202,6 +198,7 @@ var getWatch = (watchName) => {
                                         case "*": return "value";
                                         case "/": return "value";
                                         case "%": return "value";
+                                        case "..": return "value";
                                         default: return "boolean";
                                     }
                                 }
@@ -241,7 +238,7 @@ var getWatch = (watchName) => {
                                 return '(' + chunk(input.left) + '===' + chunk(input.right) + ')';
                             }
                             else if (input.operator === "..") {
-                                return '(' + chunk(input.left) + '+' + chunk(input.right) + ')';
+                                return '(' + chunk(input.left) + '+' + (input.left.type==="StringLiteral" || input.right.type==="StringLiteral" ? "" : "''+") + chunk(input.right) + ')';
                             }
                             else {
                                 return '(' + chunk(input.left) + input.operator + chunk(input.right) + ')';

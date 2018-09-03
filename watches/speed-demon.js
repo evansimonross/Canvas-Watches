@@ -132,7 +132,7 @@ function hexa1(x) {
 }
 
 function hexa2(x) {
-  return (hexa1(math.floor((x/16)))+hexa1((x%16)));
+  return (hexa1(math.floor((x/16)))+''+hexa1((x%16)));
 }
 
 var img0 = new Image();
@@ -189,7 +189,7 @@ function drawFace() {
 }
 
 function adjustColor(color) {
-  return (/([A-Fa-f0-9]{6})/.test(color)) ? `#${color}` : color;
+  return (/^([A-Fa-f0-9]{6})/.test(color)) ? `#${color}` : color;
 }
 
 function drawMarkers(x,y,w,h,radius,rotation,count,shape,color,opacity) {
@@ -397,13 +397,13 @@ function drawComponents() {
   drawText(125, (dd===dn) && (dh23>11) ? ((-30*drm)/360) : 0, 0, month_func((dnn+0)), 30, "Euro Caps", 0, 100)
   drawText(125, (dd===dn) && (dh23>11) ? (30-((30*drm)/360)) : 30, 0, month_func((dnn+1)), 30, "Euro Caps", 0, 100)
   drawText(180, (dh23===23) ? ((-30*drm)/360) : 0, 0, ddz, 25, "BebasNeue Regular", 0, 100)
-  drawText(180, (dh23===23) ? (30-((30*drm)/360)) : 30, 0, (dd<9) && ("0"+(dd+1)) || (dd+1), 25, "BebasNeue Regular", 0, 100)
+  drawText(180, (dh23===23) ? (30-((30*drm)/360)) : 30, 0, (dd<9) ? ("0"+(dd+1)) : (dd+1), 25, "BebasNeue Regular", 0, 100)
   drawTriangle((244*math.sin(swrs)), (-244*math.cos(swrs)), 30, adjustTriangleHeight(30), (180+swrs), "#4d9ffb", (var_screen===2) ? 100 : 0);
   drawText((238*math.sin(swrs)), (-238*math.cos(swrs)), 0, (swh>0) ? swh : "", 18, "BebasNeue", 0, (var_screen===2) ? 100 : 0)
   drawTriangle((198*math.sin(swrs)), (-198*math.cos(swrs)), 30, adjustTriangleHeight(30), swrs, "#4d9ffb", (var_screen===2) ? 100 : 0);
   drawText((192*math.sin(swrs)), (-192*math.cos(swrs)), 0, (swm>0) ? swm : "", 14, "BebasNeue", 0, (var_screen===2) ? 100 : 0)
-  drawImage(img0, 0, 0, 420, 420, (250+((40*bl)/100)), (bl>50) && (hexa2(math.floor((((100-bl)*255)/50)))+"ff00") || ("ff"+(hexa2(math.floor(((bl*255)/50)))+"00")), (var_screen===1) ? 100 : 0);
-  drawImage(img0, 0, 1, 420, 420, (110-((40*pbl)/100)), (pbl>50) && (hexa2(math.floor((((100-pbl)*255)/50)))+"ff00") || ("ff"+(hexa2(math.floor(((pbl*255)/50)))+"00")), (var_screen===1) ? 100 : 0);
+  drawImage(img0, 0, 0, 420, 420, (250+((40*bl)/100)), (bl>50) ? (hexa2(math.floor((((100-bl)*255)/50)))+"ff00") : ("ff"+(hexa2(math.floor(((bl*255)/50)))+"00")), (var_screen===1) ? 100 : 0);
+  drawImage(img0, 0, 1, 420, 420, (110-((40*pbl)/100)), (pbl>50) ? (hexa2(math.floor((((100-pbl)*255)/50)))+"ff00") : ("ff"+(hexa2(math.floor(((pbl*255)/50)))+"00")), (var_screen===1) ? 100 : 0);
   drawImage(img0, 0, 0, 430, 430, ((dh%2)===0) ? ((drm/3)-60) : -((drm/3)-60), "ffffff", 100);
   drawImage(img0, 0, 0, 430, 430, ((dm%2)===0) ? ((drss/3)+120) : -((drss/3)+120), "ffffff", 100);
   drawText(0, 0, 0, "speed             demon", 18, "Air Americana", "ffffff", ((var_screen%2)===0) ? 100 : 0)

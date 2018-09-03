@@ -189,7 +189,7 @@ function drawFace() {
 }
 
 function adjustColor(color) {
-  return (/([A-Fa-f0-9]{6})/.test(color)) ? `#${color}` : color;
+  return (/^([A-Fa-f0-9]{6})/.test(color)) ? `#${color}` : color;
 }
 
 function drawMarkers(x,y,w,h,radius,rotation,count,shape,color,opacity) {

@@ -505,7 +505,7 @@ var util = {
         name: 'adjustColor',
         params: ['color'],
         lines:[
-            'return (/([A-Fa-f0-9]{6})/.test(color)) ? `#${color}` : color;',
+            'return (/^([A-Fa-f0-9]{6})/.test(color)) ? `#${color}` : color;',
         ]
     }
 }

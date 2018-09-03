@@ -8,7 +8,6 @@ var radius = canvas.height / 2;
 ctx.translate(radius, radius);
 setInterval(drawClock, 10);
 var var_screen = 0;
-var hand_minute_1 = {};
 
 var now;
 var year;
@@ -149,7 +148,7 @@ function drawClock() {
   minute = now.getMinutes();
   second = now.getSeconds();
   millisecond = now.getMilliseconds();
-  dh = hour === 0 ? 12 : hour % 12;
+  dh = hour % 12 === 0 ? 12 : hour % 12;
   dm = minute;
   ds = second;
   drms = 360*(millisecond/1000);
@@ -384,13 +383,13 @@ function drawComponents() {
   drawText(((200+(5*math.abs((2-var_screen))))*math.sin(60)), (-(200+(5*math.abs((2-var_screen))))*math.cos(60)), 0, ((dh%2)===1) ? dh : (dh===12) ? 1 : (dh+1), (var_screen===2) ? 27 : 35, "Euro Caps", "ffffff", ((dh%2)===1) && (dm===59) && (ds===59) ? (100-((100*drms)/360)) : ((dh%2)===0) && (dm===0) && (ds===0) ? ((100*drms)/360) : 100)
   drawText(((200+(5*math.abs((2-var_screen))))*math.sin(120)), (-(200+(5*math.abs((2-var_screen))))*math.cos(120)), 0, ((dm%2)===0) ? dm : (dm===59) ? 0 : (dm+1), (var_screen===2) ? 27 : 35, "Euro Caps", "ffffff", ((dm%2)===0) && (ds===59) ? (100-((100*drms)/360)) : ((dm%2)===1) && (ds===0) ? ((100*drms)/360) : 100)
   drawText(((200+(5*math.abs((2-var_screen))))*math.sin(240)), (-(200+(5*math.abs((2-var_screen))))*math.cos(240)), 0, ((dm%2)===1) ? dm : (dm+1), (var_screen===2) ? 27 : 35, "Euro Caps", "ffffff", ((dm%2)===1) && (ds===59) ? (100-((100*drms)/360)) : ((dm%2)===0) && (ds===0) ? ((100*drms)/360) : 100)
-  drawNumbers(0, 0, 220, 0, 249, 291, 0, 100, 25, [""], "n", 18, "BebasNeue Regular", "ffffff", (var_screen===1) ? 100 : 0)
-  drawNumbers(0, 0, 220, 0, 69, 111, 100, 0, 25, [""], "n", 18, "BebasNeue Regular", "ffffff", (var_screen===1) ? 100 : 0)
-  drawNumbers(0, 0, 220, 0, -52, 50, 5, 55, 5, [""], "n", 18, "BebasNeue Regular", "ffffff", 100)
-  drawNumbers(0, 0, 220, 0, -50, 52, 55, 5, 5, [""], "n", 18, "BebasNeue Regular", "ffffff", 0)
-  drawNumbers(0, 0, 220, 0, 128, 230, 5, 55, 5, [""], "n", 18, "BebasNeue Regular", "ffffff", 100)
-  drawNumbers(0, 0, 220, 0, 130, 232, 55, 5, 5, [""], "n", 18, "BebasNeue Regular", "ffffff", 0)
-  drawNumbers(0, 0, 220, 0, 0, 360, 1, 60, 1, [10,20,40,50], "n", 14, "BebasNeue", "ffffff", (var_screen===2) ? 100 : 0)
+  drawNumbers(0, 0, 220, 0, 249, 291, 0, 100, 25, [""], "n", 18, "BebasNeue Regular", "ffffff", (var_screen===1) ? 100 : 0);
+  drawNumbers(0, 0, 220, 0, 69, 111, 100, 0, 25, [""], "n", 18, "BebasNeue Regular", "ffffff", (var_screen===1) ? 100 : 0);
+  drawNumbers(0, 0, 220, 0, -52, 50, 5, 55, 5, [""], "n", 18, "BebasNeue Regular", "ffffff", (var_screen!=0) || ((dh%2)===1) ? 0 : (dm===0) && (ds===0) ? ((100*drms)/360) : (dm===59) && (ds===59) ? (100-((100*drms)/360)) : 100);
+  drawNumbers(0, 0, 220, 0, -50, 52, 55, 5, 5, [""], "n", 18, "BebasNeue Regular", "ffffff", (var_screen!=0) || ((dh%2)===0) ? 0 : (dm===0) && (ds===0) ? ((100*drms)/360) : (dm===59) && (ds===59) ? (100-((100*drms)/360)) : 100);
+  drawNumbers(0, 0, 220, 0, 128, 230, 5, 55, 5, [""], "n", 18, "BebasNeue Regular", "ffffff", (var_screen!=0) || ((dm%2)===1) ? 0 : (ds===0) ? ((100*drms)/360) : (ds===59) ? (100-((100*drms)/360)) : 100);
+  drawNumbers(0, 0, 220, 0, 130, 232, 55, 5, 5, [""], "n", 18, "BebasNeue Regular", "ffffff", (var_screen!=0) || ((dm%2)===0) ? 0 : (ds===0) ? ((100*drms)/360) : (ds===59) ? (100-((100*drms)/360)) : 100);
+  drawNumbers(0, 0, 220, 0, 0, 360, 1, 60, 1, [10,20,40,50], "n", 14, "BebasNeue", "ffffff", (var_screen===2) ? 100 : 0);
   drawSquare(-125, 0, 80, 35, 0, "ffffff", (var_screen===3) ? 100 : 0);
   drawText(-125, (dh23===23) ? ((-30*drm)/360) : 0, 0, weekday((ddw0+0)), 30, "Euro Caps", 0, 100)
   drawText(-125, (dh23===23) ? (30-((30*drm)/360)) : 30, 0, weekday((ddw0+1)), 30, "Euro Caps", 0, 100)
@@ -398,13 +397,13 @@ function drawComponents() {
   drawText(125, (dd===dn) && (dh23>11) ? ((-30*drm)/360) : 0, 0, month_func((dnn+0)), 30, "Euro Caps", 0, 100)
   drawText(125, (dd===dn) && (dh23>11) ? (30-((30*drm)/360)) : 30, 0, month_func((dnn+1)), 30, "Euro Caps", 0, 100)
   drawText(180, (dh23===23) ? ((-30*drm)/360) : 0, 0, ddz, 25, "BebasNeue Regular", 0, 100)
-  drawText(180, (dh23===23) ? (30-((30*drm)/360)) : 30, 0, (dd<9) ? ("0"+(dd+1)) : (dd+1), 25, "BebasNeue Regular", 0, 100)
+  drawText(180, (dh23===23) ? (30-((30*drm)/360)) : 30, 0, (dd<9) && ("0"+(dd+1)) || (dd+1), 25, "BebasNeue Regular", 0, 100)
   drawTriangle((244*math.sin(swrs)), (-244*math.cos(swrs)), 30, adjustTriangleHeight(30), (180+swrs), "#4d9ffb", (var_screen===2) ? 100 : 0);
   drawText((238*math.sin(swrs)), (-238*math.cos(swrs)), 0, (swh>0) ? swh : "", 18, "BebasNeue", 0, (var_screen===2) ? 100 : 0)
   drawTriangle((198*math.sin(swrs)), (-198*math.cos(swrs)), 30, adjustTriangleHeight(30), swrs, "#4d9ffb", (var_screen===2) ? 100 : 0);
   drawText((192*math.sin(swrs)), (-192*math.cos(swrs)), 0, (swm>0) ? swm : "", 14, "BebasNeue", 0, (var_screen===2) ? 100 : 0)
-  drawImage(img0, 0, 0, 420, 420, (250+((40*bl)/100)), (bl>50) ? (hexa2(math.floor((((100-bl)*255)/50)))+"ff00") : ("ff"+(hexa2(math.floor(((bl*255)/50)))+"00")), (var_screen===1) ? 100 : 0);
-  drawImage(img0, 0, 1, 420, 420, (110-((40*pbl)/100)), (pbl>50) ? (hexa2(math.floor((((100-pbl)*255)/50)))+"ff00") : ("ff"+(hexa2(math.floor(((pbl*255)/50)))+"00")), (var_screen===1) ? 100 : 0);
+  drawImage(img0, 0, 0, 420, 420, (250+((40*bl)/100)), (bl>50) && (hexa2(math.floor((((100-bl)*255)/50)))+"ff00") || ("ff"+(hexa2(math.floor(((bl*255)/50)))+"00")), (var_screen===1) ? 100 : 0);
+  drawImage(img0, 0, 1, 420, 420, (110-((40*pbl)/100)), (pbl>50) && (hexa2(math.floor((((100-pbl)*255)/50)))+"ff00") || ("ff"+(hexa2(math.floor(((pbl*255)/50)))+"00")), (var_screen===1) ? 100 : 0);
   drawImage(img0, 0, 0, 430, 430, ((dh%2)===0) ? ((drm/3)-60) : -((drm/3)-60), "ffffff", 100);
   drawImage(img0, 0, 0, 430, 430, ((dm%2)===0) ? ((drss/3)+120) : -((drss/3)+120), "ffffff", 100);
   drawText(0, 0, 0, "speed             demon", 18, "Air Americana", "ffffff", ((var_screen%2)===0) ? 100 : 0)

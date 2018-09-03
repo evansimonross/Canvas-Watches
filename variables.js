@@ -12,11 +12,11 @@ var time = {
     millisecond: { name: 'millisecond', declaration: 'now.getMilliseconds()' },
 
     // hours
-    dh: { name: 'dh', declaration: "hour === 0 ? 12 : hour % 12" },
+    dh: { name: 'dh', declaration: "hour % 12 === 0 ? 12 : hour % 12" },
     dh11: { name: 'dh11', declaration: "hour % 12" },
     dh24: { name: 'dh24', declaration: "hour === 0 ? 24 : hour" },
     dh23: { name: 'dh23', declaration: "hour" },
-    dhz: { name: 'dhz', declaration: "hour === 0 ? 12 : hour % 12;\ndhz = dhz < 10 ? '0' + dhz : dhz" },
+    dhz: { name: 'dhz', declaration: "hour % 12 === 0 ? 12 : hour % 12;\ndhz = dhz < 10 ? '0' + dhz : dhz" },
     dh11z: { name: 'dh11z', declaration: "hour % 12;\ndh11z = dh11z < 10 ? '0' + dh11z : dh11z" },
     dh24z: { name: 'dh24z', declaration: "hour === 0 ? 24 : hour;\ndh24z = dh24z < 10 ? '0' + dh24z : dh24z" },
     dh23z: { name: 'dh23z', declaration: "hour;\ndh23z < 10 ? '0' + dh23z : dh23z" },

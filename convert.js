@@ -158,6 +158,10 @@ var getWatch = (watchName) => {
                 var chunk = (input) => {
                     if (!(input)) { return input; }
                     if (!(input.type)) { return input; }
+                    var expected = "";
+                    if(arguments.length === 2){
+                        expected = arguments[1];
+                    }
                     var type = chunk(input.type);
                     var arr = [];
                     switch (type) {
@@ -180,21 +184,47 @@ var getWatch = (watchName) => {
                             }
                             return functionParse ? input.variables[0].name + " = [" + arr + "];" : arr;
                         case "LogicalExpression":
-                            if (input.operator === "or") {
-                                if (input.left.operator === "and") {
-                                    return chunk(input.left.left) + ' ? ' + chunk(input.left.right) + ' : ' + chunk(input.right);
-                                }
-                                else if (input.left.operator === "or") {
-                                    if (input.left.left.operator === "and") {
-                                        return chunk(input.left.left.left) + ' ? ' + chunk(input.left.left.right) + ' : ' + chunk(input.left.right.left) + ' ? ' + chunk(input.left.right.right) + ' : ' + chunk(input.right);
+                            var check = (inside) => {
+                                if(inside.type==="LogicalExpression"){
+                                    if(inside.operator === "and") {
+                                        if(check(inside.left)==="boolean" && check(inside.right)==="value") return "conditional";
+                                        return "boolean";
+                                    }
+                                    else{
+                                        if(check(inside.left)==="conditional") return "conditional";
+                                        return "boolean";
                                     }
                                 }
-                                else {
-                                    return chunk(input.left) + ' || ' + chunk(input.right);
+                                else if(inside.type==="BinaryExpression"){
+                                    switch(inside.operator){
+                                        case "+": return "value";
+                                        case "-": return "value";
+                                        case "*": return "value";
+                                        case "/": return "value";
+                                        case "%": return "value";
+                                        default: return "boolean";
+                                    }
+                                }
+                                else{
+                                    return "value";
                                 }
                             }
-                            else if (input.operator === "and") {
-                                return chunk(input.left) + ' && ' + chunk(input.right);
+                            var expressionType = check(input);
+                            switch(expressionType){
+                                case "boolean":
+                                    if(input.operator === "or") {
+                                        return chunk(input.left) + " || " + chunk(input.right);
+                                    }
+                                    else if(input.operator === "and") {
+                                        return chunk(input.left) + " && " + chunk(input.right);
+                                    }
+                                case "conditional":
+                                    if(input.operator === "or"){
+                                        return chunk(input.left) + " : " + chunk(input.right);
+                                    }
+                                    else if(input.operator === "and"){
+                                        return chunk(input.left) + " ? " + chunk(input.right);
+                                    }
                             }
                         case "UnaryExpression":
                             if (input.operator === "~") {
@@ -297,7 +327,7 @@ var getWatch = (watchName) => {
                         case "MemberExpression":
                             var baseName = input.base.name;
                             if (variablesAdded.indexOf(baseName) === -1) {
-                                this.declarations.push('var ' + baseName + ' = {};');
+                                //this.declarations.push('var ' + baseName + ' = {};');
                                 variablesAdded.push(baseName);
                             }
                             var variableName = input.identifier.name;
@@ -815,7 +845,7 @@ var getWatch = (watchName) => {
 
                         // opacity
                         let opacity = chunk(layer.opacity);
-                        line += opacity + ')';
+                        line += opacity + ');';
 
                         drawComponents.lines.push(line);
 

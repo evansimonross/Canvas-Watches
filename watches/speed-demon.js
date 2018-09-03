@@ -37,6 +37,105 @@ var bl;
 var pbl;
 var drss;
 
+function weekday(x) {
+  var k = "";
+  x = (x%7);
+  if ((x===0)){
+    k = "SUN";
+  }
+  else if ((x===1)){
+    k = "MON";
+  }
+  else if ((x===2)){
+    k = "TUE";
+  }
+  else if ((x===3)){
+    k = "WED";
+  }
+  else if ((x===4)){
+    k = "THU";
+  }
+  else if ((x===5)){
+    k = "FRI";
+  }
+  else if ((x===6)){
+    k = "SAT";
+  }
+  return k;
+}
+
+function month_func(x) {
+  var k = "";
+  x = (x%12);
+  if ((x===0)){
+    k = "DEC";
+  }
+  else if ((x===1)){
+    k = "JAN";
+  }
+  else if ((x===2)){
+    k = "FEB";
+  }
+  else if ((x===3)){
+    k = "MAR";
+  }
+  else if ((x===4)){
+    k = "APR";
+  }
+  else if ((x===5)){
+    k = "MAY";
+  }
+  else if ((x===6)){
+    k = "JUN";
+  }
+  else if ((x===7)){
+    k = "JUL";
+  }
+  else if ((x===8)){
+    k = "AUG";
+  }
+  else if ((x===9)){
+    k = "SEP";
+  }
+  else if ((x===10)){
+    k = "OCT";
+  }
+  else if ((x===11)){
+    k = "NOV";
+  }
+  return k;
+}
+
+function hexa1(x) {
+  var k = "";
+  if ((x<10)){
+    k = x;
+  }
+  if ((x===10)){
+    k = "a";
+  }
+  if ((x===11)){
+    k = "b";
+  }
+  if ((x===12)){
+    k = "c";
+  }
+  if ((x===13)){
+    k = "d";
+  }
+  if ((x===14)){
+    k = "e";
+  }
+  if ((x===15)){
+    k = "f";
+  }
+  return k;
+}
+
+function hexa2(x) {
+  return (hexa1(math.floor((x/16)))+hexa1((x%16)));
+}
+
 var img0 = new Image();
 img0.src = "watches/speed-demon/images/hand_minute_1.png";
 
@@ -139,6 +238,7 @@ function drawSquare(x,y,w,h,ang,color,opacity) {
   ctx.lineTo(w/2, h/2);
   ctx.lineTo(-1*(w/2), h/2);
   ctx.translate(-w/2, -h/2);
+  if (/([A-Fa-f0-9]{6})/.test(color)) { color = `#${color}`; }
   ctx.fillStyle = color;
   ctx.fill();
   ctx.translate(w/2, h/2);
@@ -160,6 +260,7 @@ function drawText(x,y,ang,text,size,font,color,opacity) {
   ctx.font = size + "px " + font;
   ctx.textBaseline="middle";
   ctx.textAlign="center";
+  if (/([A-Fa-f0-9]{6})/.test(color)) { color = `#${color}`; }
   ctx.fillStyle=color;
   ctx.fillText(text, 0, 0);
   ctx.rotate(-ang);
@@ -180,6 +281,7 @@ function drawNumbers(x,y,radius,rotation,angStart,angEnd,firstNum,lastNum,showEv
   ctx.font = size + "px " + font;
   ctx.textBaseline="middle";
   ctx.textAlign="center";
+  if (/([A-Fa-f0-9]{6})/.test(color)) { color = `#${color}`; }
   ctx.fillStyle=color;
   for(var num = firstNum < lastNum ? firstNum-1 : firstNum;  firstNum < lastNum ? num <= lastNum : num > lastNum-1;  firstNum < lastNum ? num++ : num--){
     if(num===firstNum-1) { continue; }
@@ -216,6 +318,7 @@ function drawTriangle(x,y,w,h,ang,color,opacity) {
   ctx.lineTo(w/2, h/2);
   ctx.lineTo(-1*(w/2), h/2);
   ctx.translate(-w/2, -h/2);
+  if (/([A-Fa-f0-9]{6})/.test(color)) { color = `#${color}`; }
   ctx.fillStyle = color;
   ctx.fill();
   ctx.translate(w/2, h/2);
@@ -256,6 +359,7 @@ function drawImage(img,x,y,w,h,ang,color,opacity) {
   ctx.rotate(ang);
   ctx.globalAlpha = opacity / 100;
   ctx.translate(-w / 2, -h / 2);
+  if (/([A-Fa-f0-9]{6})/.test(color)) { color = `#${color}`; }
   if (color === "#ffffff") {
     ctx.drawImage(img, 0, 0, w, h);
   }
@@ -269,36 +373,36 @@ function drawImage(img,x,y,w,h,ang,color,opacity) {
 }
 
 function drawComponents() {
-  drawMarkers(0, 0, 2, 10, 256, 0, 180, "Square", "#ffffff", (var_screen===2) ? 0 : 100);
-  drawMarkers(0, 0, 4, 14, 256, 0, 36, "Square", "#ffffff", (var_screen===2) ? 0 : 100);
-  drawMarkers(0, 0, 6, 18, 256, 0, 12, "Square", "#ffffff", 100);
-  drawText(((200+(5*math.abs((2-var_screen))))*math.sin(300)), (-(200+(5*math.abs((2-var_screen))))*math.cos(300)), 0, ((dh%2)===0) ? dh : (dh+1), (var_screen===2) ? 27 : 35, "Euro Caps", "#ffffff", ((dh%2)===0) && (dm===59) && (ds===59) ? (100-((100*drms)/360)) : ((dh%2)===1) && (dm===0) && (ds===0) ? ((100*drms)/360) : 100)
-  drawText(((200+(5*math.abs((2-var_screen))))*math.sin(60)), (-(200+(5*math.abs((2-var_screen))))*math.cos(60)), 0, ((dh%2)===1) ? dh : (dh===12) ? 1 : (dh+1), (var_screen===2) ? 27 : 35, "Euro Caps", "#ffffff", ((dh%2)===1) && (dm===59) && (ds===59) ? (100-((100*drms)/360)) : ((dh%2)===0) && (dm===0) && (ds===0) ? ((100*drms)/360) : 100)
-  drawText(((200+(5*math.abs((2-var_screen))))*math.sin(120)), (-(200+(5*math.abs((2-var_screen))))*math.cos(120)), 0, ((dm%2)===0) ? dm : (dm===59) ? 0 : (dm+1), (var_screen===2) ? 27 : 35, "Euro Caps", "#ffffff", ((dm%2)===0) && (ds===59) ? (100-((100*drms)/360)) : ((dm%2)===1) && (ds===0) ? ((100*drms)/360) : 100)
-  drawText(((200+(5*math.abs((2-var_screen))))*math.sin(240)), (-(200+(5*math.abs((2-var_screen))))*math.cos(240)), 0, ((dm%2)===1) ? dm : (dm+1), (var_screen===2) ? 27 : 35, "Euro Caps", "#ffffff", ((dm%2)===1) && (ds===59) ? (100-((100*drms)/360)) : ((dm%2)===0) && (ds===0) ? ((100*drms)/360) : 100)
-  drawNumbers(0, 0, 220, 0, 249, 291, 0, 100, 25, [""], "n", 18, "BebasNeue Regular", "#ffffff", (var_screen===1) ? 100 : 0)
-  drawNumbers(0, 0, 220, 0, 69, 111, 100, 0, 25, [""], "n", 18, "BebasNeue Regular", "#ffffff", (var_screen===1) ? 100 : 0)
-  drawNumbers(0, 0, 220, 0, -52, 50, 5, 55, 5, [""], "n", 18, "BebasNeue Regular", "#ffffff", orundefined)
-  drawNumbers(0, 0, 220, 0, -50, 52, 55, 5, 5, [""], "n", 18, "BebasNeue Regular", "#ffffff", orundefined)
-  drawNumbers(0, 0, 220, 0, 128, 230, 5, 55, 5, [""], "n", 18, "BebasNeue Regular", "#ffffff", orundefined)
-  drawNumbers(0, 0, 220, 0, 130, 232, 55, 5, 5, [""], "n", 18, "BebasNeue Regular", "#ffffff", orundefined)
-  drawNumbers(0, 0, 220, 0, 0, 360, 1, 60, 1, [10,20,40,50], "n", 14, "BebasNeue", "#ffffff", (var_screen===2) ? 100 : 0)
-  drawSquare(-125, 0, 80, 35, 0, "#ffffff", (var_screen===3) ? 100 : 0);
-  drawText(-125, (dh23===23) ? ((-30*drm)/360) : 0, 0, weekday((ddw0+0)), 30, "Euro Caps", "#000000", 100)
-  drawText(-125, (dh23===23) ? (30-((30*drm)/360)) : 30, 0, weekday((ddw0+1)), 30, "Euro Caps", "#000000", 100)
-  drawSquare(140, 0, 115, 35, 0, "#ffffff", (var_screen===3) ? 100 : 0);
-  drawText(125, (dd===dn) && (dh23>11) ? ((-30*drm)/360) : 0, 0, month((dnn+0)), 30, "Euro Caps", "#000000", 100)
-  drawText(125, (dd===dn) && (dh23>11) ? (30-((30*drm)/360)) : 30, 0, month((dnn+1)), 30, "Euro Caps", "#000000", 100)
-  drawText(180, (dh23===23) ? ((-30*drm)/360) : 0, 0, ddz, 25, "BebasNeue Regular", "#000000", 100)
-  drawText(180, (dh23===23) ? (30-((30*drm)/360)) : 30, 0, (dd<9) ? ("0"+(dd+1)) : (dd+1), 25, "BebasNeue Regular", "#000000", 100)
+  drawMarkers(0, 0, 2, 10, 256, 0, 180, "Square", "ffffff", (var_screen===2) ? 0 : 100);
+  drawMarkers(0, 0, 4, 14, 256, 0, 36, "Square", "ffffff", (var_screen===2) ? 0 : 100);
+  drawMarkers(0, 0, 6, 18, 256, 0, 12, "Square", "ffffff", 100);
+  drawText(((200+(5*math.abs((2-var_screen))))*math.sin(300)), (-(200+(5*math.abs((2-var_screen))))*math.cos(300)), 0, ((dh%2)===0) ? dh : (dh+1), (var_screen===2) ? 27 : 35, "Euro Caps", "ffffff", ((dh%2)===0) && (dm===59) && (ds===59) ? (100-((100*drms)/360)) : ((dh%2)===1) && (dm===0) && (ds===0) ? ((100*drms)/360) : 100)
+  drawText(((200+(5*math.abs((2-var_screen))))*math.sin(60)), (-(200+(5*math.abs((2-var_screen))))*math.cos(60)), 0, ((dh%2)===1) ? dh : (dh===12) ? 1 : (dh+1), (var_screen===2) ? 27 : 35, "Euro Caps", "ffffff", ((dh%2)===1) && (dm===59) && (ds===59) ? (100-((100*drms)/360)) : ((dh%2)===0) && (dm===0) && (ds===0) ? ((100*drms)/360) : 100)
+  drawText(((200+(5*math.abs((2-var_screen))))*math.sin(120)), (-(200+(5*math.abs((2-var_screen))))*math.cos(120)), 0, ((dm%2)===0) ? dm : (dm===59) ? 0 : (dm+1), (var_screen===2) ? 27 : 35, "Euro Caps", "ffffff", ((dm%2)===0) && (ds===59) ? (100-((100*drms)/360)) : ((dm%2)===1) && (ds===0) ? ((100*drms)/360) : 100)
+  drawText(((200+(5*math.abs((2-var_screen))))*math.sin(240)), (-(200+(5*math.abs((2-var_screen))))*math.cos(240)), 0, ((dm%2)===1) ? dm : (dm+1), (var_screen===2) ? 27 : 35, "Euro Caps", "ffffff", ((dm%2)===1) && (ds===59) ? (100-((100*drms)/360)) : ((dm%2)===0) && (ds===0) ? ((100*drms)/360) : 100)
+  drawNumbers(0, 0, 220, 0, 249, 291, 0, 100, 25, [""], "n", 18, "BebasNeue Regular", "ffffff", (var_screen===1) ? 100 : 0)
+  drawNumbers(0, 0, 220, 0, 69, 111, 100, 0, 25, [""], "n", 18, "BebasNeue Regular", "ffffff", (var_screen===1) ? 100 : 0)
+  drawNumbers(0, 0, 220, 0, -52, 50, 5, 55, 5, [""], "n", 18, "BebasNeue Regular", "ffffff", orundefined)
+  drawNumbers(0, 0, 220, 0, -50, 52, 55, 5, 5, [""], "n", 18, "BebasNeue Regular", "ffffff", orundefined)
+  drawNumbers(0, 0, 220, 0, 128, 230, 5, 55, 5, [""], "n", 18, "BebasNeue Regular", "ffffff", orundefined)
+  drawNumbers(0, 0, 220, 0, 130, 232, 55, 5, 5, [""], "n", 18, "BebasNeue Regular", "ffffff", orundefined)
+  drawNumbers(0, 0, 220, 0, 0, 360, 1, 60, 1, [10,20,40,50], "n", 14, "BebasNeue", "ffffff", (var_screen===2) ? 100 : 0)
+  drawSquare(-125, 0, 80, 35, 0, "ffffff", (var_screen===3) ? 100 : 0);
+  drawText(-125, (dh23===23) ? ((-30*drm)/360) : 0, 0, weekday((ddw0+0)), 30, "Euro Caps", 0, 100)
+  drawText(-125, (dh23===23) ? (30-((30*drm)/360)) : 30, 0, weekday((ddw0+1)), 30, "Euro Caps", 0, 100)
+  drawSquare(140, 0, 115, 35, 0, "ffffff", (var_screen===3) ? 100 : 0);
+  drawText(125, (dd===dn) && (dh23>11) ? ((-30*drm)/360) : 0, 0, month_func((dnn+0)), 30, "Euro Caps", 0, 100)
+  drawText(125, (dd===dn) && (dh23>11) ? (30-((30*drm)/360)) : 30, 0, month_func((dnn+1)), 30, "Euro Caps", 0, 100)
+  drawText(180, (dh23===23) ? ((-30*drm)/360) : 0, 0, ddz, 25, "BebasNeue Regular", 0, 100)
+  drawText(180, (dh23===23) ? (30-((30*drm)/360)) : 30, 0, (dd<9) ? ("0"+(dd+1)) : (dd+1), 25, "BebasNeue Regular", 0, 100)
   drawTriangle((244*math.sin(swrs)), (-244*math.cos(swrs)), 30, adjustTriangleHeight(30), (180+swrs), "#4d9ffb", (var_screen===2) ? 100 : 0);
-  drawText((238*math.sin(swrs)), (-238*math.cos(swrs)), 0, (swh>0) ? swh : "", 18, "BebasNeue", "#000000", (var_screen===2) ? 100 : 0)
+  drawText((238*math.sin(swrs)), (-238*math.cos(swrs)), 0, (swh>0) ? swh : "", 18, "BebasNeue", 0, (var_screen===2) ? 100 : 0)
   drawTriangle((198*math.sin(swrs)), (-198*math.cos(swrs)), 30, adjustTriangleHeight(30), swrs, "#4d9ffb", (var_screen===2) ? 100 : 0);
-  drawText((192*math.sin(swrs)), (-192*math.cos(swrs)), 0, (swm>0) ? swm : "", 14, "BebasNeue", "#000000", (var_screen===2) ? 100 : 0)
+  drawText((192*math.sin(swrs)), (-192*math.cos(swrs)), 0, (swm>0) ? swm : "", 14, "BebasNeue", 0, (var_screen===2) ? 100 : 0)
   drawImage(img0, 0, 0, 420, 420, (250+((40*bl)/100)), (bl>50) ? (hexa2(math.floor((((100-bl)*255)/50)))+"ff00") : ("ff"+(hexa2(math.floor(((bl*255)/50)))+"00")), (var_screen===1) ? 100 : 0);
   drawImage(img0, 0, 1, 420, 420, (110-((40*pbl)/100)), (pbl>50) ? (hexa2(math.floor((((100-pbl)*255)/50)))+"ff00") : ("ff"+(hexa2(math.floor(((pbl*255)/50)))+"00")), (var_screen===1) ? 100 : 0);
-  drawImage(img0, 0, 0, 430, 430, ((dh%2)===0) ? ((drm/3)-60) : -((drm/3)-60), "#ffffff", 100);
-  drawImage(img0, 0, 0, 430, 430, ((dm%2)===0) ? ((drss/3)+120) : -((drss/3)+120), "#ffffff", 100);
-  drawText(0, 0, 0, "speed             demon", 18, "Air Americana", "#ffffff", ((var_screen%2)===0) ? 100 : 0)
+  drawImage(img0, 0, 0, 430, 430, ((dh%2)===0) ? ((drm/3)-60) : -((drm/3)-60), "ffffff", 100);
+  drawImage(img0, 0, 0, 430, 430, ((dm%2)===0) ? ((drss/3)+120) : -((drss/3)+120), "ffffff", 100);
+  drawText(0, 0, 0, "speed             demon", 18, "Air Americana", "ffffff", ((var_screen%2)===0) ? 100 : 0)
 }
 

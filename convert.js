@@ -58,10 +58,6 @@ var getWatch = (watchName) => {
             var layer = layers[i];
             for (attribute in layer['_attributes']) {
                 var statement = layer['_attributes'][attribute];
-                // Add hashtag before color values
-                if (/([A-Fa-f0-9]{6})/.test(statement)) {
-                    statement = '"#' + statement + '"';
-                }
                 if (/^script/.test(statement)) { layer['_attributes'][attribute] = interpret(statement.substring(7, statement.length)); }
                 else {
                     try {
@@ -154,24 +150,35 @@ var getWatch = (watchName) => {
 
             generate: function (file) {
                 var text = "";
-                var variablesAdded = [];
+                var variablesAdded = ["now", "year", "month", "date", "day", "hour", "minute", "second", "millisecond"];
                 var functionsAdded = [];
+                var functionParse = false;
 
                 // Evaluate lua chunks
                 var chunk = (input) => {
                     if (!(input)) { return input; }
                     if (!(input.type)) { return input; }
                     var type = chunk(input.type);
+                    var arr = [];
                     switch (type) {
                         case "Chunk":
                             return chunk(input.body[0]);
-                        case "AssignmentStatement":
-                            if(input.init.length ===1) { return chunk(input.init[0]); }
-                            let arr = [];
-                            for(var i = 0; i<input.init.length; i++){
+                        case "LocalStatement":
+                            if (input.init.length === 1) {
+                                return "var " + input.variables[0].name + " = " + chunk(input.init[0]) + ";";
+                            }
+                            for (var i = 0; i < input.init.length; i++) {
                                 arr.push(chunk(input.init[i]));
                             }
-                            return arr;
+                            return "var " + input.variables[0].name + " = [" + arr + "];";
+                        case "AssignmentStatement":
+                            if (input.init.length === 1) {
+                                return functionParse ? input.variables[0].name + " = " + chunk(input.init[0]) + ";" : chunk(input.init[0]);
+                            }
+                            for (var i = 0; i < input.init.length; i++) {
+                                arr.push(chunk(input.init[i]));
+                            }
+                            return functionParse ? input.variables[0].name + " = [" + arr + "];" : arr;
                         case "LogicalExpression":
                             if (input.operator === "or") {
                                 if (input.left.operator === "and") {
@@ -254,10 +261,14 @@ var getWatch = (watchName) => {
                                 return func + '(' + params + ')';
                             }
                             else {
+                                functionParse = true;
                                 var func = input.base.name;
                                 var params = [];
                                 for (var i = 0; i < input.arguments.length; i++) {
                                     params.push(chunk(input.arguments[i]));
+                                }
+                                if (functionsAdded.includes(func + "_func")) {
+                                    func = func + "_func";
                                 }
                                 if (functionsAdded.indexOf(func) === -1) {
                                     var f = { name: func, params: [], lines: [] };
@@ -266,11 +277,21 @@ var getWatch = (watchName) => {
                                         if (script.body[i].variables[0].name != f.name) { continue; }
                                         var expression = script.body[i].init[0];
                                         if (expression.type != "FunctionDeclaration") { continue; }
-                                        // TODO: Convert the expression into lines of js
+                                        if (variablesAdded.includes(f.name) || functionsAdded.includes(f.name)) {
+                                            f.name = f.name + "_func";
+                                            func = func + "_func";
+                                        }
+                                        for (var j = 0; j < expression.parameters.length; j++) {
+                                            f.params.push(expression.parameters[j].name);
+                                        }
+                                        for (var k = 0; k < expression.body.length; k++) {
+                                            f.lines.push(chunk(expression.body[k]));
+                                        }
                                     }
-                                    functionsAdded.push(func);
+                                    functionsAdded.push(f.name);
                                     this.scriptFunctions.push(f);
                                 }
+                                functionParse = false;
                                 return func + '(' + params + ')';
                             }
                         case "MemberExpression":
@@ -319,7 +340,7 @@ var getWatch = (watchName) => {
                                     }
                                 }
                             }
-                            return variablesAdded.indexOf(variableName) === -1 ? '"' + variableName + '"' : variableName;
+                            return variablesAdded.indexOf(variableName) === -1 && !functionParse ? '"' + variableName + '"' : variableName;
                         case "NumericLiteral": return input.value;
                         case "StringLiteral":
                             if (/^([A-Fa-f0-9]{6})$/.test(input.value)) {
@@ -328,6 +349,34 @@ var getWatch = (watchName) => {
                             else {
                                 return '"' + input.value + '"';
                             }
+                        // function lines
+                        case "IfStatement":
+                            for (var i = 0; i < input.clauses.length; i++) {
+                                arr.push(chunk(input.clauses[i]));
+                            }
+                            return arr.join("\n");
+                        case "IfClause":
+                            arr.push("if (" + chunk(input.condition) + "){");
+                            for (var i = 0; i < input.body.length; i++) {
+                                arr.push("    " + chunk(input.body[i]));
+                            }
+                            arr.push("  }");
+                            return arr.join("\n");
+                        case "ElseifClause":
+                            arr.push("  else if (" + chunk(input.condition) + "){");
+                            for (var i = 0; i < input.body.length; i++) {
+                                arr.push("    " + chunk(input.body[i]));
+                            }
+                            arr.push("  }");
+                            return arr.join("\n");
+                        case "ElseClause":
+                            arr.push("  else{");
+                            for (var i = 0; i < input.body.length; i++) {
+                                arr.push("    " + chunk(input.body[i]));
+                            }
+                            arr.push("  }");
+                            return arr.join("\n");
+                        case "ReturnStatement": return "return " + chunk(input.arguments[0]) + ";";
                         default: return "";
                     }
                 }
@@ -342,7 +391,7 @@ var getWatch = (watchName) => {
 
                 for (var i = 0; i < layers.length; i++) {
                     var layer = layers[i]["_attributes"];
-                    if(layer.display.body[0].init[0].name==="n") { continue; }
+                    if (layer.display.body[0].init[0].name === "n") { continue; }
                     var type = chunk(layer.type);
                     if (type === '"shape"') {
                         var shape = chunk(layer.shape);
@@ -606,9 +655,9 @@ var getWatch = (watchName) => {
                         var image = {};
                         image.path = `"watches/${watchName}/images/${chunk(layer.path.body[0].init[0])}"`;
                         var hasImage = false;
-                        this.images.forEach(function (img){
-                            if (img.path === image.path) { 
-                                hasImage = true; 
+                        this.images.forEach(function (img) {
+                            if (img.path === image.path) {
+                                hasImage = true;
                                 image.name = img.name;
                             }
                         });
@@ -696,7 +745,7 @@ var getWatch = (watchName) => {
                         drawComponents.lines.push(line);
 
                     }
-                    else if(type==='"text_ring"') {
+                    else if (type === '"text_ring"') {
                         if (functionsAdded.indexOf("Numbers") === -1) {
                             this.drawFunctions.push(variables.draw.drawNumbers);
                             functionsAdded.push("Numbers");
@@ -731,8 +780,8 @@ var getWatch = (watchName) => {
                         // first and last numbers
                         let numRange = chunk(layer.ring_type.body[0].init[0]) + "";
                         let splitIndex = numRange.indexOf("to") != -1 ? numRange.indexOf("to") : numRange.indexOf("-");
-                        let firstNum = numRange.substring(1,splitIndex).trim();
-                        let lastNum = numRange.indexOf("to") != -1 ? numRange.substring(splitIndex+2,numRange.length-1).trim() : numRange.substring(splitIndex+1,numRange.length-1).trim();
+                        let firstNum = numRange.substring(1, splitIndex).trim();
+                        let lastNum = numRange.indexOf("to") != -1 ? numRange.substring(splitIndex + 2, numRange.length - 1).trim() : numRange.substring(splitIndex + 1, numRange.length - 1).trim();
                         line += firstNum + ', ' + lastNum + ', ';
 
                         // show every how many numbers
@@ -790,6 +839,16 @@ var getWatch = (watchName) => {
                     text += 'var ' + this.timeVariables[i].name + ';\n';
                 }
                 text += "\n";
+
+                // script function declarations
+                for (var i = 0; i < this.scriptFunctions.length; i++) {
+                    var f = this.scriptFunctions[i];
+                    text += 'function ' + f.name + '(' + f.params + ') {\n';
+                    for (var j = 0; j < f.lines.length; j++) {
+                        text += '  ' + f.lines[j] + "\n";
+                    }
+                    text += "}\n\n";
+                }
 
                 // image decalarations
                 for (var i = 0; i < this.images.length; i++) {

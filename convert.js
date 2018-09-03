@@ -2,7 +2,7 @@ var convert = require('xml-js');
 var parser = require('luaparse');
 var fs = require('fs');
 var AdmZip = require('adm-zip');
-var variables = require('./variables.js')
+var variables = require('./variables.js');
 
 var interpret = (lua) => {
     var ast = parser.parse(lua);
@@ -143,7 +143,7 @@ var getWatch = (watchName) => {
                 'setInterval(drawClock, 10);',
             ],
             timeVariables: [variables.time.now, variables.time.year, variables.time.month, variables.time.date, variables.time.day, variables.time.hour, variables.time.minute, variables.time.second, variables.time.millisecond],
-            drawFunctions: [variables.draw.drawFace],
+            drawFunctions: [variables.draw.drawFace, variables.util.adjustColor],
             scriptFunctions: [],
             images: [],
             fonts: [],

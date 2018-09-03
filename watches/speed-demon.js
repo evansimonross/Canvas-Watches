@@ -189,6 +189,10 @@ function drawFace() {
   ctx.fill();
 }
 
+function adjustColor(color) {
+  return (/([A-Fa-f0-9]{6})/.test(color)) ? `#${color}` : color; }
+}
+
 function drawMarkers(x,y,w,h,radius,rotation,count,shape,color,opacity) {
   if(opacity===0) { return; }
   ctx.save();
@@ -238,7 +242,7 @@ function drawSquare(x,y,w,h,ang,color,opacity) {
   ctx.lineTo(w/2, h/2);
   ctx.lineTo(-1*(w/2), h/2);
   ctx.translate(-w/2, -h/2);
-  if (/([A-Fa-f0-9]{6})/.test(color)) { color = `#${color}`; }
+  color = adjustColor(color);
   ctx.fillStyle = color;
   ctx.fill();
   ctx.translate(w/2, h/2);
@@ -260,7 +264,7 @@ function drawText(x,y,ang,text,size,font,color,opacity) {
   ctx.font = size + "px " + font;
   ctx.textBaseline="middle";
   ctx.textAlign="center";
-  if (/([A-Fa-f0-9]{6})/.test(color)) { color = `#${color}`; }
+  color = adjustColor(color);
   ctx.fillStyle=color;
   ctx.fillText(text, 0, 0);
   ctx.rotate(-ang);
@@ -281,7 +285,7 @@ function drawNumbers(x,y,radius,rotation,angStart,angEnd,firstNum,lastNum,showEv
   ctx.font = size + "px " + font;
   ctx.textBaseline="middle";
   ctx.textAlign="center";
-  if (/([A-Fa-f0-9]{6})/.test(color)) { color = `#${color}`; }
+  color = adjustColor(color);
   ctx.fillStyle=color;
   for(var num = firstNum < lastNum ? firstNum-1 : firstNum;  firstNum < lastNum ? num <= lastNum : num > lastNum-1;  firstNum < lastNum ? num++ : num--){
     if(num===firstNum-1) { continue; }
@@ -318,7 +322,7 @@ function drawTriangle(x,y,w,h,ang,color,opacity) {
   ctx.lineTo(w/2, h/2);
   ctx.lineTo(-1*(w/2), h/2);
   ctx.translate(-w/2, -h/2);
-  if (/([A-Fa-f0-9]{6})/.test(color)) { color = `#${color}`; }
+  color = adjustColor(color);
   ctx.fillStyle = color;
   ctx.fill();
   ctx.translate(w/2, h/2);
@@ -359,7 +363,7 @@ function drawImage(img,x,y,w,h,ang,color,opacity) {
   ctx.rotate(ang);
   ctx.globalAlpha = opacity / 100;
   ctx.translate(-w / 2, -h / 2);
-  if (/([A-Fa-f0-9]{6})/.test(color)) { color = `#${color}`; }
+  color = adjustColor(color);
   if (color === "#ffffff") {
     ctx.drawImage(img, 0, 0, w, h);
   }

@@ -104,7 +104,7 @@ var draw = {
             'ctx.beginPath();',
             'ctx.ellipse(0, 0, w/2, h/2, 0, 0, Math.PI*2)',
             'ctx.translate(-w/2, -h/2);',
-            'if (/([A-Fa-f0-9]{6})/.test(color)) { color = `#${color}`; }',
+            'color = adjustColor(color);',
             'ctx.fillStyle = color;',
             'ctx.fill();',
             'ctx.translate(w/2, h/2);',
@@ -133,7 +133,7 @@ var draw = {
             'ctx.lineTo(w/2, h/2);',
             'ctx.lineTo(-1*(w/2), h/2);',
             'ctx.translate(-w/2, -h/2);',
-            'if (/([A-Fa-f0-9]{6})/.test(color)) { color = `#${color}`; }',
+            'color = adjustColor(color);',
             'ctx.fillStyle = color;',
             'ctx.fill();',
             'ctx.translate(w/2, h/2);',
@@ -161,7 +161,7 @@ var draw = {
             'ctx.lineTo(w/2, h/2);',
             'ctx.lineTo(-1*(w/2), h/2);',
             'ctx.translate(-w/2, -h/2);',
-            'if (/([A-Fa-f0-9]{6})/.test(color)) { color = `#${color}`; }',
+            'color = adjustColor(color);',
             'ctx.fillStyle = color;',
             'ctx.fill();',
             'ctx.translate(w/2, h/2);',
@@ -179,8 +179,8 @@ var draw = {
             'var r = width>height ? height / 2 : width / 2;',
             'scale = scale > 100 ? 0 : scale < 0 ? 1 : (100-scale)/100;',
             'var grd = ctx.createRadialGradient(r, r, 0, r, r, r);',
-            'if (/([A-Fa-f0-9]{6})/.test(start)) { start = `#${start}`; }',
-            'if (/([A-Fa-f0-9]{6})/.test(end)) { end = `#${end}`; }',
+            'start = adjustColor(start);',
+            'end = adjustColor(end);',
             'grd.addColorStop(0, start);',
             'grd.addColorStop(1-(scale/2), end);',
             'grd.addColorStop(1, end);',
@@ -228,8 +228,8 @@ var draw = {
             '  y2 = height - y1;',
             '}',
             'var grd = ctx.createLinearGradient(x1, y1, x2, y2);',
-            'if (/([A-Fa-f0-9]{6})/.test(start)) { start = `#${start}`; }',
-            'if (/([A-Fa-f0-9]{6})/.test(end)) { end = `#${end}`; }',
+            'start = adjustColor(start);',
+            'end = adjustColor(end);',
             'grd.addColorStop(0, start);',
             'grd.addColorStop(scale/2, start);',
             'grd.addColorStop(1-(scale/2), end);',
@@ -280,8 +280,8 @@ var draw = {
             'ctx.save();',
             'ctx.translate(x, y);',
             'ctx.rotate(rotation);',
-            'if (/([A-Fa-f0-9]{6})/.test(hourColor)) { hourColor = `#${hourColor}`; }',
-            'if (/([A-Fa-f0-9]{6})/.test(minuteColor)) { minuteColor = `#${minuteColor}`; }',
+            'hourColor = adjustColor(hourColor);',
+            'minuteColor = adjustColor(minuteColor);',
             'var ang;',
             'var num;',
             'for(num= 1; num <= 60; num++){',
@@ -414,7 +414,7 @@ var draw = {
             'ctx.rotate(ang);',
             'ctx.globalAlpha = opacity / 100;',
             'ctx.translate(-w / 2, -h / 2);',
-            'if (/([A-Fa-f0-9]{6})/.test(color)) { color = `#${color}`; }',
+            'color = adjustColor(color);',
             'if (color === "#ffffff") {',
             '  ctx.drawImage(img, 0, 0, w, h);',
             '}',
@@ -444,7 +444,7 @@ var draw = {
             'ctx.textBaseline="middle";',
             // TODO: Change the possible alignments
             'ctx.textAlign="center";',
-            'if (/([A-Fa-f0-9]{6})/.test(color)) { color = `#${color}`; }',
+            'color = adjustColor(color);',
             'ctx.fillStyle=color;',
             'ctx.fillText(text, 0, 0);',
             'ctx.rotate(-ang);',
@@ -468,7 +468,7 @@ var draw = {
             'ctx.font = size + "px " + font;',
             'ctx.textBaseline="middle";',
             'ctx.textAlign="center";',
-            'if (/([A-Fa-f0-9]{6})/.test(color)) { color = `#${color}`; }',
+            'color = adjustColor(color);',
             'ctx.fillStyle=color;',
             'for(var num = firstNum < lastNum ? firstNum-1 : firstNum;  firstNum < lastNum ? num <= lastNum : num > lastNum-1;  firstNum < lastNum ? num++ : num--){',
             '  if(num===firstNum-1) { continue; }',
@@ -501,6 +501,13 @@ var util = {
             'return unadjusted * Math.sqrt(3) / 2;'
         ]
     },
+    adjustColor: {
+        name: 'adjustColor',
+        params: ['color'],
+        lines:[
+            'return (/([A-Fa-f0-9]{6})/.test(color)) ? `#${color}` : color;',
+        ]
+    }
 }
 
-module.exports = { time, draw, util }
+module.exports = { time, draw, util };

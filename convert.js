@@ -898,8 +898,8 @@ var getWatch = (watchName) => {
                 text += '}\n\n';
 
                 // cut out (called last)
-                text += 'function cutOut() { \n  ctx.save(); \n  ctx.translate(-radius, -radius); \n  ctx.globalCompositeOperation = "destination-in";\n'
-                text += '  ctx.beginPath(); \n  ctx.arc(radius, radius, radius, 0, 2 * Math.PI); \n  ctx.fill(); \n  ctx.restore(); \n}\n\n'
+                text += 'function cutOut() { \n  ctx.save(); \n  ctx.translate(0, 0); \n  ctx.globalCompositeOperation = "destination-in";\n'
+                text += '  ctx.beginPath(); \n  ctx.arc(0, 0, radius, 0, 2 * Math.PI); \n  ctx.fill(); \n  ctx.restore(); \n}\n\n'
 
                 // draw functions
                 for (var i = 0; i < this.drawFunctions.length; i++) {

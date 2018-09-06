@@ -89,7 +89,7 @@ var draw = {
     },
     drawCircle: {
         name: 'drawCircle',
-        params: ['x', 'y', 'w', 'h', 'ang', 'color', 'opacity'],
+        params: ['x', 'y', 'w', 'h', 'ang', 'color', 'opacity', 'shader'],
         lines: [
             'if(opacity===0) { return; }',
             'x*=(canvas.width/512);',
@@ -101,6 +101,10 @@ var draw = {
             'ang = math.rad(ang);',
             'ctx.rotate(ang);',
             'ctx.globalAlpha = opacity/100;',
+            'ctx.save();',
+            'if(shader){',
+            '  drawShader(shader);',
+            '}',
             'ctx.beginPath();',
             'ctx.ellipse(0, 0, w/2, h/2, 0, 0, Math.PI*2)',
             'ctx.translate(-w/2, -h/2);',
@@ -110,6 +114,7 @@ var draw = {
             'ctx.translate(w/2, h/2);',
             'ctx.rotate(-ang);',
             'ctx.translate(-x,-y);',
+            'ctx.restore();',
             'ctx.restore();'
         ]
     },
@@ -489,30 +494,43 @@ var draw = {
             'ctx.restore();'
         ]
     },
+    drawShader: {
+        name: 'drawShader',
+        params: ['shader'],
+        lines: [
+            'ctx.globalAlpha = shader.opacity/100;',
+            'if(shader.name==="Segment") {',
+            '  drawSegment(shader.ang1, shader.ang2);',
+            '}'
+        ]
+    },
     drawSegment: {
         name: 'drawSegment',
         params: ['ang1', 'ang2'],
         lines: [
-                'var angStart = 0;',
-                'var angEnd = math.abs(ang1 - ang2);',
-                'var wallStart = angStart <= 45 ? 0 : angStart <= 135 ? 1 : angStart <= 225 ? 2 : angStart <= 315 ? 3 : 0;',
-                'var wallEnd = angEnd <= 45 ? 0 : angEnd <= 135 ? 1 : angEnd <= 225 ? 2 : angEnd <= 315 ? 3 : 0;',
-                'var xStart = wallStart === 0 ? radius*math.sin(angStart) : wallStart === 1 ? radius : wallStart === 2 ? radius*math.sin(angStart) : -radius;',
-                'var xEnd = wallEnd === 0 ? radius*math.sin(angEnd) : wallEnd === 1 ? radius : wallEnd === 2 ? radius*math.sin(angEnd) : -radius;',
-                'var yStart = wallStart === 0 ? -radius : wallStart === 1 ? -radius*math.cos(angStart) : wallStart === 2 ? radius : -radius*math.cos(angStart);',
-                'var yEnd = wallEnd === 0 ? -radius: wallEnd === 1 ? -radius*math.cos(angEnd) : wallEnd === 2 ? radius : -radius*math.cos(angEnd);',
-                '',
-                'ctx.rotate(math.rad(ang1<ang2 ? ang1 : ang2));',
-                'ctx.beginPath();',
-                'ctx.moveTo(xStart, yStart);',
-                'ctx.lineTo(0,0);',
-                'ctx.lineTo(xEnd, yEnd);',
-                'if(angEnd > 315) { ctx.lineTo(-radius,-radius); }',
-                'if(angEnd > 225) { ctx.lineTo(-radius, radius); }',
-                'if(angEnd > 135) { ctx.lineTo( radius, radius); }',
-                'if(angEnd > 45 ) { ctx.lineTo( radius,-radius); } ',
-                'ctx.clip();',
-                'ctx.rotate(math.rad(ang1<ang2 ? -ang1 : -ang2));'
+            'var angStart = 0;',
+            'var angEnd = (ang2 - ang1)%360;',
+            'while(angEnd < 0) {',
+            '  angEnd += 360;',
+            '}',
+            'var wallStart = angStart <= 45 ? 0 : angStart <= 135 ? 1 : angStart <= 225 ? 2 : angStart <= 315 ? 3 : 0;',
+            'var wallEnd = angEnd <= 45 ? 0 : angEnd <= 135 ? 1 : angEnd <= 225 ? 2 : angEnd <= 315 ? 3 : 0;',
+            'var xStart = wallStart === 0 ? radius*math.sin(angStart) : wallStart === 1 ? radius : wallStart === 2 ? radius*math.sin(angStart) : -radius;',
+            'var xEnd = wallEnd === 0 ? radius*math.sin(angEnd) : wallEnd === 1 ? radius : wallEnd === 2 ? radius*math.sin(angEnd) : -radius;',
+            'var yStart = wallStart === 0 ? -radius : wallStart === 1 ? -radius*math.cos(angStart) : wallStart === 2 ? radius : -radius*math.cos(angStart);',
+            'var yEnd = wallEnd === 0 ? -radius: wallEnd === 1 ? -radius*math.cos(angEnd) : wallEnd === 2 ? radius : -radius*math.cos(angEnd);',
+            '',
+            'ctx.rotate(math.rad(ang1));',
+            'ctx.beginPath();',
+            'ctx.moveTo(xStart, yStart);',
+            'ctx.lineTo(0,0);',
+            'ctx.lineTo(xEnd, yEnd);',
+            'if(angEnd > 315) { ctx.lineTo(-radius,-radius); }',
+            'if(angEnd > 225) { ctx.lineTo(-radius, radius); }',
+            'if(angEnd > 135) { ctx.lineTo( radius, radius); }',
+            'if(angEnd > 45 ) { ctx.lineTo( radius,-radius); } ',
+            'ctx.clip();',
+            'ctx.rotate(math.rad(-ang1));'
         ]
     }
 }
@@ -530,7 +548,7 @@ var util = {
     adjustColor: {
         name: 'adjustColor',
         params: ['color'],
-        lines:[
+        lines: [
             'return (/^([A-Fa-f0-9]{6})/.test(color)) ? `#${color}` : color;',
         ]
     }

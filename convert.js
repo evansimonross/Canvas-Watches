@@ -511,7 +511,45 @@ var getWatch = (watchName) => {
                         line += color + ', ';
 
                         // opacity
-                        line += chunk(layer.opacity) + ');'
+                        line += chunk(layer.opacity);
+                        
+                        if (chunk(layer.shader) === '"Segment"') {
+                            line += ", "; 
+                            if (functionsAdded.indexOf("Shader") === -1) {
+                                this.drawFunctions.push(variables.draw.drawShader);
+                                functionsAdded.push("Shader");
+                            }
+                            if (functionsAdded.indexOf("Segment") === -1) {
+                                this.drawFunctions.push(variables.draw.drawSegment);
+                                functionsAdded.push("Segment");
+                            }
+                            // TODO: IMPLEMENT THIS
+                        }
+                        else if (chunk(layer.shader) === '"SegmentBetween"') {
+                            line += ", "; 
+                            if (functionsAdded.indexOf("Shader") === -1) {
+                                this.drawFunctions.push(variables.draw.drawShader);
+                                functionsAdded.push("Shader");
+                            }
+                            if (functionsAdded.indexOf("Segment") === -1) {
+                                this.drawFunctions.push(variables.draw.drawSegment);
+                                functionsAdded.push("Segment");
+                            }
+                            let shader = { name: "Segment" };
+                            shader.ang1 = chunk(layer.u_1);
+                            shader.ang2 = chunk(layer.u_2);
+                            shader.opacity = chunk(layer.u_3);
+                            let line2 = "";
+                            line2 += line;
+                            line2 += `{ name: "Segment", ang1: ${shader.ang1}, ang2: ${shader.ang2}, opacity: ${shader.opacity} });`;
+                            drawComponents.lines.push(line2);
+                            shader.ang1 = chunk(layer.u_2);
+                            shader.ang2 = chunk(layer.u_1);
+                            shader.opacity = chunk(layer.u_4);
+                            if(shader.opacity === 0) { continue; }
+                            line += `{ name: "Segment", ang1: ${shader.ang1}, ang2: ${shader.ang2}, opacity: ${shader.opacity} }`;
+                        }
+                        line += ');'
 
                         drawComponents.lines.push(line);
                     }

@@ -1,0 +1,4 @@
+var_screen = 0
+local sin, cos = math.sin, math.cos
+math.sin = function (x) return sin(math.rad(x)) end
+math.cos = function (x) return cos(math.rad(x)) end

@@ -488,6 +488,32 @@ var draw = {
             'ctx.translate(-x,-y);',
             'ctx.restore();'
         ]
+    },
+    drawSegment: {
+        name: 'drawSegment',
+        params: ['ang1', 'ang2'],
+        lines: [
+                'var angStart = 0;',
+                'var angEnd = math.abs(ang1 - ang2);',
+                'var wallStart = angStart <= 45 ? 0 : angStart <= 135 ? 1 : angStart <= 225 ? 2 : angStart <= 315 ? 3 : 0;',
+                'var wallEnd = angEnd <= 45 ? 0 : angEnd <= 135 ? 1 : angEnd <= 225 ? 2 : angEnd <= 315 ? 3 : 0;',
+                'var xStart = wallStart === 0 ? radius*math.sin(angStart) : wallStart === 1 ? radius : wallStart === 2 ? radius*math.sin(angStart) : -radius;',
+                'var xEnd = wallEnd === 0 ? radius*math.sin(angEnd) : wallEnd === 1 ? radius : wallEnd === 2 ? radius*math.sin(angEnd) : -radius;',
+                'var yStart = wallStart === 0 ? -radius : wallStart === 1 ? -radius*math.cos(angStart) : wallStart === 2 ? radius : -radius*math.cos(angStart);',
+                'var yEnd = wallEnd === 0 ? -radius: wallEnd === 1 ? -radius*math.cos(angEnd) : wallEnd === 2 ? radius : -radius*math.cos(angEnd);',
+                '',
+                'ctx.rotate(math.rad(ang1<ang2 ? ang1 : ang2));',
+                'ctx.beginPath();',
+                'ctx.moveTo(xStart, yStart);',
+                'ctx.lineTo(0,0);',
+                'ctx.lineTo(xEnd, yEnd);',
+                'if(angEnd > 315) { ctx.lineTo(-radius,-radius); }',
+                'if(angEnd > 225) { ctx.lineTo(-radius, radius); }',
+                'if(angEnd > 135) { ctx.lineTo( radius, radius); }',
+                'if(angEnd > 45 ) { ctx.lineTo( radius,-radius); } ',
+                'ctx.clip();',
+                'ctx.rotate(math.rad(ang1<ang2 ? -ang1 : -ang2));'
+        ]
     }
 }
 

@@ -37,7 +37,7 @@ function drawClock() {
   dh23 = hour;
   dm = minute;
   drm = 360*(minute/60)+360*(second/(60*60));
-  drh = 360*((hour % 12)/12)+360*(minute/(60*60))+360*(second/(60*60*60));
+  drh = 360*((hour % 12)/12)+360*(minute/(12*60))+360*(second/(12*60*60));
 
   drawFace();
   drawComponents();
@@ -100,30 +100,26 @@ function drawShader(shader) {
   }
 }
 
-function drawSegment(ang1,ang2) {
-  var angStart = 0;
-  var angEnd = (ang2 - ang1)%360;
-  while(angEnd < 0) {
-    angEnd += 360;
+function drawSegment(angStart,angEnd) {
+  var ang = (angEnd - angStart)%360;
+  while(ang < 0) {
+    ang += 360;
   }
-  var wallStart = angStart <= 45 ? 0 : angStart <= 135 ? 1 : angStart <= 225 ? 2 : angStart <= 315 ? 3 : 0;
-  var wallEnd = angEnd <= 45 ? 0 : angEnd <= 135 ? 1 : angEnd <= 225 ? 2 : angEnd <= 315 ? 3 : 0;
-  var xStart = wallStart === 0 ? radius*math.sin(angStart) : wallStart === 1 ? radius : wallStart === 2 ? radius*math.sin(angStart) : -radius;
-  var xEnd = wallEnd === 0 ? radius*math.sin(angEnd) : wallEnd === 1 ? radius : wallEnd === 2 ? radius*math.sin(angEnd) : -radius;
-  var yStart = wallStart === 0 ? -radius : wallStart === 1 ? -radius*math.cos(angStart) : wallStart === 2 ? radius : -radius*math.cos(angStart);
-  var yEnd = wallEnd === 0 ? -radius: wallEnd === 1 ? -radius*math.cos(angEnd) : wallEnd === 2 ? radius : -radius*math.cos(angEnd);
-  
-  ctx.rotate(math.rad(ang1));
+  var xStart = 0;
+  var xEnd = radius*math.sin(ang);
+  var yStart = -radius
+  var yEnd = -radius*math.cos(ang);
+  ctx.rotate(math.rad(angStart));
   ctx.beginPath();
   ctx.moveTo(xStart, yStart);
   ctx.lineTo(0,0);
   ctx.lineTo(xEnd, yEnd);
-  if(angEnd > 315) { ctx.lineTo(-radius,-radius); }
-  if(angEnd > 225) { ctx.lineTo(-radius, radius); }
-  if(angEnd > 135) { ctx.lineTo( radius, radius); }
-  if(angEnd > 45 ) { ctx.lineTo( radius,-radius); } 
+  if(ang > 315) { ctx.lineTo(-radius,-radius); }
+  if(ang > 225) { ctx.lineTo(-radius, radius); }
+  if(ang > 135) { ctx.lineTo( radius, radius); }
+  if(ang > 45 ) { ctx.lineTo( radius,-radius); } 
   ctx.clip();
-  ctx.rotate(math.rad(-ang1));
+  ctx.rotate(math.rad(-angStart));
 }
 
 function drawSquare(x,y,w,h,ang,color,opacity) {

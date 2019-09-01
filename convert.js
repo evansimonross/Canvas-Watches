@@ -224,7 +224,7 @@ var getWatch = (watchName) => {
                                     }
                             }
                         case "UnaryExpression":
-                            if (input.operator === "~") {
+                            if (input.operator === "~" || input.operator === "not") {
                                 return "!" + chunk(input.argument);
                             }
                             else {
@@ -791,7 +791,7 @@ var getWatch = (watchName) => {
                         line += ts + ', ';
 
                         // font
-                        let font = chunk(layer.font);
+                        let font = chunk(layer.font) + '';
                         font = font.substring(1, font.length - 1);
                         font = font.split('"').join('');
                         if (this.fonts.indexOf(font) === -1) {

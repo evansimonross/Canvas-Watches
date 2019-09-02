@@ -298,12 +298,13 @@ var getWatch = (watchName) => {
                                 }
                                 if (functionsAdded.indexOf(func) === -1) {
                                     var f = { name: func, params: [], lines: [] };
+                                    functionsAdded.push(f.name);
                                     for (var i = 0; i < script.body.length; i++) {
                                         if (script.body[i].type != "AssignmentStatement") { continue; }
                                         if (script.body[i].variables[0].name != f.name) { continue; }
                                         var expression = script.body[i].init[0];
                                         if (expression.type != "FunctionDeclaration") { continue; }
-                                        if (variablesAdded.includes(f.name) || functionsAdded.includes(f.name)) {
+                                        if (variablesAdded.includes(f.name)) {
                                             f.name = f.name + "_func";
                                             func = func + "_func";
                                         }
@@ -314,7 +315,6 @@ var getWatch = (watchName) => {
                                             f.lines.push(chunk(expression.body[k]));
                                         }
                                     }
-                                    functionsAdded.push(f.name);
                                     this.scriptFunctions.push(f);
                                 }
                                 functionParse = false;

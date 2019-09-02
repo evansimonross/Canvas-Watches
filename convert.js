@@ -246,7 +246,6 @@ var getWatch = (watchName) => {
                         case "TableConstructorExpression":
                             if (input.fields.length === 1) {
                                 var variableName = input.fields[0].value.name.toLowerCase();
-
                                 if (variablesAdded.indexOf(variableName) === -1) {
                                     if (variableName === "ucolor") {
                                         this.declarations.push('var ucolor = "#' + jsWatch.Watch["_attributes"]["ucolor_default"] + '";')
@@ -321,10 +320,13 @@ var getWatch = (watchName) => {
                                 functionParse = false;
                                 return func + '(' + params + ')';
                             }
+                        case "TableCallExpression":
+                            if (input.base.type === "Identifier") {
+                                return '"' + input.base.name + '"+' + chunk(input.arguments);
+                            }
                         case "MemberExpression":
                             var baseName = input.base.name;
                             if (variablesAdded.indexOf(baseName) === -1) {
-                                //this.declarations.push('var ' + baseName + ' = {};');
                                 variablesAdded.push(baseName);
                             }
                             var variableName = input.identifier.name;
@@ -507,6 +509,13 @@ var getWatch = (watchName) => {
                         }
                         else {
                             color = chunk(layer.color);
+                            if(typeof color === 'number') {
+                                color = color + '';
+                                while (color.length < 6) {
+                                    color = '0' + color;
+                                }
+                                color = '"' + color + '"';
+                            }
                         }
                         line += color + ', ';
 

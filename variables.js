@@ -73,7 +73,11 @@ var time = {
     // year
     dy: { name: 'dy', declaration: "year % 100" },
     dyy: { name: 'dyy', declaration: "year" },
-}
+
+    //counter
+    c_0_100_2_rp: { name: 'c_0_100_2_rp', declaration: 'millisecond / 10'},
+    c_0_100_2_rv: { name: 'c_0_100_2_rv', declaration: 'second % 2 === 0 ? millisecond / 10 : 100 - millisecond / 10'},
+};
 
 // draw functions
 var draw = {
